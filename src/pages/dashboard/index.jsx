@@ -54,9 +54,9 @@ export const Dashboard = () => {
                       <div className="dropdown">
                         <TbDots type="button" id="tweetsOptionDropDown" data-bs-toggle="dropdown" aria-expanded="false" />
                         <ul className="dropdown-menu icon" aria-labelledby="tweetsOptionDropDown">
-                          <li className="delete-button"
+                          <li
                             onClick={() => handleOpen(user._id)}
-                          ><span className='mx-3 fw-normal'>Delete</span></li>
+                          ><span className='mx-3 fw-normal text-danger'>Delete</span></li>
                         </ul>
                       </div></th>
                   </>
