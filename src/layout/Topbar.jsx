@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { Box, IconButton, useTheme } from "@mui/material";
 import { tokens } from "../theme";
 import InputBase from "@mui/material/InputBase";
@@ -7,11 +8,14 @@ import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import AuthContext from "../context/auth";
 
 const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   let navigate = useNavigate()
+  const { setUser } = useContext(AuthContext)
+
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
@@ -37,8 +41,9 @@ const Topbar = () => {
         <IconButton>
           <LogoutOutlinedIcon onClick={() => {
             Cookies.remove('role')
+            Cookies.remove('token')
+            setUser()
             navigate('/login')
-            window.location.reload()
           }} />
         </IconButton>
       </Box>

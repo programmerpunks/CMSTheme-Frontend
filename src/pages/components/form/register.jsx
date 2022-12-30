@@ -11,7 +11,6 @@ const Form = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = async (values) => {
-    console.log(values)
     await register_user({ formData: values, setError })
     if (!error) {
       values.firstname = ""; values.lastname = ""; values.email = ""; values.contact = ""; values.password = "";

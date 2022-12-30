@@ -10,14 +10,13 @@ import { loginuser } from '../../../api';
 export const LoginForm = ({ role }) => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-  const [error, setError] = useState('')
+
+  const [error, setError] = useState()
   const { setUser } = useContext(AuthContext)
   let navigate = useNavigate()
 
   const login = async () => {
     if (role === 'admin') {
-      console.log('dd: ', role, process.env.REACT_APP_ADMIN_EMAIL)
-
       if (process.env.REACT_APP_ADMIN_EMAIL === email && process.env.REACT_APP_ADMIN_PASSWORD === password) {
         Cookies.set('role', 'admin')
         navigate('/')
@@ -26,14 +25,14 @@ export const LoginForm = ({ role }) => {
       }
     } else {
       let response = await loginuser({ email, password })
-      if (response.data.error) {
-        setError(response.data.error)
-      } else {
+      if (!response.data.success) {
+        setError(response.data.errors[0])
+      } else if (response.data.success) {
         setError('')
         setUser(response.data.user)
         Cookies.set('token', response.data.token)
-        Cookies.set('role', response.data.role)
-        navigate('/')
+        Cookies.set('role', 'user')
+        navigate('/info')
       }
     }
   }
@@ -44,7 +43,7 @@ export const LoginForm = ({ role }) => {
       className='p-3'
     >
       <div className='form-group m-3'>
-        <label className='mont-font fw-600 font-xsss mb-2'>
+        <label className='fw-600 font-xsss mb-2'>
           Email
         </label>
         <input type='text' className='form-control'
@@ -52,7 +51,7 @@ export const LoginForm = ({ role }) => {
           value={email} onChange={(e) => setEmail(e.target.value)} required />
       </div>
       <div className='form-group m-3'>
-        <label className='mont-font fw-600 font-xsss mb-2'>
+        <label className='fw-600 font-xsss mb-2'>
           Password
         </label>
         <input type='password' className='form-control'
@@ -60,9 +59,10 @@ export const LoginForm = ({ role }) => {
           value={password} onChange={(e) => setPassword(e.target.value)} required />
       </div>
 
+      <p className='text-danger ms-4'>{error}</p>
       <Box display="flex" justifyContent="end" mt="20px">
         <Button
-          type="submit"
+          type="button"
           color="secondary"
           variant="contained"
           onClick={() => login()}>
