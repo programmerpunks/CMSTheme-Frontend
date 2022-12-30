@@ -1,42 +1,24 @@
 import React, { useState } from 'react'
 import Header from '../components/Header/header'
-import { Box, useTheme, Modal, Typography } from '@mui/material'
+import { Box, useTheme } from '@mui/material'
 import { useFetchUsers } from '../../customHooks/useFetchUsers'
 import { TbDots } from 'react-icons/tb'
 import { tokens } from "../../theme";
 import moment from "moment";
-import { delete_user } from '../../helpers/admin'
+import { ConfirmationModal } from '../components/modal/confirmation'
 
 export const Dashboard = () => {
-  const [check, setCheck] = useState(false)
-  const [selectedUser, setSelectedUser] = useState()
-  const [users, loading] = useFetchUsers({ check })
+  const [fetch, setFetch] = useState(false)
+  const [current, setCurrent] = useState()
+  const [users] = useFetchUsers({ fetch })
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
   const [open, setOpen] = useState(false);
 
   const handleOpen = (uid) => {
     setOpen(true)
-    setSelectedUser(uid)
+    setCurrent(uid)
   }
-  const handleClose = () => setOpen(false);
-
-  const deleteUser = async () => {
-    console.log('delete ')
-    await delete_user({ uid: selectedUser, setCheck, check, setOpen })
-  }
-
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: colors.primary[700],
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-  };
 
   return (
     <Box display="flex" justifyContent="center" alignItems="center"
@@ -86,7 +68,18 @@ export const Dashboard = () => {
           </tbody>
         </table>
       </Box>
-      <Modal
+      {open &&
+        <ConfirmationModal
+          content='user'
+          open={open}
+          colors={colors}
+          fetch={fetch}
+          setFetch={setFetch}
+          setOpen={setOpen}
+          current={current}
+          setCurrent={setCurrent}
+        />}
+      {/* <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -109,7 +102,7 @@ export const Dashboard = () => {
 
 
         </Box>
-      </Modal >
+      </Modal > */}
     </Box >
   )
 }

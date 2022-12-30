@@ -35,13 +35,13 @@ export const get_users = async ({setUsers, setLoading}) =>{
   }
 }
 
-export const delete_user = async ({uid, setCheck, check, setOpen}) =>{
+export const delete_user = async ({uid, setFetch, fetch, setOpen}) =>{
   try{
     let response = await deleteuser(uid)
     if(!response.data.success){
       message.error( response.data.error)
     }else{
-      setCheck(!check)
+      setFetch(!fetch)
       setOpen(false)
       message.success('User Deleted')
     }

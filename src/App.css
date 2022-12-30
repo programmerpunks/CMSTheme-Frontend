@@ -53,3 +53,8 @@
   color: rgb(129, 195, 215) !important;
 }
 
+textarea {
+  background-color: #151f33 !important;
+  border-color: #151f33 !important;
+  color: rgb(204, 204, 206) !important;
+}
