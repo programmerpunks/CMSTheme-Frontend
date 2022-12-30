@@ -1,6 +1,13 @@
 import { Box, IconButton, useTheme } from "@mui/material";
 import { tokens } from "../theme";
 import InputBase from "@mui/material/InputBase";
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+=======
+>>>>>>> CRUD operations on user, user & admin seperate login
+>>>>>>> CRUD operations on user, user & admin seperate login
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
@@ -28,6 +35,17 @@ const Topbar = () => {
       </Box>
 
       <Box display="flex">
+<<<<<<< HEAD
+=======
+        {/* <IconButton onClick={colorMode.toggleColorMode}>
+          {theme.palette.mode === "dark" ? (
+            <DarkModeOutlinedIcon />
+          ) : (
+            <LightModeOutlinedIcon />
+          )}
+        </IconButton> */}
+
+>>>>>>> CRUD operations on user, user & admin seperate login
         <IconButton>
           <SettingsOutlinedIcon />
         </IconButton>

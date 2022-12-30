@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Box } from '@mui/material'
+import ReactPaginate from 'react-paginate'
 import Header from '../components/Header/header'
 import { Box, useTheme, Modal, Typography } from '@mui/material'
 import { useFetchUsers } from '../../customHooks/useFetchUsers'
