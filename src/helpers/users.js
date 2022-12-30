@@ -25,16 +25,16 @@ export const get_template = async({setTemplate, fetching, setFetching }) => {
 }
 
 export const uploadImage = ({ cloudinaryImages, setCloudinaryImages, setLoading, setImgUploaded }) => {
-
+  
   let templateImages = []
   if (cloudinaryImages.length !== 0) {
     setLoading(true)
     Object.entries(cloudinaryImages).map(async (item) => {
       const data = new FormData()
       data.append("file", item[1])
-      data.append("upload_preset", "cms_template_images")
-      data.append("cloud_name", "dev1620")
-      await fetch("https://api.cloudinary.com/v1_1/dev1620/image/upload", {
+      data.append("upload_preset", process.env.REACT_APP_CLOUDINARY_PRESET_FOLDER)
+      data.append("cloud_name", process.env.REACT_APP_CLOUDINARY_CLOUD_NAME)
+      await fetch(process.env.REACT_APP_CLOUDINARY_URL, {
         method: "post",
         body: data
       })
