@@ -50,7 +50,11 @@ export const tokens = (mode) => ({
           900: '#2c100f',
         },
         blueAccent: {
+<<<<<<< HEAD
           100: '#8a929f',
+=======
+          100: '#e1e2fe',
+>>>>>>> Team: Redux persist store for loggedin user
           200: '#c3c6fd',
           300: '#a4a9fc',
           400: '#868dfb',
@@ -59,7 +63,11 @@ export const tokens = (mode) => ({
           700: '#3e4396',
           800: '#2a2d64',
           900: '#151632',
+<<<<<<< HEAD
         }
+=======
+        },
+>>>>>>> Team: Redux persist store for loggedin user
       }
     : {
         grey: {

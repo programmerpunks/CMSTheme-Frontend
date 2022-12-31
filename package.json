@@ -28,7 +28,10 @@
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.7",
     "redux-persist": "^6.0.0",
+<<<<<<< HEAD
     "redux-thunk": "^2.4.2",
+=======
+>>>>>>> Team: Redux persist store for loggedin user
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
