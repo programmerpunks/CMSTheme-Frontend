@@ -77,7 +77,7 @@ export const Images = () => {
             <>
               <div className='image-container' key={image}>
                 <img src={image} className='image m-4' alt='template' />
-                <div class="overlay">
+                <div className="overlay">
                   <DeleteOutlineIcon
                     className='delete-button'
                     onClick={() => handleOpen(index)} />

@@ -2,12 +2,11 @@ import { deleteimage, fetchtemplate, loginuser } from '../api/index'
 import Cookies from 'js-cookie'
 import { message } from 'antd'
 
-export const signin = async({logindata, setError, setUser }) => {
+export const signin = async({logindata, setError }) => {
   let response = await loginuser({logindata})
   if(!response.data.success){
     setError(response.data.error)
   }else{
-    setUser(response.data.user)
     Cookies.set('token', response.data.token)
     Cookies.set('role', response.data.role)
     setError('')
