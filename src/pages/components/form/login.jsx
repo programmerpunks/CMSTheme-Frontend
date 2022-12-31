@@ -1,19 +1,21 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { Box, Button, TextField } from '@mui/material'
+import { Box, Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import 'antd/dist/antd.css'
 import { message } from 'antd';
 import Cookies from 'js-cookie';
-import AuthContext from '../../../context/auth';
 import { loginuser } from '../../../api';
+import { useDispatch } from 'react-redux'
+import { signIn } from '../../../redux/slices/userSlice';
+
 
 export const LoginForm = ({ role }) => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-
   const [error, setError] = useState()
-  const { setUser } = useContext(AuthContext)
   let navigate = useNavigate()
+  let dispatch = useDispatch()
 
   const login = async () => {
     if (role === 'admin') {
@@ -27,9 +29,10 @@ export const LoginForm = ({ role }) => {
       let response = await loginuser({ email, password })
       if (!response.data.success) {
         setError(response.data.errors[0])
-      } else if (response.data.success) {
+      }
+      else if (response.data.success) {
+        dispatch(signIn({ user: response.data.user }))
         setError('')
-        setUser(response.data.user)
         Cookies.set('token', response.data.token)
         Cookies.set('role', 'user')
         navigate('/info')
