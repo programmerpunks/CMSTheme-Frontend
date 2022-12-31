@@ -27,7 +27,7 @@ export const Dashboard = () => {
       <Box width='80%'
         backgroundColor={`${colors.primary[400]} !important`}
         className='p-3 rounded'>
-        <table class="table table-bordered">
+        <table className="table table-bordered">
           <thead>
             <tr>
               <th scope="col">#</th>
