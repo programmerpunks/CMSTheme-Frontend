@@ -53,9 +53,7 @@ function App() {
                   <Route path='/images' element={<Images />} />
                   <Route path='/team' element={<Team />} />
                   <Route path='/roadmap' element={<NewUser />} /></>
-              ) } 
-              
-              {/* <Route path='/login' element={<Login />} /> */}
+              ) }        
 
             </Routes>
           </main>
