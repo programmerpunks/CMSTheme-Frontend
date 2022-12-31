@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { Box, IconButton, useTheme } from "@mui/material";
 import { tokens } from "../theme";
 import InputBase from "@mui/material/InputBase";
@@ -8,14 +7,14 @@ import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import AuthContext from "../context/auth";
+import { signOut } from "../redux/slices/userSlice";
+import { useDispatch } from "react-redux";
 
 const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   let navigate = useNavigate()
-  const { setUser } = useContext(AuthContext)
-
+  let dispatch = useDispatch()
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
@@ -39,13 +38,13 @@ const Topbar = () => {
         <IconButton>
           <PersonOutlinedIcon />
         </IconButton>
-        <IconButton>
-          <LogoutOutlinedIcon onClick={() => {
-            Cookies.remove('role')
-            Cookies.remove('token')
-            setUser()
-            navigate('/login')
-          }} />
+        <IconButton onClick={() => {
+          Cookies.remove('role')
+          Cookies.remove('token')
+          dispatch(signOut())
+          navigate('/login')
+        }} >
+          <LogoutOutlinedIcon />
         </IconButton>
       </Box>
     </Box>
