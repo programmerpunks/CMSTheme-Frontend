@@ -59,8 +59,13 @@ export const tokens = (mode) => ({
           700: '#3e4396',
           800: '#2a2d64',
           900: '#151632',
+<<<<<<< HEAD
         }
         }
+=======
+        },
+      }
+>>>>>>> Team: Redux persist store for loggedin user
     : {
         grey: {
           100: '#141414',
