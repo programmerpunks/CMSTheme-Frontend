@@ -62,6 +62,7 @@
   height: 100px;
 }
 
+<<<<<<< HEAD
 .crud-actions {
   display: flex;
   margin-left: -10px;
@@ -75,6 +76,9 @@
 
 .card-image,
 .profile-image {
+=======
+.card-image {
+>>>>>>> Teams: Add New Team Template UI
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -85,12 +89,15 @@
   font-weight: bold;
 }
 
+<<<<<<< HEAD
 .profile-image {
   width: 120px;
   height: 120px;
 
 }
 
+=======
+>>>>>>> Teams: Add New Team Template UI
 .img-upload-button {
   cursor: pointer;
   font-size: 20px;
@@ -126,6 +133,7 @@
   color: white;
 }
 
+<<<<<<< HEAD
 .card-body p {
   color: #d2d5db;
   z-index: 2;
@@ -137,12 +145,23 @@
   cursor: pointer;
   color: rgb(182, 183, 185);
   margin: auto;
+=======
+.edit-button {
+  cursor: pointer;
+  color: rgb(182, 183, 185);
+  float: right;
+  margin: auto;
+  /* position: absolute; */
+>>>>>>> Teams: Add New Team Template UI
 }
 
 .edit-button:hover {
   color: white;
+<<<<<<< HEAD
 }
 
 .team-card:hover .crud-actions {
   opacity: 1;
+=======
+>>>>>>> Teams: Add New Team Template UI
 }

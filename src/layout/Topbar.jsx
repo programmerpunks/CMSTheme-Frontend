@@ -42,11 +42,9 @@ const Topbar = () => {
           Cookies.remove('role')
           Cookies.remove('token')
           dispatch(signOut())
-<<<<<<< HEAD
           navigate('/')
-=======
           navigate('/login')
->>>>>>> Team: Redux persist store for loggedin user
+          navigate('/')
         }} >
           <LogoutOutlinedIcon />
         </IconButton>

@@ -64,10 +64,14 @@ export const tokens = (mode) => ({
           800: '#2a2d64',
           900: '#151632',
 <<<<<<< HEAD
+<<<<<<< HEAD
         }
 =======
         },
 >>>>>>> Team: Redux persist store for loggedin user
+=======
+        }
+>>>>>>> Teams: Add New Team Template UI
       }
     : {
         grey: {
