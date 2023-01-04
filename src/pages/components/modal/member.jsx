@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useContext } from 'react'
 import { Box, Modal, Button } from '@mui/material'
 <<<<<<< HEAD
@@ -94,6 +95,20 @@ export const MemberModal = (props) => {
     await save({ team: updatedTeam, check, setCheck, setState: setOpen, state: open })
   }
 >>>>>>> Teams: Update Team Member
+=======
+import React from 'react'
+import { Box } from '@mui/material'
+import AddIcon from '@mui/icons-material/Add'
+import CloseIcon from '@mui/icons-material/Close';
+import { removeStars, addReview, ReviewStars } from '../../../helpers/cms'
+
+export const MemberModal = (props) => {
+  let { title, setTitle,
+    designation, setDesignation,
+    profileImage, setProfileImg,
+    stars, setStars, editable,
+    open, setOpen, colors } = props
+>>>>>>> Teams: Add New Team Template UI
 
   const style = {
     position: 'absolute',
@@ -101,6 +116,7 @@ export const MemberModal = (props) => {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     bgcolor: colors.primary[400],
@@ -113,10 +129,15 @@ export const MemberModal = (props) => {
     bgcolor: colors.primary[400],
     border: 'transparent',
 >>>>>>> Teams: Update Team Member
+=======
+    bgcolor: colors.primary[700],
+    border: '2px solid #000',
+>>>>>>> Teams: Add New Team Template UI
     boxShadow: 24,
     p: 4,
   };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -132,11 +153,15 @@ export const MemberModal = (props) => {
 >>>>>>> Teams: Add New Team Template UI
 =======
 >>>>>>> Teams: Code Optimized by making seperate card component
+=======
+  const handleClose = () => setOpen(false);
+>>>>>>> Teams: Add New Team Template UI
 
   return (
     <Modal
       open={open}
       onClose={handleClose}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       closeAfterTransition
@@ -191,6 +216,31 @@ export const MemberModal = (props) => {
             <AddIcon className='add-button' onClick={() => addReview({ stars, setStars, editable })} />
           </div>
 <<<<<<< HEAD
+=======
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={style}>
+        <div className='d-flex justify-content-end mb-2'>
+          <CloseIcon className='add-button' onClick={() => setOpen(!open)} />
+        </div>
+
+        <div className="card-image d-flex justify-content-center align-items-center ms-8">
+          <label htmlFor="file-input">
+            <AddIcon size='80' color={`${colors.grey[100]}`} className='img-upload-button' />
+          </label>
+          <input type='file'
+            id="file-input" className="form-control-file"
+            accept="image/png, image/jpg, image/gif, image/jpeg"
+            onChange={(e) => setProfileImg(e.target.files[0])} />
+        </div>
+        <div className='card-body text-center'>
+          <div className='d-flex justify-content-center align-items-center mb-2'>
+            {stars.length === 0 ? <span style={{ color: `${colors.primary[200]}`, fontSize: 12 }}>Add reviews here</span>
+              : <ReviewStars stars={stars} />}
+            <AddIcon className='add-button' onClick={() => addReview({ stars, setStars, editable })} />
+          </div>
+>>>>>>> Teams: Add New Team Template UI
           <input id='title' placeholder='Your full name'
             className='form-control team-details fw-bold fs-4'
             value={title} style={{ borderWidth: 1 }}
@@ -201,6 +251,7 @@ export const MemberModal = (props) => {
             value={designation} style={{ borderWidth: 1 }}
             onChange={(e) => setDesignation(e.target.value)}
           />
+<<<<<<< HEAD
 >>>>>>> Teams: Add New Team Template UI
 =======
 
@@ -229,6 +280,8 @@ export const MemberModal = (props) => {
             </Button>
           </Box>
 >>>>>>> Teams: Update Team Member
+=======
+>>>>>>> Teams: Add New Team Template UI
         </div>
       </Box>
     </Modal >

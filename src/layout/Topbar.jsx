@@ -42,7 +42,7 @@ const Topbar = () => {
           Cookies.remove('role')
           Cookies.remove('token')
           dispatch(signOut())
-          navigate('/login')
+          navigate('/')
         }} >
           <LogoutOutlinedIcon />
         </IconButton>
