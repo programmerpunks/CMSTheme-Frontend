@@ -9,6 +9,7 @@ export const SaveChanges = (props) => {
   const { check, setCheck } = useContext(AuthContext)
 
   const save = async () => {
+    console.log('props: ', props)
     let response = await applycms({ data: props })
     if (!response.data.success) {
       message.error(response.data.error)
