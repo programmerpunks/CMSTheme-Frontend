@@ -59,7 +59,7 @@ export const tokens = (mode) => ({
           700: '#3e4396',
           800: '#2a2d64',
           900: '#151632',
-        },
+        }
       }
     : {
         grey: {
@@ -143,6 +143,9 @@ export const themeSettings = (mode) => {
             background: {
               default: colors.primary[500],
             },
+            success:{
+              main: colors.blueAccent[600],
+            }
           }
         : {
             // palette values for light mode
