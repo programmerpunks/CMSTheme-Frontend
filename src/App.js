@@ -15,6 +15,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { BrowserRouter,Routes, Route } from 'react-router-dom';
 
 import './App.css'
+import { Team } from './pages/CMS/team.jsx';
 
 
 function App() {
@@ -44,19 +45,19 @@ function App() {
             {Cookies.get('role') === 'admin' ?         
                (        
                 <>
-                <Route path='/' element={<Dashboard />} />
+                <Route path='/' element={isLoggedIn? <Dashboard />: <Login />} />
                 <Route path='/new-user' element={<NewUser />} />
                 </>)
                 :(
                   <>
-                <Route path='/' element={<Login />} />
+                <Route path='/' element={isLoggedIn? <Information/>: <Login />} />
                   <Route path='/info' element={<Information />} />
                   <Route path='/images' element={<Images />} />
-                  <Route path='/team' element={<NewUser />} />
+                  <Route path='/team' element={<Team />} />
                   <Route path='/roadmap' element={<NewUser />} /></>
               ) } 
               
-              <Route path='/login' element={<Login />} />
+              {/* <Route path='/login' element={<Login />} /> */}
 
             </Routes>
           </main>

@@ -21,6 +21,11 @@
   opacity: 1 !important;
 }
 
+.fs-xss {
+  font-size: 12px;
+  color: rgb(206, 208, 209);
+}
+
 .fs-xsss {
   font-size: 10px;
   color: rgb(206, 208, 209);

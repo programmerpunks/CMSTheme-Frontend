@@ -34,7 +34,7 @@ export const LoginForm = ({ role }) => {
         setError('')
         Cookies.set('token', response.data.token)
         Cookies.set('role', 'user')
-        navigate('/info')
+        navigate('/')
       }
     }
   }
