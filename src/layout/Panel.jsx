@@ -4,9 +4,10 @@ import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../theme";
 import "react-pro-sidebar/dist/css/styles.css";
+import GroupsIcon from '@mui/icons-material/Groups';
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -83,15 +84,7 @@ const Sidebar = () => {
 
           {!isCollapsed && (
             <Box mb="25px">
-              {/* <Box display="flex" justifyContent="center" alignItems="center">
-                <img
-                  alt="profile-user"
-                  width="150px"
-                  height="150px"
-                  src={`./assets/profile.jpeg`}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
-                />
-              </Box> */}
+
               <Box textAlign="center">
                 <Typography
                   variant="h2"
@@ -118,7 +111,7 @@ const Sidebar = () => {
             </Typography>
             <Item
               title="Website Info"
-              to="/info"
+              to="/"
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -144,7 +137,7 @@ const Sidebar = () => {
             <Item
               title="Team"
               to="/team"
-              icon={<PersonOutlinedIcon />}
+              icon={<GroupsIcon />}
               selected={selected}
               setSelected={setSelected}
             />
