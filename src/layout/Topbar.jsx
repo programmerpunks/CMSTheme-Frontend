@@ -43,10 +43,14 @@ const Topbar = () => {
           Cookies.remove('token')
           dispatch(signOut())
 <<<<<<< HEAD
+<<<<<<< HEAD
           navigate('/')
 =======
           navigate('/login')
 >>>>>>> Team: Redux persist store for loggedin user
+=======
+          navigate('/')
+>>>>>>> Teams: Add New Team Template UI
         }} >
           <LogoutOutlinedIcon />
         </IconButton>

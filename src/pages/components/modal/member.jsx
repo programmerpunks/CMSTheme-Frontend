@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useContext } from 'react'
 import { Box, Modal, Button } from '@mui/material'
 <<<<<<< HEAD
@@ -98,6 +99,10 @@ export const MemberModal = (props) => {
 =======
 import React from 'react'
 import { Box, Modal } from '@mui/material'
+=======
+import React from 'react'
+import { Box } from '@mui/material'
+>>>>>>> Teams: Add New Team Template UI
 import AddIcon from '@mui/icons-material/Add'
 import CloseIcon from '@mui/icons-material/Close';
 import { removeStars, addReview, ReviewStars } from '../../../helpers/cms'
@@ -108,6 +113,9 @@ export const MemberModal = (props) => {
     profileImage, setProfileImg,
     stars, setStars, editable,
     open, setOpen, colors } = props
+<<<<<<< HEAD
+>>>>>>> Teams: Add New Team Template UI
+=======
 >>>>>>> Teams: Add New Team Template UI
 
   const style = {
@@ -116,6 +124,7 @@ export const MemberModal = (props) => {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -133,10 +142,15 @@ export const MemberModal = (props) => {
     bgcolor: colors.primary[700],
     border: '2px solid #000',
 >>>>>>> Teams: Add New Team Template UI
+=======
+    bgcolor: colors.primary[700],
+    border: '2px solid #000',
+>>>>>>> Teams: Add New Team Template UI
     boxShadow: 24,
     p: 4,
   };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -156,11 +170,15 @@ export const MemberModal = (props) => {
 =======
   const handleClose = () => setOpen(false);
 >>>>>>> Teams: Add New Team Template UI
+=======
+  const handleClose = () => setOpen(false);
+>>>>>>> Teams: Add New Team Template UI
 
   return (
     <Modal
       open={open}
       onClose={handleClose}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -217,6 +235,8 @@ export const MemberModal = (props) => {
           </div>
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> Teams: Add New Team Template UI
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
@@ -240,6 +260,9 @@ export const MemberModal = (props) => {
               : <ReviewStars stars={stars} />}
             <AddIcon className='add-button' onClick={() => addReview({ stars, setStars, editable })} />
           </div>
+<<<<<<< HEAD
+>>>>>>> Teams: Add New Team Template UI
+=======
 >>>>>>> Teams: Add New Team Template UI
           <input id='title' placeholder='Your full name'
             className='form-control team-details fw-bold fs-4'
@@ -251,6 +274,7 @@ export const MemberModal = (props) => {
             value={designation} style={{ borderWidth: 1 }}
             onChange={(e) => setDesignation(e.target.value)}
           />
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> Teams: Add New Team Template UI
 =======
@@ -280,6 +304,8 @@ export const MemberModal = (props) => {
             </Button>
           </Box>
 >>>>>>> Teams: Update Team Member
+=======
+>>>>>>> Teams: Add New Team Template UI
 =======
 >>>>>>> Teams: Add New Team Template UI
         </div>

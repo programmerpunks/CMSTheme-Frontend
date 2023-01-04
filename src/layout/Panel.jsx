@@ -8,7 +8,10 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+<<<<<<< HEAD
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
+=======
+>>>>>>> Teams: Add New Team Template UI
 import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -139,6 +142,17 @@ const Sidebar = () => {
               title="Team"
               to="/team"
               icon={<GroupsIcon />}
+<<<<<<< HEAD
+=======
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
+              title="Reviews"
+              to="/reviews"
+              icon={<PersonOutlinedIcon />}
+>>>>>>> Teams: Add New Team Template UI
               selected={selected}
               setSelected={setSelected}
             />
