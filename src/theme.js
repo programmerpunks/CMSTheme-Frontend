@@ -51,10 +51,14 @@ export const tokens = (mode) => ({
         },
         blueAccent: {
 <<<<<<< HEAD
+<<<<<<< HEAD
           100: '#8a929f',
 =======
           100: '#e1e2fe',
 >>>>>>> Team: Redux persist store for loggedin user
+=======
+          100: '#8a929f',
+>>>>>>> Teams: New Team members added and displayed
           200: '#c3c6fd',
           300: '#a4a9fc',
           400: '#868dfb',

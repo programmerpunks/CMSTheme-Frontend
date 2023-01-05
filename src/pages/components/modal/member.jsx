@@ -38,7 +38,7 @@ export const MemberModal = (props) => {
   }
 =======
 import React from 'react'
-import { Box } from '@mui/material'
+import { Box, Modal } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add'
 import CloseIcon from '@mui/icons-material/Close';
 import { removeStars, addReview, ReviewStars } from '../../../helpers/cms'

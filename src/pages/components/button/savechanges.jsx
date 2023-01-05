@@ -19,7 +19,6 @@ export const SaveChanges = (props) => {
   </Box>
 =======
   const save = async () => {
-    console.log('props: ', props)
     let response = await applycms({ data: props })
     if (!response.data.success) {
       message.error(response.data.error)
