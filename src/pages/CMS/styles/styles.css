@@ -65,6 +65,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Teams: New Team members added and displayed
 =======
 >>>>>>> Teams: New Team members added and displayed
 .crud-actions {
@@ -81,6 +84,7 @@
 .card-image,
 .profile-image {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 .card-image {
 >>>>>>> Teams: Add New Team Template UI
@@ -89,6 +93,8 @@
 =======
 .card-image {
 >>>>>>> Teams: Add New Team Template UI
+=======
+>>>>>>> Teams: New Team members added and displayed
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -102,6 +108,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Teams: New Team members added and displayed
 =======
 >>>>>>> Teams: New Team members added and displayed
 .profile-image {
@@ -111,12 +120,15 @@
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Teams: Add New Team Template UI
 =======
 >>>>>>> Teams: New Team members added and displayed
 =======
 >>>>>>> Teams: Add New Team Template UI
+=======
+>>>>>>> Teams: New Team members added and displayed
 .img-upload-button {
   cursor: pointer;
   font-size: 20px;
@@ -155,6 +167,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Teams: New Team members added and displayed
 =======
 >>>>>>> Teams: New Team members added and displayed
 .card-body p {
@@ -165,6 +180,7 @@
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .edit-button {
   cursor: pointer;
   color: rgb(182, 183, 185);
@@ -182,13 +198,17 @@
 =======
 >>>>>>> Teams: New Team members added and displayed
 =======
+=======
+>>>>>>> Teams: New Team members added and displayed
 .edit-button {
   cursor: pointer;
   color: rgb(182, 183, 185);
-  float: right;
   margin: auto;
+<<<<<<< HEAD
   /* position: absolute; */
 >>>>>>> Teams: Add New Team Template UI
+=======
+>>>>>>> Teams: New Team members added and displayed
 }
 
 .edit-button:hover {
@@ -196,6 +216,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Teams: New Team members added and displayed
 =======
 >>>>>>> Teams: New Team members added and displayed
 }
@@ -203,10 +226,13 @@
 .team-card:hover .crud-actions {
   opacity: 1;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Teams: Add New Team Template UI
 =======
 >>>>>>> Teams: New Team members added and displayed
 =======
 >>>>>>> Teams: Add New Team Template UI
+=======
+>>>>>>> Teams: New Team members added and displayed
 }

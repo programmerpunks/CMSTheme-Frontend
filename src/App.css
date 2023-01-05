@@ -57,6 +57,14 @@
   color: rgb(206, 208, 209);
 }
 
+.mne-4 {
+  margin-right: -10px;
+  margin-top: -5px;
+}
+
+.mns-3 {
+  margin-left: -10px;
+}
 
 .fs-xss {
   font-size: 12px;
