@@ -1,27 +1,55 @@
 import StarRateIcon from '@mui/icons-material/StarRate';
 
 export const removeStar = ({setStars, key, stars}) => {
-  console.log('remove stars')
-  let filteredStars = stars.filter(item => item !== key)
+  let filteredStars = stars.filter(item => item.id !== key)
   setStars(filteredStars)
 }
 
 export const addReview = ({stars, setStars, editable}) => {
   if (stars.length < 5)
     setStars([...stars, {
-      component: < StarRateIcon key={stars.length}
-        className='review-star fs-5'
-        onClick={() => {  removeStar({ setStars, key: stars.length, stars}) }} />,
       id: stars.length
     }])
 }
 
-export const ReviewStars = ({stars}) => {
-  
+export const ReviewStars = ({setStars, stars}) => {
+
   let reviewstars = []
-  stars.map((item) => {
-    reviewstars.push(item.component)
-    return reviewstars
+  stars.map((item, index) => {
+    reviewstars.push( < StarRateIcon key={item.id}
+      className='review-star fs-5'
+      onClick={() => {  removeStar({ setStars, key: item.id, stars}) }} />)
   })
   return reviewstars;
 }
+
+
+const addNewMember = ({image, team, setTeam, title, designation, stars, setEditable, editable, setProcess, setLoading, experience, setUploaded, check, setCheck}) => {
+  setEditable(!editable)
+  const id = Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000;
+  let data = { id, title, designation, stars, image, experience } 
+  setTeam([...team, data])
+  setProcess(0)
+  setUploaded(true)
+  setLoading(false)
+}
+
+export const uploadImage = async (props) => {
+  props.setLoading(true)
+  props.setUploaded(false)
+  const data = new FormData()
+  data.append("file", props.profileImage)
+  data.append("upload_preset", process.env.REACT_APP_CLOUDINARY_PRESET_FOLDER)
+  data.append("cloud_name", process.env.REACT_APP_CLOUDINARY_CLOUD_NAME)
+  await fetch(process.env.REACT_APP_CLOUDINARY_URL, {
+    method: "post",
+    body: data
+  })
+    .then(resp => resp.json())
+    .then(data => {
+      props.image = data.url
+      addNewMember(props)
+    })
+    .catch(err => console.log('err:', err.message))
+}
+
