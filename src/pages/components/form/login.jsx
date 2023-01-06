@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Box, Button } from '@mui/material'
+import { Box, Button, TextField } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import 'antd/dist/antd.css'
 import { message } from 'antd';
@@ -42,23 +42,30 @@ export const LoginForm = ({ role }) => {
       onSubmit={(e) => e.preventDefault()}
       className='p-3'
     >
-      <div className='form-group m-3'>
-        <label className='fw-600 font-xsss mb-2'>
-          Email
-        </label>
-        <input type='text' className='form-control'
-          placeholder='abc@example.com'
-          value={email} onChange={(e) => setEmail(e.target.value)} required />
-      </div>
-      <div className='form-group m-3'>
-        <label className='fw-600 font-xsss mb-2'>
-          Password
-        </label>
-        <input type='password' className='form-control'
-          placeholder='Password'
-          value={password} onChange={(e) => setPassword(e.target.value)} required />
-      </div>
+      <Box className='m-3'>
+        <TextField
+          required
+          fullWidth
+          size='large'
+          label="Email"
+          type="email"
+          value={email}
+          popupIndicator={false}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </Box>
 
+      <Box className='m-3'>
+        <TextField
+          required
+          fullWidth
+          size='large'
+          label="Password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </Box>
       <p className='text-danger ms-4'>{error}</p>
       <Box display="flex" justifyContent="end" mt="20px">
         <Button

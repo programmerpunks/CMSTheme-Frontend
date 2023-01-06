@@ -13,6 +13,5 @@ export const useFetchTemplate = ({ fetching, setFetching }) => {
     get_template({ setTemplate, fetching, setFetching })
   }, [check]);
 
-
   return [template, loading];
 }

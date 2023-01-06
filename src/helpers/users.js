@@ -59,7 +59,6 @@ export const delete_image = async({ image, setCurrent,  check, setCheck, setOpen
     message.error(response.data.error)
   }else{
     setCurrent()
-    console.log('tem:', response.data)
     setCheck(!check)
     setOpen(false)
     message.success('Deleted')
