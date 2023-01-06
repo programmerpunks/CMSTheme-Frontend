@@ -34,7 +34,6 @@ export const Images = () => {
 
   const handleOpen = (image) => {
     setOpen(true)
-    console.log('current: ', image)
     setCurrent(image)
   }
 
