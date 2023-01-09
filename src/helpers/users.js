@@ -19,6 +19,7 @@ export const get_template = async({setTemplate, setFetching }) => {
     // message.error(response.data.error)
   }else{
     setTemplate(response.data.template[0])
+    setFetching(false)
   }
   setFetching(false)
 

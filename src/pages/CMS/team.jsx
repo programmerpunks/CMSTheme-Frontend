@@ -87,12 +87,12 @@ import { MemberModal } from '../components/modal/member'
 import { SaveChanges } from '../components/button/savechanges'
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
 import { useFetchTemplate } from '../../customHooks/useFetchTemplate'
-import { addReview, ReviewStars, uploadImage } from '../../helpers/cms'
+import { addReview, ReviewStars, uploadImage, deleteMember } from '../../helpers/cms'
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
 
 export const Team = () => {
-  const [fetching, setFetching] = useState(true)
-  const [template] = useFetchTemplate({ fetching, setFetching })
+  const [fetching, setFetching] = useState(false)
+  const [template] = useFetchTemplate({ setFetching })
   const [open, setOpen] = useState(false)
   const [title, setTitle] = useState()
   const [experience, setExperience] = useState()
@@ -114,7 +114,7 @@ export const Team = () => {
       setTeam(template.team)
       setMembers(template.team)
     }
-  }, [fetching, template])
+  }, [fetching])
 
   const handleOpen = (index) => {
     setOpen(true)
@@ -176,6 +176,7 @@ export const Team = () => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       {!fetching ?
         <div className=' d-flex flex-wrap row w-100 p-3'>
           {members && members.map((item, index) => (
@@ -219,15 +220,18 @@ export const Team = () => {
 =======
       {!fetching &&
 >>>>>>> Teams: New Team members added and displayed
+=======
+      {!fetching ?
+>>>>>>> Teams: Delete Members
         <div className=' d-flex flex-wrap row w-100 p-3'>
           {members && members.map((item, index) => (
-            <div className='col-md-4 col-sm-12 col-xs-12 mt-4'>
+            <div className='col-md-4 col-sm-6 col-xs-6 mt-4'>
               <div className='team-card p-4'
                 backgroundColor={`${colors.primary[400]} !important`}>
                 {team[index] &&
                   <div className='crud-actions w-25'>
                     <EditOutlinedIcon className='edit-button align-self-end' onClick={() => handleOpen(index)} />
-                    <DeleteOutlineOutlinedIcon className='edit-button icon' onClick={() => alert('deleted')} />
+                    <DeleteOutlineOutlinedIcon className='edit-button icon' onClick={() => deleteMember({ team, setTeam, setMembers, id: team[index].id })} />
                   </div>}
 
 
@@ -263,9 +267,9 @@ export const Team = () => {
                     fieldstyle='fs-6' value={item.designation} setFunction={setDesignation} />
 
                   <div className='d-flex'>
-                    <Input id='experience' type='number' placeholder='Years of experience' editable={editable}
-                      fieldstyle='fw-bold mb-2 fs-6 mns-3' value={item.experience} setFunction={setExperience} />
-                    {team[index] && <p className='mt-2 fw-bold'> years</p>}
+                    <Input id='experience' type={team[index] ? 'number' : 'text'} placeholder='Years of experience' editable={editable}
+                      fieldstyle='fw-bold mb-2 mns-3 fs-6' value={item.experience} setFunction={setExperience} />
+                    {team[index] && <p className='mt-2 mns-7 fw-bold'> years</p>}
                   </div>
 
                 </div>
@@ -282,7 +286,7 @@ export const Team = () => {
             </div>
           ))}
         </div>
-      }
+        : <ClipLoader color='white' />}
 
       {
         open &&
@@ -341,6 +345,7 @@ export const Team = () => {
 >>>>>>> Teams: Add New Team Template UI
 =======
 
+<<<<<<< HEAD
       {
         uploaded && (
           <>
@@ -349,6 +354,13 @@ export const Team = () => {
         )
       }
 >>>>>>> Teams: New Team members added and displayed
+=======
+      {uploaded && (
+        <>
+          <SaveChanges team={team} setUploaded={setUploaded} />
+        </>
+      )}
+>>>>>>> Teams: Delete Members
     </Box >
   )
 }
