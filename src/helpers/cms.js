@@ -3,6 +3,17 @@ import 'antd/dist/antd.css'
 import { message } from 'antd';
 import { applycms } from '../api';
 
+export const save = async (props) => {
+  let response = await applycms({ data: props })
+  if (!response.data.success) {
+    message.error(response.data.error)
+  } else {
+    props.setCheck(!props.check)
+    message.success('Changes Saved')
+    props.setState(!props.state)
+  }
+}
+
 export const removeStar = ({setStars, key, stars}) => {
   let filteredStars = stars.filter(item => item.id !== key)
   setStars(filteredStars)
