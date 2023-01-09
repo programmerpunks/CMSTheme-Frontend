@@ -1,4 +1,7 @@
 import StarRateIcon from '@mui/icons-material/StarRate';
+import 'antd/dist/antd.css'
+import { message } from 'antd';
+import { applycms } from '../api';
 
 export const removeStar = ({setStars, key, stars}) => {
   let filteredStars = stars.filter(item => item.id !== key)
@@ -51,5 +54,18 @@ export const uploadImage = async (props) => {
       addNewMember(props)
     })
     .catch(err => console.log('err:', err.message))
+}
+
+export const deleteMember = async ({team,setTeam, setMembers, id}) => {
+  let filteredMembers = team.filter(member => member.id!==id)
+  let response = await applycms({ data: { team: filteredMembers } })
+
+  if (!response.data.success) {
+    message.error(response.data.error)
+  } else {
+    setTeam(response.data.template.team)
+    setMembers(response.data.template.team)
+    message.success('Deleted')
+  }
 }
 

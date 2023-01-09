@@ -30,7 +30,6 @@ export const ConfirmationModal = (props) => {
   const handleClose = () => setOpen(false);
 
   const deleteContent = async () => {
-    console.log('current img: ', current)
     if (props.content === 'user') {
       await delete_user({ uid: current, fetch, setFetch, setOpen })
     } else {

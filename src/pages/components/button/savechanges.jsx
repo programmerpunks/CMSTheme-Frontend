@@ -14,6 +14,9 @@ export const SaveChanges = (props) => {
       message.error(response.data.error)
     } else {
       setCheck(!check)
+      setCheck(!check)
+
+      props.setUploaded(false)
       message.success('Changes Saved')
     }
   }
