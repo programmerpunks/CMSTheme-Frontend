@@ -26,6 +26,7 @@ export const Team = () => {
   const [profileImage, setProfileImg] = useState()
   const [stars, setStars] = useState([])
   const [team, setTeam] = useState([])
+  const [selected, setSelected] = useState()
   const [members, setMembers] = useState([])
   const [uploaded, setUploaded] = useState(null)
   const [process, setProcess] = useState(0)
@@ -44,9 +45,12 @@ export const Team = () => {
 
   const handleOpen = (index) => {
     setOpen(true)
+    setSelected(team[index])
     setTitle(team[index].title)
     setDesignation(team[index].designation)
     setStars(team[index].stars)
+    setExperience(team[index].experience)
+    setProfileImg(team[index].image)
   }
 
   const addMemberTemplate = () => {
@@ -90,7 +94,7 @@ export const Team = () => {
             <div className='col-md-4 col-sm-6 col-xs-6 mt-4'>
               <div className='team-card p-4'
                 backgroundColor={`${colors.primary[400]} !important`}>
-                {team[index] &&
+                {(team[index] && process !== 1) &&
                   <div className='crud-actions w-25'>
                     <EditOutlinedIcon className='edit-button align-self-end' onClick={() => handleOpen(index)} />
                     <DeleteOutlineOutlinedIcon className='edit-button icon' onClick={() => deleteMember({ team, setTeam, setMembers, id: team[index].id })} />
@@ -129,7 +133,7 @@ export const Team = () => {
                     fieldstyle='fs-6' value={item.designation} setFunction={setDesignation} />
 
                   <div className='d-flex'>
-                    <Input id='experience' type={team[index] ? 'number' : 'text'} placeholder='Years of experience' editable={editable}
+                    <Input id='experience' type='number' placeholder='Years of experience' editable={editable}
                       fieldstyle='fw-bold mb-2 mns-3 fs-6' value={item.experience} setFunction={setExperience} />
                     {team[index] && <p className='mt-2 mns-7 fw-bold'> years</p>}
                   </div>
@@ -156,13 +160,20 @@ export const Team = () => {
           open={open}
           stars={stars}
           title={title}
+          team={team}
           colors={colors}
+          editable={true}
           setOpen={setOpen}
+          setTeam={setTeam}
           setStars={setStars}
           setTitle={setTitle}
+          selected={selected}
+          experience={experience}
           designation={designation}
+          setSelected={setSelected}
           profileImage={profileImage}
           setProfileImg={setProfileImg}
+          setExperience={setExperience}
           setDesignation={setDesignation}
         />
       }
