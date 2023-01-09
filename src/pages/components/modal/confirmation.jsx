@@ -31,7 +31,11 @@ export const ConfirmationModal = (props) => {
   const handleClose = () => setOpen(false);
 
   const deleteContent = async () => {
+<<<<<<< HEAD
     if (content === 'user') {
+=======
+    if (props.content === 'user') {
+>>>>>>> Teams: Delete Members
       await delete_user({ uid: current, fetch, setFetch, setOpen })
     } else if (content === 'team') {
       await delete_member({ team, setTeam, setMembers, id: current.id, setOpen })

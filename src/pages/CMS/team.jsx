@@ -42,7 +42,6 @@ export const Team = () => {
       setTeam(template.team)
       setMembers(template.team)
     }
-
   }, [fetching])
 
   const handleOpen = (index) => {
