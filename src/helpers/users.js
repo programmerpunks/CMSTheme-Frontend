@@ -19,7 +19,7 @@ export const get_template = async({setTemplate, fetching, setFetching }) => {
   if(!response.data.success){
   }else{
     setTemplate(response.data.template[0])
-    setFetching(!fetching)
+    setFetching(false)
   }
 }
 
