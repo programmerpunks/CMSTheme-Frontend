@@ -7,6 +7,7 @@ export const SaveChanges = (props) => {
   const { check, setCheck } = useContext(AuthContext)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return <Box display='flex' justifyContent='flex-end' marginTop='20px'>
     <Button
       type="submit"
@@ -30,13 +31,15 @@ export const SaveChanges = (props) => {
       message.success('Changes Saved')
     }
   }
+=======
+>>>>>>> Teams: Update Team Member
   return (
     <Box display='flex' justifyContent='flex-end' marginTop='20px'>
       <Button
         type="submit"
         color="secondary"
         variant="contained"
-        onClick={() => save()}
+        onClick={() => save({ ...props, check, setCheck })}
       >
         Save Changes
       </Button>

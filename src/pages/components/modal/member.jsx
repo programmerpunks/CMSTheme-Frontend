@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useContext } from 'react'
 import { Box, Modal, Button } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
@@ -39,17 +40,54 @@ export const MemberModal = (props) => {
 =======
 import React from 'react'
 import { Box, Modal } from '@mui/material'
+=======
+import React, { useContext } from 'react'
+import { Box, Modal, Button } from '@mui/material'
+>>>>>>> Teams: Update Team Member
 import AddIcon from '@mui/icons-material/Add'
+import { Input } from '../fields/input';
 import CloseIcon from '@mui/icons-material/Close';
-import { removeStars, addReview, ReviewStars } from '../../../helpers/cms'
+import { save } from '../../../helpers/cms';
+import { addReview, ReviewStars } from '../../../helpers/cms'
+import AuthContext from '../../../context/auth';
 
 export const MemberModal = (props) => {
+
   let { title, setTitle,
     designation, setDesignation,
     profileImage, setProfileImg,
+    experience, setExperience,
     stars, setStars, editable,
+<<<<<<< HEAD
     open, setOpen, colors } = props
 >>>>>>> Teams: Add New Team Template UI
+=======
+    open, setOpen, colors, team, selected } = props
+
+  const { check, setCheck } = useContext(AuthContext)
+
+  const update = async () => {
+    let updatedTeam = team.map((member, index) => {
+      if (member.id !== selected.id) {
+        return member
+      } else {
+        return {
+          ...member,
+          title,
+          designation,
+          stars,
+          experience,
+          image: profileImage
+        }
+
+      }
+    })
+    setStars([])
+    setProfileImg('')
+    await save({ team: updatedTeam, check, setCheck, setState: setOpen, state: open })
+
+  }
+>>>>>>> Teams: Update Team Member
 
   const style = {
     position: 'absolute',
@@ -58,12 +96,17 @@ export const MemberModal = (props) => {
     transform: 'translate(-50%, -50%)',
     width: 400,
 <<<<<<< HEAD
+<<<<<<< HEAD
     bgcolor: colors.primary[400],
     border: 'transparent',
 =======
     bgcolor: colors.primary[700],
     border: '2px solid #000',
 >>>>>>> Teams: Add New Team Template UI
+=======
+    bgcolor: colors.primary[400],
+    border: 'transparent',
+>>>>>>> Teams: Update Team Member
     boxShadow: 24,
     p: 4,
   };
@@ -82,6 +125,7 @@ export const MemberModal = (props) => {
     <Modal
       open={open}
       onClose={handleClose}
+<<<<<<< HEAD
 <<<<<<< HEAD
       closeAfterTransition
       aria-labelledby="modal-modal-title"
@@ -114,18 +158,30 @@ export const MemberModal = (props) => {
             </Button>
           </Box>
 =======
+=======
+      closeAfterTransition
+>>>>>>> Teams: Update Team Member
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
+      BackdropProps={{
+        timeout: 700,
+      }}
     >
       <Box sx={style}>
         <div className='d-flex justify-content-end mb-2'>
           <CloseIcon className='add-button' onClick={() => setOpen(!open)} />
         </div>
 
-        <div className="card-image d-flex justify-content-center align-items-center ms-8">
+        <div className={`card-image ${profileImage && 'bg-transparent'} 
+                      d-flex justify-content-center align-items-center ms-8`}>
+
           <label htmlFor="file-input">
-            <AddIcon size='80' color={`${colors.grey[100]}`} className='img-upload-button' />
+            {profileImage ? <img src={profileImage} alt='' className='profile-image bg-transparent' />
+              :
+              <AddIcon size='80' color={`${colors.grey[100]}`} className='img-upload-button' />
+            }
           </label>
+
           <input type='file'
             id="file-input" className="form-control-file"
             accept="image/png, image/jpg, image/gif, image/jpeg"
@@ -134,9 +190,10 @@ export const MemberModal = (props) => {
         <div className='card-body text-center'>
           <div className='d-flex justify-content-center align-items-center mb-2'>
             {stars.length === 0 ? <span style={{ color: `${colors.primary[200]}`, fontSize: 12 }}>Add reviews here</span>
-              : <ReviewStars stars={stars} />}
+              : <ReviewStars stars={stars} setStars={setStars} />}
             <AddIcon className='add-button' onClick={() => addReview({ stars, setStars, editable })} />
           </div>
+<<<<<<< HEAD
           <input id='title' placeholder='Your full name'
             className='form-control team-details fw-bold fs-4'
             value={title} style={{ borderWidth: 1 }}
@@ -148,6 +205,35 @@ export const MemberModal = (props) => {
             onChange={(e) => setDesignation(e.target.value)}
           />
 >>>>>>> Teams: Add New Team Template UI
+=======
+
+
+          <Input id='title' type='text' placeholder='Your full name' editable={editable}
+            fieldstyle='fw-bold fs-4' value={title} setFunction={setTitle} />
+
+          <Input id='designation' type='text' placeholder='Your Designation' editable={editable}
+            fieldstyle='fs-6' value={designation} setFunction={setDesignation} />
+
+          <div className='d-flex justify-content-center'>
+
+            <Input id='experience' type='number' placeholder='Years of experience' editable={editable}
+              fieldstyle='fw-bold mb-2 fs-6 mns-7' value={experience} setFunction={setExperience} />
+            <p className='mt-2 fw-bold'> years</p>
+
+          </div>
+        </div>
+        <div className='d-flex justify-content-center'>
+          <Box display='flex' justifyContent='flex-end' marginTop='20px'>
+            <Button
+              type="submit"
+              color="secondary"
+              variant="contained"
+              onClick={() => update()}
+            >
+              Update Changes
+            </Button>
+          </Box>
+>>>>>>> Teams: Update Team Member
         </div>
       </Box>
     </Modal >
