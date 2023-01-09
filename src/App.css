@@ -26,7 +26,11 @@
 }
 
 .mns-3 {
-  margin-left: -10px;
+  margin-left: -10px !important;
+}
+
+.mns-7 {
+  margin-left: -70px !important;
 }
 
 .fs-xss {
