@@ -18,6 +18,7 @@ export const SaveChanges = (props) => {
   </Box>
 =======
 
+<<<<<<< HEAD
   const save = async () => {
     console.log('props: ', props)
     let response = await applycms({ data: props })
@@ -28,13 +29,15 @@ export const SaveChanges = (props) => {
       message.success('Changes Saved')
     }
   }
+=======
+>>>>>>> Teams: Update Team Member
   return (
     <Box display='flex' justifyContent='flex-end' marginTop='20px'>
       <Button
         type="submit"
         color="secondary"
         variant="contained"
-        onClick={() => save()}
+        onClick={() => save({ ...props, check, setCheck })}
       >
         Save Changes
       </Button>

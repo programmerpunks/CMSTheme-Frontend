@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useEffect, useContext } from 'react'
 import 'antd/dist/antd.css'
 import './styles/styles.css'
@@ -66,52 +65,6 @@ export const Team = () => {
     } else {
       message.warning('Add one member at a time')
     }
-=======
-import React, { useState } from 'react'
-import './styles/styles.css'
-import { tokens } from "../../theme"
-import AddIcon from '@mui/icons-material/Add'
-import { removeStars, addReview, ReviewStars } from '../../helpers/cms'
-import Header from '../components/Header/header'
-import { Box, useTheme, Button } from '@mui/material';
-import { MemberModal } from '../components/modal/member';
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import { SaveChanges } from '../components/button/savechanges'
-
-export const Team = () => {
-  const [title, setTitle] = useState()
-  const [open, setOpen] = useState(false)
-  const [designation, setDesignation] = useState()
-  const [profileImage, setProfileImg] = useState()
-  const [editable, setEditable] = useState(false)
-  const [stars, setStars] = useState([])
-  const [members, setMembers] = useState([])
-  const [teams, setTeams] = useState([])
-  const theme = useTheme()
-  const colors = tokens(theme.palette.mode)
-
-
-  const handleOpen = (index) => {
-    setOpen(true)
-    setTitle(teams[index].title)
-    setDesignation(teams[index].designation)
-    setStars(teams[index].stars)
-  }
-
-  const addMemberTemplate = () => {
-    setEditable(!editable)
-    setMembers([...members, {
-      id: members.length,
-      editable: true
-    }])
-  }
-  console.log('teams yet: ', teams)
-
-  const addNewMember = () => {
-    setEditable(!editable)
-    let data = { title, designation, stars }
-    setTeams([...teams, data])
->>>>>>> Teams: Add New Team Template UI
   }
 
   return (
@@ -136,7 +89,6 @@ export const Team = () => {
         </div>
       </div>
 
-<<<<<<< HEAD
       {!fetching ?
         <div className=' d-flex flex-wrap row w-100 p-3'>
           {members && members.map((item, index) => (
@@ -158,6 +110,44 @@ export const Team = () => {
                   experience={item.experience} setExperience={setExperience}
                   stars={stars} setStars={setStars} editable={editable}
                   colors={colors} />
+                <div className={`card-image ${profileImage && 'bg-transparent'} 
+                      d-flex justify-content-center align-items-center ms-8`}>
+                  <label htmlFor="file-input">
+                    {team[index] ? <img src={team[index].image} alt='' className='profile-image bg-transparent' />
+                      : profileImage ?
+                        <img className='profile-image bg-transparent opacity-25' alt=''
+                          src={URL.createObjectURL(team[index] ? team[index].image : profileImage)} />
+                        :
+                        <AddIcon size='80' color={`${colors.grey[100]}`} className='img-upload-button' />
+                    }
+                  </label>
+                  <input type={editable ? 'file' : ''}
+                    id="file-input" className="form-control-file"
+                    accept="image/png, image/jpg, image/gif, image/jpeg"
+                    onChange={(e) => setProfileImg(e.target.files[0])} />
+                </div>
+
+                <div className='card-body text-center'>
+
+                  <div className='d-flex justify-content-center align-items-center mb-2'>
+                    {(team[index] ? team[index].stars.length === 0 : stars.length === 0) ?
+                      <span style={{ color: `${colors.primary[200]}`, fontSize: 12 }}>Add reviews here</span>
+                      : <ReviewStars setStars={setStars} stars={team[index] ? team[index].stars : stars} />}
+                    {!team[index] && <AddIcon className='add-button' onClick={() => addReview({ setStars, stars, editable })} />}
+                  </div>
+                  <Input id='title' type='text' placeholder='Your full name' editable={editable}
+                    fieldstyle='fw-bold fs-4' value={item.title} setFunction={setTitle} />
+
+                  <Input id='designation' type='text' placeholder='Your Designation' editable={editable}
+                    fieldstyle='fs-6' value={item.designation} setFunction={setDesignation} />
+
+                  <div className='d-flex'>
+                    <Input id='experience' type='number' placeholder='Years of experience' editable={editable}
+                      fieldstyle='fw-bold mb-2 mns-3 fs-6' value={item.experience} setFunction={setExperience} />
+                    {team[index] && <p className='mt-2 mns-7 fw-bold'> years</p>}
+                  </div>
+
+                </div>
 
                 {!team[index] && <button className='btn btn-success w-100'
                   style={{ backgroundColor: colors.greenAccent[600] }}
@@ -175,8 +165,7 @@ export const Team = () => {
         : <ClipLoader color='white' />}
 
       {open &&
-=======
-      {members.length !== 0 &&
+        members.length !== 0 &&
         <div className=' d-flex flex-wrap row w-100 p-3'>
           {members.map((item, index) => (
             <div className='col-md-4 col-sm-12 col-xs-12 mt-4'>
@@ -215,19 +204,19 @@ export const Team = () => {
               </div>
             </div>
           ))}
-        </div>}
+        </div>
+      }
 
       {
         open &&
->>>>>>> Teams: Add New Team Template UI
         <MemberModal
           open={open}
           stars={stars}
           title={title}
-<<<<<<< HEAD
+          member={selected}
           team={team}
           colors={colors}
-          member={selected}
+          editable={true}
           setOpen={setOpen}
           setTeam={setTeam}
           setStars={setStars}
@@ -262,18 +251,3 @@ export const Team = () => {
     </Box >
   )
 }
-=======
-          colors={colors}
-          setOpen={setOpen}
-          setStars={setStars}
-          setTitle={setTitle}
-          designation={designation}
-          profileImage={profileImage}
-          setProfileImg={setProfileImg}
-          setDesignation={setDesignation}
-        />
-      }
-    </Box >
-  )
-}
->>>>>>> Teams: Add New Team Template UI
