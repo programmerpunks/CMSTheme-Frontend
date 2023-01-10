@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 import React, { useContext } from 'react'
 import { Box, Modal, Button } from '@mui/material'
+<<<<<<< HEAD
 import CloseIcon from '@mui/icons-material/Close';
 import { save } from '../../../helpers/cms';
 import AuthContext from '../../../context/auth';
@@ -46,10 +47,12 @@ import { Box, Modal, Button } from '@mui/material'
 >>>>>>> Teams: Update Team Member
 import AddIcon from '@mui/icons-material/Add'
 import { Input } from '../fields/input';
+=======
+>>>>>>> Teams: Code Optimized by making seperate card component
 import CloseIcon from '@mui/icons-material/Close';
 import { save } from '../../../helpers/cms';
-import { addReview, ReviewStars } from '../../../helpers/cms'
 import AuthContext from '../../../context/auth';
+import { TeamCard } from '../card/team';
 
 export const MemberModal = (props) => {
 
@@ -57,18 +60,23 @@ export const MemberModal = (props) => {
     designation, setDesignation,
     profileImage, setProfileImg,
     experience, setExperience,
+<<<<<<< HEAD
     stars, setStars, editable,
 <<<<<<< HEAD
     open, setOpen, colors } = props
 >>>>>>> Teams: Add New Team Template UI
 =======
     open, setOpen, colors, team, selected } = props
+=======
+    stars, setStars, open, setOpen,
+    colors, team, member } = props
+>>>>>>> Teams: Code Optimized by making seperate card component
 
   const { check, setCheck } = useContext(AuthContext)
 
   const update = async () => {
-    let updatedTeam = team.map((member, index) => {
-      if (member.id !== selected.id) {
+    let updatedTeam = team.map((item) => {
+      if (item.id !== member.id) {
         return member
       } else {
         return {
@@ -79,13 +87,11 @@ export const MemberModal = (props) => {
           experience,
           image: profileImage
         }
-
       }
     })
     setStars([])
     setProfileImg('')
     await save({ team: updatedTeam, check, setCheck, setState: setOpen, state: open })
-
   }
 >>>>>>> Teams: Update Team Member
 
@@ -112,14 +118,20 @@ export const MemberModal = (props) => {
   };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Teams: Code Optimized by making seperate card component
   const handleClose = () => {
     setProfileImg('')
     setStars([])
     setOpen(false);
   }
+<<<<<<< HEAD
 =======
   const handleClose = () => setOpen(false);
 >>>>>>> Teams: Add New Team Template UI
+=======
+>>>>>>> Teams: Code Optimized by making seperate card component
 
   return (
     <Modal
@@ -169,24 +181,9 @@ export const MemberModal = (props) => {
     >
       <Box sx={style}>
         <div className='d-flex justify-content-end mb-2'>
-          <CloseIcon className='add-button' onClick={() => setOpen(!open)} />
+          <CloseIcon className='add-button' onClick={() => handleClose()} />
         </div>
-
-        <div className={`card-image ${profileImage && 'bg-transparent'} 
-                      d-flex justify-content-center align-items-center ms-8`}>
-
-          <label htmlFor="file-input">
-            {profileImage ? <img src={profileImage} alt='' className='profile-image bg-transparent' />
-              :
-              <AddIcon size='80' color={`${colors.grey[100]}`} className='img-upload-button' />
-            }
-          </label>
-
-          <input type='file'
-            id="file-input" className="form-control-file"
-            accept="image/png, image/jpg, image/gif, image/jpeg"
-            onChange={(e) => setProfileImg(e.target.files[0])} />
-        </div>
+<<<<<<< HEAD
         <div className='card-body text-center'>
           <div className='d-flex justify-content-center align-items-center mb-2'>
             {stars.length === 0 ? <span style={{ color: `${colors.primary[200]}`, fontSize: 12 }}>Add reviews here</span>
@@ -210,18 +207,16 @@ export const MemberModal = (props) => {
 
           <Input id='title' type='text' placeholder='Your full name' editable={editable}
             fieldstyle='fw-bold fs-4' value={title} setFunction={setTitle} />
+=======
+>>>>>>> Teams: Code Optimized by making seperate card component
 
-          <Input id='designation' type='text' placeholder='Your Designation' editable={editable}
-            fieldstyle='fs-6' value={designation} setFunction={setDesignation} />
+        <TeamCard member={member} title={title} setTitle={setTitle}
+          profileImage={profileImage} setProfileImg={setProfileImg}
+          designation={designation} setDesignation={setDesignation}
+          experience={experience} setExperience={setExperience}
+          stars={stars} setStars={setStars} editable={true}
+          colors={colors} />
 
-          <div className='d-flex justify-content-center'>
-
-            <Input id='experience' type='number' placeholder='Years of experience' editable={editable}
-              fieldstyle='fw-bold mb-2 fs-6 mns-7' value={experience} setFunction={setExperience} />
-            <p className='mt-2 fw-bold'> years</p>
-
-          </div>
-        </div>
         <div className='d-flex justify-content-center'>
           <Box display='flex' justifyContent='flex-end' marginTop='20px'>
             <Button

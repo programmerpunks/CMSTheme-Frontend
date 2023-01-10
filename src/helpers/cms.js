@@ -84,16 +84,3 @@ export const delete_member = async ({team,setTeam, setMembers, id, setOpen}) => 
   }
 }
 
-export const deleteMember = async ({team,setTeam, setMembers, id}) => {
-  let filteredMembers = team.filter(member => member.id!==id)
-  let response = await applycms({ data: { team: filteredMembers } })
-
-  if (!response.data.success) {
-    message.error(response.data.error)
-  } else {
-    setTeam(response.data.template.team)
-    setMembers(response.data.template.team)
-    message.success('Deleted')
-  }
-}
-

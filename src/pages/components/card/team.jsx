@@ -11,6 +11,14 @@ export const TeamCard = (props) => {
     title, setTitle, designation, setDesignation,
     experience, setExperience, colors } = props
 
+<<<<<<< HEAD
+=======
+  console.log('tt: ', editable)
+  console.log('tt: ', editable)
+  console.log('tt: ', editable)
+
+
+>>>>>>> Teams: Code Optimized by making seperate card component
   return <>
     <div className={`card-image ${profileImage && 'bg-transparent'} 
                       d-flex justify-content-center align-items-center ms-8`}>

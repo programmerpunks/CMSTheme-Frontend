@@ -6,6 +6,7 @@ import './styles/styles.css'
 import { message } from 'antd'
 import { tokens } from "../../theme"
 import { ClipLoader } from 'react-spinners'
+<<<<<<< HEAD
 import AuthContext from '../../context/auth'
 import { uploadImage } from '../../helpers/cms'
 import Header from '../components/Header/header'
@@ -80,20 +81,25 @@ import { tokens } from "../../theme"
 import { ClipLoader } from 'react-spinners'
 import AddIcon from '@mui/icons-material/Add'
 import Header from '../components/Header/header'
+=======
+>>>>>>> Teams: Code Optimized by making seperate card component
 import AuthContext from '../../context/auth'
-import { Input } from '../components/fields/input'
+import { uploadImage } from '../../helpers/cms'
+import Header from '../components/Header/header'
+import { TeamCard } from '../components/card/team'
 import { Box, useTheme, Button } from '@mui/material'
 import { MemberModal } from '../components/modal/member'
 import { SaveChanges } from '../components/button/savechanges'
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
+import { ConfirmationModal } from '../components/modal/confirmation'
 import { useFetchTemplate } from '../../customHooks/useFetchTemplate'
-import { addReview, ReviewStars, uploadImage, deleteMember } from '../../helpers/cms'
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
 
 export const Team = () => {
   const [fetching, setFetching] = useState(false)
   const [template] = useFetchTemplate({ setFetching })
   const [open, setOpen] = useState(false)
+  const [deleteModal, setDeleteModal] = useState(false)
   const [title, setTitle] = useState()
   const [experience, setExperience] = useState()
   const [designation, setDesignation] = useState()
@@ -115,6 +121,7 @@ export const Team = () => {
       setTeam(template.team)
       setMembers(template.team)
     }
+
   }, [fetching])
 
   const handleOpen = (index) => {
@@ -235,48 +242,19 @@ export const Team = () => {
                 {(team[index] && process !== 1) &&
                   <div className='crud-actions w-25'>
                     <EditOutlinedIcon className='edit-button align-self-end' onClick={() => handleOpen(index)} />
-                    <DeleteOutlineOutlinedIcon className='edit-button icon' onClick={() => deleteMember({ team, setTeam, setMembers, id: team[index].id })} />
+                    <DeleteOutlineOutlinedIcon className='edit-button icon' onClick={() => {
+                      setDeleteModal(!deleteModal)
+                      setSelected(team[index])
+                    }} />
                   </div>}
 
+                <TeamCard member={team[index]} title={item.title} setTitle={setTitle}
+                  profileImage={profileImage} setProfileImg={setProfileImg}
+                  designation={item.designation} setDesignation={setDesignation}
+                  experience={item.experience} setExperience={setExperience}
+                  stars={stars} setStars={setStars} editable={editable}
+                  colors={colors} />
 
-                <div className={`card-image ${profileImage && 'bg-transparent'} 
-                      d-flex justify-content-center align-items-center ms-8`}>
-                  <label htmlFor="file-input">
-                    {team[index] ? <img src={team[index].image} alt='' className='profile-image bg-transparent' />
-                      : profileImage ?
-                        <img className='profile-image bg-transparent opacity-25' alt=''
-                          src={URL.createObjectURL(team[index] ? team[index].image : profileImage)} />
-                        :
-                        <AddIcon size='80' color={`${colors.grey[100]}`} className='img-upload-button' />
-                    }
-                  </label>
-                  <input type={editable ? 'file' : ''}
-                    id="file-input" className="form-control-file"
-                    accept="image/png, image/jpg, image/gif, image/jpeg"
-                    onChange={(e) => setProfileImg(e.target.files[0])} />
-                </div>
-
-                <div className='card-body text-center'>
-
-                  <div className='d-flex justify-content-center align-items-center mb-2'>
-                    {(team[index] ? team[index].stars.length === 0 : stars.length === 0) ?
-                      <span style={{ color: `${colors.primary[200]}`, fontSize: 12 }}>Add reviews here</span>
-                      : <ReviewStars setStars={setStars} stars={team[index] ? team[index].stars : stars} />}
-                    {!team[index] && <AddIcon className='add-button' onClick={() => addReview({ setStars, stars, editable })} />}
-                  </div>
-                  <Input id='title' type='text' placeholder='Your full name' editable={editable}
-                    fieldstyle='fw-bold fs-4' value={item.title} setFunction={setTitle} />
-
-                  <Input id='designation' type='text' placeholder='Your Designation' editable={editable}
-                    fieldstyle='fs-6' value={item.designation} setFunction={setDesignation} />
-
-                  <div className='d-flex'>
-                    <Input id='experience' type='number' placeholder='Years of experience' editable={editable}
-                      fieldstyle='fw-bold mb-2 mns-3 fs-6' value={item.experience} setFunction={setExperience} />
-                    {team[index] && <p className='mt-2 mns-7 fw-bold'> years</p>}
-                  </div>
-
-                </div>
                 {!team[index] && <button className='btn btn-success w-100'
                   style={{ backgroundColor: colors.greenAccent[600] }}
                   onClick={() => uploadImage({
@@ -292,9 +270,13 @@ export const Team = () => {
         </div>
         : <ClipLoader color='white' />}
 
+<<<<<<< HEAD
       {
         open &&
 >>>>>>> Teams: Add New Team Template UI
+=======
+      {open &&
+>>>>>>> Teams: Code Optimized by making seperate card component
         <MemberModal
           open={open}
           stars={stars}
@@ -304,6 +286,7 @@ export const Team = () => {
           team={team}
           colors={colors}
           member={selected}
+<<<<<<< HEAD
           setOpen={setOpen}
           setTeam={setTeam}
           setStars={setStars}
@@ -341,23 +324,28 @@ export const Team = () => {
 >>>>>>> Teams: Update Team Member
           colors={colors}
           editable={true}
+=======
+>>>>>>> Teams: Code Optimized by making seperate card component
           setOpen={setOpen}
           setTeam={setTeam}
           setStars={setStars}
           setTitle={setTitle}
-          selected={selected}
           experience={experience}
           designation={designation}
-          setSelected={setSelected}
+          setMember={setSelected}
           profileImage={profileImage}
           setProfileImg={setProfileImg}
           setExperience={setExperience}
           setDesignation={setDesignation}
+<<<<<<< HEAD
         />
       }
 <<<<<<< HEAD
 >>>>>>> Teams: Add New Team Template UI
 =======
+=======
+        />}
+>>>>>>> Teams: Code Optimized by making seperate card component
 
 <<<<<<< HEAD
       {
@@ -371,10 +359,26 @@ export const Team = () => {
 =======
       {uploaded && (
         <>
-          <SaveChanges team={team} setUploaded={setUploaded} />
+          <SaveChanges team={team} setState={setUploaded} state={uploaded} />
         </>
       )}
+<<<<<<< HEAD
 >>>>>>> Teams: Delete Members
+=======
+
+      {deleteModal &&
+        <ConfirmationModal
+          content='team'
+          team={team}
+          colors={colors}
+          setTeam={setTeam}
+          open={deleteModal}
+          current={selected}
+          setMembers={setMembers}
+          setOpen={setDeleteModal}
+          setCurrent={setSelected}
+        />}
+>>>>>>> Teams: Code Optimized by making seperate card component
     </Box >
   )
 }
