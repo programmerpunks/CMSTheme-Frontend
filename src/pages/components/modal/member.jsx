@@ -6,6 +6,7 @@
 import React, { useContext } from 'react'
 import { Box, Modal, Button } from '@mui/material'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import CloseIcon from '@mui/icons-material/Close';
 import { save } from '../../../helpers/cms';
 import AuthContext from '../../../context/auth';
@@ -110,10 +111,12 @@ import { Box, Modal, Button } from '@mui/material'
 >>>>>>> Teams: Update Team Member
 import AddIcon from '@mui/icons-material/Add'
 import { Input } from '../fields/input';
+=======
+>>>>>>> Teams: Code Optimized by making seperate card component
 import CloseIcon from '@mui/icons-material/Close';
 import { save } from '../../../helpers/cms';
-import { addReview, ReviewStars } from '../../../helpers/cms'
 import AuthContext from '../../../context/auth';
+import { TeamCard } from '../card/team';
 
 export const MemberModal = (props) => {
 
@@ -121,6 +124,7 @@ export const MemberModal = (props) => {
     designation, setDesignation,
     profileImage, setProfileImg,
     experience, setExperience,
+<<<<<<< HEAD
     stars, setStars, editable,
 <<<<<<< HEAD
     open, setOpen, colors } = props
@@ -130,12 +134,16 @@ export const MemberModal = (props) => {
 >>>>>>> Teams: Add New Team Template UI
 =======
     open, setOpen, colors, team, selected } = props
+=======
+    stars, setStars, open, setOpen,
+    colors, team, member } = props
+>>>>>>> Teams: Code Optimized by making seperate card component
 
   const { check, setCheck } = useContext(AuthContext)
 
   const update = async () => {
-    let updatedTeam = team.map((member, index) => {
-      if (member.id !== selected.id) {
+    let updatedTeam = team.map((item) => {
+      if (item.id !== member.id) {
         return member
       } else {
         return {
@@ -146,13 +154,11 @@ export const MemberModal = (props) => {
           experience,
           image: profileImage
         }
-
       }
     })
     setStars([])
     setProfileImg('')
     await save({ team: updatedTeam, check, setCheck, setState: setOpen, state: open })
-
   }
 >>>>>>> Teams: Update Team Member
 
@@ -197,6 +203,9 @@ export const MemberModal = (props) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Teams: Code Optimized by making seperate card component
 =======
 >>>>>>> Teams: Code Optimized by making seperate card component
   const handleClose = () => {
@@ -204,6 +213,7 @@ export const MemberModal = (props) => {
     setStars([])
     setOpen(false);
   }
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   const handleClose = () => setOpen(false);
@@ -216,6 +226,8 @@ export const MemberModal = (props) => {
 =======
   const handleClose = () => setOpen(false);
 >>>>>>> Teams: Add New Team Template UI
+=======
+>>>>>>> Teams: Code Optimized by making seperate card component
 
   return (
     <Modal
@@ -236,6 +248,7 @@ export const MemberModal = (props) => {
       <Box sx={style}>
         <div className='d-flex justify-content-end mb-2'>
           <CloseIcon className='add-button' onClick={() => handleClose()} />
+<<<<<<< HEAD
         </div>
 
         <TeamCard member={member} title={title} setTitle={setTitle}
@@ -353,10 +366,18 @@ export const MemberModal = (props) => {
           colors={colors} />
 
 =======
+=======
+        </div>
+>>>>>>> Teams: Code Optimized by making seperate card component
 
-          <Input id='designation' type='text' placeholder='Your Designation' editable={editable}
-            fieldstyle='fs-6' value={designation} setFunction={setDesignation} />
+        <TeamCard member={member} title={title} setTitle={setTitle}
+          profileImage={profileImage} setProfileImg={setProfileImg}
+          designation={designation} setDesignation={setDesignation}
+          experience={experience} setExperience={setExperience}
+          stars={stars} setStars={setStars} editable={true}
+          colors={colors} />
 
+<<<<<<< HEAD
           <div className='d-flex justify-content-center'>
 
             <Input id='experience' type='number' placeholder='Years of experience' editable={editable}
@@ -366,6 +387,8 @@ export const MemberModal = (props) => {
           </div>
         </div>
 >>>>>>> Teams: Update Team Member
+=======
+>>>>>>> Teams: Code Optimized by making seperate card component
         <div className='d-flex justify-content-center'>
           <Box display='flex' justifyContent='flex-end' marginTop='20px'>
             <Button

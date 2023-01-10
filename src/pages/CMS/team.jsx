@@ -42,6 +42,7 @@ export const Team = () => {
       setTeam(template.team)
       setMembers(template.team)
     }
+
   }, [fetching])
 
   const handleOpen = (index) => {
@@ -213,10 +214,9 @@ export const Team = () => {
           open={open}
           stars={stars}
           title={title}
-          member={selected}
           team={team}
           colors={colors}
-          editable={true}
+          member={selected}
           setOpen={setOpen}
           setTeam={setTeam}
           setStars={setStars}

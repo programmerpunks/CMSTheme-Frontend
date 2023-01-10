@@ -2,7 +2,11 @@ import React, { useContext } from 'react'
 import { Box, Typography, Modal } from '@mui/material'
 import { delete_image } from '../../../helpers/users';
 import { delete_user } from '../../../helpers/admin';
+<<<<<<< HEAD
 import { delete_analytic, delete_member } from '../../../helpers/cms';
+=======
+import { delete_member } from '../../../helpers/cms';
+>>>>>>> Teams: Code Optimized by making seperate card component
 import AuthContext from '../../../context/auth';
 
 export const ConfirmationModal = (props) => {
@@ -13,8 +17,12 @@ export const ConfirmationModal = (props) => {
     setCurrent,
     fetch, setFetch,
     colors, content,
+<<<<<<< HEAD
     team, setTeam, setMembers,
     analytics, setAnalytics } = props
+=======
+    team, setTeam, setMembers } = props
+>>>>>>> Teams: Code Optimized by making seperate card component
 
   let { check, setCheck } = useContext(AuthContext)
   const style = {
@@ -33,6 +41,7 @@ export const ConfirmationModal = (props) => {
 
   const deleteContent = async () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (content === 'user') {
 =======
     if (props.content === 'user') {
@@ -42,6 +51,12 @@ export const ConfirmationModal = (props) => {
       await delete_member({ team, setTeam, setMembers, id: current.id, setOpen })
     } else if (content === 'analytics') {
       await delete_analytic({ analytics, setAnalytics, id: current.id, setOpen, setCurrent })
+=======
+    if (content === 'user') {
+      await delete_user({ uid: current, fetch, setFetch, setOpen })
+    } else if (content === 'team') {
+      await delete_member({ team, setTeam, setMembers, id: current.id, setOpen })
+>>>>>>> Teams: Code Optimized by making seperate card component
     }
     else {
       await delete_image({ image: current, setCurrent, setOpen, check, setCheck })

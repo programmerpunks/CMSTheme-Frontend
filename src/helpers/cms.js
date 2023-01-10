@@ -84,7 +84,7 @@ export const uploadImage = async (props) => {
 
 }
 
-export const deleteMember = async ({team,setTeam, setMembers, id}) => {
+export const delete_member = async ({team,setTeam, setMembers, id, setOpen}) => {
   let filteredMembers = team.filter(member => member.id!==id)
   let response = await applycms({ data: { team: filteredMembers } })
 
@@ -93,6 +93,7 @@ export const deleteMember = async ({team,setTeam, setMembers, id}) => {
   } else {
     setTeam(response.data.template.team)
     setMembers(response.data.template.team)
+    setOpen(false)
     message.success('Deleted')
   }
 }
