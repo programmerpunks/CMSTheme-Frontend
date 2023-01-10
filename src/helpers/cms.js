@@ -51,23 +51,26 @@ const addNewMember = ({image, team, setTeam, title, designation, stars, setEdita
 export const uploadImage = async (props) => {
   props.setLoading(true)
   props.setUploaded(false)
-  const data = new FormData()
-  data.append("file", props.profileImage)
-  data.append("upload_preset", process.env.REACT_APP_CLOUDINARY_PRESET_FOLDER)
-  data.append("cloud_name", process.env.REACT_APP_CLOUDINARY_CLOUD_NAME)
-  await fetch(process.env.REACT_APP_CLOUDINARY_URL, {
-    method: "post",
-    body: data
-  })
-    .then(resp => resp.json())
-    .then(data => {
-      props.image = data.url
-      addNewMember(props)
+  if(props.profileImage){
+    const data = new FormData()
+    data.append("file", props.profileImage)
+    data.append("upload_preset", process.env.REACT_APP_CLOUDINARY_PRESET_FOLDER)
+    data.append("cloud_name", process.env.REACT_APP_CLOUDINARY_CLOUD_NAME)
+    await fetch(process.env.REACT_APP_CLOUDINARY_URL, {
+      method: "post",
+      body: data
     })
-    .catch(err => console.log('err:', err.message))
+      .then(resp => resp.json())
+      .then(data => {
+        props.image = data.url
+        addNewMember(props)
+      })
+      .catch(err => console.log('err:', err.message))
+  }
+
 }
 
-export const deleteMember = async ({team,setTeam, setMembers, id}) => {
+export const delete_member = async ({team,setTeam, setMembers, id, setOpen}) => {
   let filteredMembers = team.filter(member => member.id!==id)
   let response = await applycms({ data: { team: filteredMembers } })
 
@@ -76,6 +79,7 @@ export const deleteMember = async ({team,setTeam, setMembers, id}) => {
   } else {
     setTeam(response.data.template.team)
     setMembers(response.data.template.team)
+    setOpen(false)
     message.success('Deleted')
   }
 }
