@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Box, Typography, Modal } from '@mui/material'
 import { delete_image } from '../../../helpers/users';
 import { delete_user } from '../../../helpers/admin';
+import { delete_member } from '../../../helpers/cms';
 import AuthContext from '../../../context/auth';
 
 export const ConfirmationModal = (props) => {
@@ -10,9 +11,9 @@ export const ConfirmationModal = (props) => {
     setOpen,
     current,
     setCurrent,
-    fetch,
-    setFetch,
-    colors } = props
+    fetch, setFetch,
+    colors, content,
+    team, setTeam, setMembers } = props
 
   let { check, setCheck } = useContext(AuthContext)
   const style = {
@@ -22,7 +23,7 @@ export const ConfirmationModal = (props) => {
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: colors.primary[700],
-    border: '2px solid #000',
+    border: 'transparent',
     boxShadow: 24,
     p: 4,
   };
@@ -30,9 +31,12 @@ export const ConfirmationModal = (props) => {
   const handleClose = () => setOpen(false);
 
   const deleteContent = async () => {
-    if (props.content === 'user') {
+    if (content === 'user') {
       await delete_user({ uid: current, fetch, setFetch, setOpen })
-    } else {
+    } else if (content === 'team') {
+      await delete_member({ team, setTeam, setMembers, id: current.id, setOpen })
+    }
+    else {
       await delete_image({ image: current, setCurrent, setOpen, check, setCheck })
     }
   }
@@ -41,8 +45,12 @@ export const ConfirmationModal = (props) => {
     <Modal
       open={open}
       onClose={handleClose}
+      closeAfterTransition
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
+      BackdropProps={{
+        timeout: 600,
+      }}
     >
       <Box sx={style}>
         <Typography id="modal-modal-title" variant="h4" component="h2" color="white">

@@ -26,8 +26,6 @@ function App() {
 
   const {isLoggedIn} = useSelector(state => state)
 
-  console.log('isLoggedIn: ', isLoggedIn)
-
   return (
     <AuthContext.Provider value={{ check, setCheck, template, setTemplate}}>
     <BrowserRouter>
