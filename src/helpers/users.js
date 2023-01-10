@@ -13,14 +13,15 @@ export const signin = async({logindata, setError }) => {
   }
 }
 
-export const get_template = async({setTemplate, fetching, setFetching }) => {
+export const get_template = async({setTemplate, setFetching }) => {
   let response = await fetchtemplate()
-
   if(!response.data.success){
+    // message.error(response.data.error)
   }else{
     setTemplate(response.data.template[0])
-    setFetching(false)
   }
+  setFetching(false)
+
 }
 
 export const uploadImage = ({ cloudinaryImages, setCloudinaryImages, setLoading, setImgUploaded }) => {
