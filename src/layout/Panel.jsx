@@ -8,6 +8,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -117,9 +118,9 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Roadmap"
-              to="/form"
-              icon={<PersonOutlinedIcon />}
+              title="Analytics"
+              to="/analytics"
+              icon={<TimelineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -138,14 +139,6 @@ const Sidebar = () => {
               title="Team"
               to="/team"
               icon={<GroupsIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-
-            <Item
-              title="Reviews"
-              to="/reviews"
-              icon={<PersonOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />

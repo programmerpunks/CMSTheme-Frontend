@@ -57,6 +57,9 @@
 label {
   color: rgb(174, 193, 216) !important;
 }
+.text-secondary {
+  color: rgb(206, 206, 207) !important
+}
 
 .table-bordered {
   color: white !important;
