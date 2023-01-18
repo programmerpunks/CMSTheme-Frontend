@@ -5,9 +5,6 @@ import AuthContext from '../../../context/auth';
 
 export const SaveChanges = (props) => {
   const { check, setCheck } = useContext(AuthContext)
-
-<<<<<<< HEAD
-<<<<<<< HEAD
   return <Box display='flex' justifyContent='flex-end' marginTop='20px'>
     <Button
       type="submit"
@@ -18,32 +15,4 @@ export const SaveChanges = (props) => {
       Save Changes
     </Button>
   </Box>
-=======
-  const save = async () => {
-    let response = await applycms({ data: props })
-    if (!response.data.success) {
-      message.error(response.data.error)
-    } else {
-      setCheck(!check)
-      setCheck(!check)
-
-      props.setUploaded(false)
-      message.success('Changes Saved')
-    }
-  }
-=======
->>>>>>> Teams: Update Team Member
-  return (
-    <Box display='flex' justifyContent='flex-end' marginTop='20px'>
-      <Button
-        type="submit"
-        color="secondary"
-        variant="contained"
-        onClick={() => save({ ...props, check, setCheck })}
-      >
-        Save Changes
-      </Button>
-    </Box>
-  )
->>>>>>> Teams: Add New Team Template UI
 }
