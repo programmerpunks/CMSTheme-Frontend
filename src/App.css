@@ -80,6 +80,7 @@
   color: rgb(206, 208, 209);
 }
 
+<<<<<<< HEAD
 .info-card {
   height: 550px;
   overflow: scroll;
@@ -92,6 +93,10 @@
 
 label {
   color: rgb(174, 193, 216) !important;
+=======
+.text-secondary {
+  color: rgb(206, 206, 207) !important
+>>>>>>> Analytics: Add & Delete Website Analytics
 }
 
 .table-bordered {

@@ -30,7 +30,7 @@ export const ReviewStars = ({setStars, stars}) => {
 
   let reviewstars = []
   stars.map((item, index) => {
-    reviewstars.push( < StarRateIcon key={item.id}
+    return reviewstars.push( < StarRateIcon key={item.id}
       className='review-star fs-5'
       onClick={() => {  removeStar({ setStars, key: item.id, stars}) }} />)
   })
@@ -70,20 +70,6 @@ export const uploadImage = async (props) => {
 
 }
 
-export const delete_member = async ({team,setTeam, setMembers, id, setOpen}) => {
-  let filteredMembers = team.filter(member => member.id!==id)
-  let response = await applycms({ data: { team: filteredMembers } })
-
-  if (!response.data.success) {
-    message.error(response.data.error)
-  } else {
-    setTeam(response.data.template.team)
-    setMembers(response.data.template.team)
-    setOpen(false)
-    message.success('Deleted')
-  }
-}
-
 export const deleteMember = async ({team,setTeam, setMembers, id}) => {
   let filteredMembers = team.filter(member => member.id!==id)
   let response = await applycms({ data: { team: filteredMembers } })
@@ -97,3 +83,18 @@ export const deleteMember = async ({team,setTeam, setMembers, id}) => {
   }
 }
 
+export const delete_analytic = async ({ analytics, setAnalytics, id, setOpen, setCurrent }) => {
+
+  let filteredAnalytics = analytics.filter(item => item.id!==id)
+
+  let response = await applycms({ data: { analytics: filteredAnalytics } })
+  if (!response.data.success) {
+    message.error(response.data.error)
+  } else {
+    
+    setAnalytics(response.data.template.analytics)
+    setOpen(false)
+    setCurrent({ analytic: '', count: '' })
+    message.success('Deleted')
+  }
+}

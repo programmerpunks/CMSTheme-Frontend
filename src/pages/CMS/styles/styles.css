@@ -29,7 +29,8 @@
   backface-visibility: hidden;
 }
 
-.overlay {
+.overlay,
+.overlay2 {
   position: absolute;
   z-index: 2;
   bottom: 0;
@@ -227,6 +228,7 @@
   opacity: 1;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Teams: Add New Team Template UI
 =======
@@ -235,4 +237,25 @@
 >>>>>>> Teams: Add New Team Template UI
 =======
 >>>>>>> Teams: New Team members added and displayed
+=======
+}
+
+.overlay2 {
+  left: 0;
+  top: 0;
+  border-radius: 50px;
+  width: 100px;
+}
+
+
+.analytics {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.analytics:hover .overlay2 {
+  cursor: pointer;
+  height: 100px;
+>>>>>>> Analytics: Add & Delete Website Analytics
 }

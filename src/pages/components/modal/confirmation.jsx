@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Box, Typography, Modal } from '@mui/material'
 import { delete_image } from '../../../helpers/users';
 import { delete_user } from '../../../helpers/admin';
-import { delete_member } from '../../../helpers/cms';
+import { delete_analytic, delete_member } from '../../../helpers/cms';
 import AuthContext from '../../../context/auth';
 
 export const ConfirmationModal = (props) => {
@@ -13,7 +13,8 @@ export const ConfirmationModal = (props) => {
     setCurrent,
     fetch, setFetch,
     colors, content,
-    team, setTeam, setMembers } = props
+    team, setTeam, setMembers,
+    analytics, setAnalytics } = props
 
   let { check, setCheck } = useContext(AuthContext)
   const style = {
@@ -39,6 +40,8 @@ export const ConfirmationModal = (props) => {
       await delete_user({ uid: current, fetch, setFetch, setOpen })
     } else if (content === 'team') {
       await delete_member({ team, setTeam, setMembers, id: current.id, setOpen })
+    } else if (content === 'analytics') {
+      await delete_analytic({ analytics, setAnalytics, id: current.id, setOpen, setCurrent })
     }
     else {
       await delete_image({ image: current, setCurrent, setOpen, check, setCheck })

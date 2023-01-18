@@ -16,6 +16,7 @@ import { BrowserRouter,Routes, Route } from 'react-router-dom';
 
 import './App.css'
 import { Team } from './pages/CMS/team.jsx';
+import { Analytics } from './pages/CMS/analytics.jsx';
 
 
 function App() {
@@ -52,8 +53,8 @@ function App() {
                   <Route path='/info' element={<Information />} />
                   <Route path='/images' element={<Images />} />
                   <Route path='/team' element={<Team />} />
-                  <Route path='/roadmap' element={<NewUser />} /></>
-              ) }        
+                  <Route path='/analytics' element={<Analytics />} /></>
+              ) } 
 
             </Routes>
           </main>
