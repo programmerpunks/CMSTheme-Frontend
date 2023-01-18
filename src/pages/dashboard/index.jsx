@@ -79,30 +79,6 @@ export const Dashboard = () => {
           current={current}
           setCurrent={setCurrent}
         />}
-      {/* <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h4" component="h2" color="white">
-            Are you sure you want to delete?
-          </Typography>
-          <Box display='flex' justifyContent='center' className='m-3'>
-            <button className='btn btn-outline-primary mx-2'
-              onClick={() => handleClose()}>
-              Cancel
-            </button>
-            <button className='btn btn-primary mx-2'
-              onClick={() => deleteUser()}>
-              Delete
-            </button>
-          </Box>
-
-
-        </Box>
-      </Modal > */}
     </Box >
   )
 }
