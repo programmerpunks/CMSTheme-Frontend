@@ -1,7 +1,6 @@
 import { tokens } from "../theme";
 
-export const mockDataTeam = {
-  column: [
+export const mockDataTeam =  [
     {
       _id: 1,
       name: "Jon Snow",
@@ -83,8 +82,7 @@ export const mockDataTeam = {
       access: "admin",
       created_at:'Mon 12,12,22'
     },
-  ]
-};
+  ];
 
 export const mockDataContacts = [
   {

@@ -1,19 +1,29 @@
-import React from 'react'
-import { tokens } from "../../theme"
-import { Box, useTheme } from '@mui/material'
+import React, { useState } from 'react'
+import { Box } from '@mui/material'
+import ReactPaginate from 'react-paginate'
 import Header from '../components/Header/header'
+import { mockDataTeam as users } from '../../dummyData/mockData'
 
 export const Dashboard = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+  const usersPerPage = 5
+  const [userOffset, setItemOffset] = useState(0)
+  const endOffset = userOffset + usersPerPage
+  const currentUsers = users.slice(userOffset, endOffset)
+  const pageCount = Math.ceil(users.length / usersPerPage)
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * usersPerPage) % users.length
+    setItemOffset(newOffset)
+  }
+
   return (
     <Box display="flex" justifyContent="center" alignItems="center" flexDirection='column' textAlign='center'>
       <Header className='text-center' title="DASHBOARD" subtitle="List of all users" />
       <Box width='80%'>
 
-        {/* <table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover">
           <thead>
-            <tr>                  
+            <tr>
               <th scope="col">#</th>
               <th scope="col">First</th>
               <th scope="col">Last</th>
@@ -24,7 +34,7 @@ export const Dashboard = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
+            {currentUsers.map((user, index) => (
               <tr className='table-row-hover'>
                 <th scope="row">{user.id}</th>
                 <th scope="col" colspan='2'>{user.name}</th>
@@ -36,25 +46,38 @@ export const Dashboard = () => {
             ))}
 
           </tbody>
-        </table> */}
+        </table>
 
         <ReactPaginate
-          className='flex justify-end py-4'
-          nextLabel=' >'
+          className='d-flex justify-content-center py-4'
+          breakLabel="..."
+          nextLabel=">"
           onPageChange={handlePageClick}
+          pageRangeDisplayed={usersPerPage}
           pageCount={pageCount}
-          previousLabel='< '
-          pageClassName='page-item px-1 mx-1'
-          pageLinkClassName='page-link'
-          previousClassName='page-item px-2 mx-2'
-          previousLinkClassName='page-link'
-          nextClassName='page-item px-2 mx-2'
-          nextLinkClassName='page-link'
-          breakLabel='...'
+          previousLabel="<"
+          pageClassName='d-flex px-1 mx-1'
           breakClassName='page-item'
-          breakLinkClassName='page-link'
-          containerClassName='pagination'
-          activeClassName='active bg-gray-500 px-4 mx-1 text-white rounded-sm'
+          pageLinkClassName='page-links bg-light p-2 px-3 rounded-circle'
+          previousClassName='page-controllers p-2 px-3 mx-2 rounded-circle'
+          nextClassName='page-controllers p-2 px-3 mx-2 rounded-circle'
+          renderOnZeroPageCount={null}
+        // className='d-flex justify-content-center py-4'
+        // nextLabel=' >'
+        // onPageChange={handlePageClick}
+        // pageCount={pageCount}
+        // previousLabel='< '
+        // pageClassName='d-flex px-1 mx-1'
+        // pageLinkClassName='page-link'
+        // previousClassName='page-controllers px-2 mx-2'
+        // previousLinkClassName='page-link'
+        // nextClassName='page-item px-2 mx-2'
+        // nextLinkClassName='page-link'
+        // breakLabel='...'
+        // breakClassName='page-item'
+        // breakLinkClassName='page-link'
+        // containerClassName='pagination'
+        // activeClassName='active bg-gray-500 px-4 mx-1 text-white rounded-sm'
         />
       </Box>
     </Box>

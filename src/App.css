@@ -8,3 +8,28 @@
   background-color: #1F2A40 !important;
   color: green !important;
 }
+
+.page-controllers {
+  cursor: pointer;
+  text-decoration: none !important;
+  list-style: none;
+  background-color: rgb(195, 197, 202)
+}
+
+.page-links {
+  text-decoration: none;
+
+}
+
+.bg-light {
+  background-color: rgba(56, 114, 158, 0.5) !important;
+  color: white !important;
+}
+
+.page-links:hover {
+  background-color: rgba(56, 114, 158) !important;
+}
+
+.page-controllers:hover {
+  background-color: white;
+}
