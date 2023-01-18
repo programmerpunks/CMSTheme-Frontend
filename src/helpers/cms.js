@@ -1,5 +1,4 @@
 import StarRateIcon from '@mui/icons-material/StarRate';
-<<<<<<< HEAD
 import 'antd/dist/antd.css'
 import { message } from 'antd';
 import { applycms } from '../api';
@@ -17,29 +16,16 @@ export const save = async (props) => {
 
 export const removeStar = ({setStars, key, stars}) => {
   let filteredStars = stars.filter(item => item.id !== key)
-=======
-
-export const removeStar = ({setStars, key, stars}) => {
-  console.log('remove stars')
-  let filteredStars = stars.filter(item => item !== key)
->>>>>>> Teams: Add New Team Template UI
   setStars(filteredStars)
 }
 
 export const addReview = ({stars, setStars, editable}) => {
   if (stars.length < 5)
     setStars([...stars, {
-<<<<<<< HEAD
-=======
-      component: < StarRateIcon key={stars.length}
-        className='review-star fs-5'
-        onClick={() => {  removeStar({ setStars, key: stars.length, stars}) }} />,
->>>>>>> Teams: Add New Team Template UI
       id: stars.length
     }])
 }
 
-<<<<<<< HEAD
 export const ReviewStars = ({setStars, stars}) => {
 
   let reviewstars = []
@@ -113,14 +99,3 @@ export const delete_analytic = async ({ analytics, setAnalytics, id, setOpen, se
     message.success('Deleted')
   }
 }
-=======
-export const ReviewStars = ({stars}) => {
-  
-  let reviewstars = []
-  stars.map((item) => {
-    reviewstars.push(item.component)
-    return reviewstars
-  })
-  return reviewstars;
-}
->>>>>>> Teams: Add New Team Template UI

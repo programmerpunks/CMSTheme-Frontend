@@ -246,6 +246,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Teams: Add New Team Template UI
 =======
@@ -255,6 +256,8 @@
 =======
 >>>>>>> Teams: New Team members added and displayed
 =======
+=======
+>>>>>>> Analytics: Add & Delete Website Analytics
 }
 
 .overlay2 {
@@ -274,7 +277,10 @@
 .analytics:hover .overlay2 {
   cursor: pointer;
   height: 100px;
+<<<<<<< HEAD
 >>>>>>> Analytics: Add & Delete Website Analytics
 =======
 >>>>>>> Teams: Add New Team Template UI
+=======
+>>>>>>> Analytics: Add & Delete Website Analytics
 }

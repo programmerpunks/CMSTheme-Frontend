@@ -9,9 +9,13 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 =======
 >>>>>>> Teams: Add New Team Template UI
+=======
+import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
+>>>>>>> Analytics: Add & Delete Website Analytics
 import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -147,6 +151,7 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+<<<<<<< HEAD
 
             <Item
               title="Reviews"
@@ -156,6 +161,8 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+=======
+>>>>>>> Analytics: Add & Delete Website Analytics
           </Box>
         </Menu>
       </ProSidebar>

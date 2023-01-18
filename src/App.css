@@ -102,6 +102,9 @@ label {
   color: rgb(206, 206, 207) !important
 >>>>>>> Analytics: Add & Delete Website Analytics
 }
+.text-secondary {
+  color: rgb(206, 206, 207) !important
+}
 
 .table-bordered {
   color: white !important;
