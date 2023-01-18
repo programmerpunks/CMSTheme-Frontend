@@ -1,8 +1,7 @@
 import React from 'react'
 import { tokens } from "../../theme"
-import { mockDataTeam as users } from '../../dummyData/mockData'
-import Header from '../components/Header/header'
 import { Box, useTheme } from '@mui/material'
+import Header from '../components/Header/header'
 
 export const Dashboard = () => {
   const theme = useTheme();
@@ -12,9 +11,9 @@ export const Dashboard = () => {
       <Header className='text-center' title="DASHBOARD" subtitle="List of all users" />
       <Box width='80%'>
 
-        <table class="table table-bordered table-hover">
+        {/* <table class="table table-bordered table-hover">
           <thead>
-            <tr>
+            <tr>                  
               <th scope="col">#</th>
               <th scope="col">First</th>
               <th scope="col">Last</th>
@@ -37,8 +36,26 @@ export const Dashboard = () => {
             ))}
 
           </tbody>
-        </table>
+        </table> */}
 
+        <ReactPaginate
+          className='flex justify-end py-4'
+          nextLabel=' >'
+          onPageChange={handlePageClick}
+          pageCount={pageCount}
+          previousLabel='< '
+          pageClassName='page-item px-1 mx-1'
+          pageLinkClassName='page-link'
+          previousClassName='page-item px-2 mx-2'
+          previousLinkClassName='page-link'
+          nextClassName='page-item px-2 mx-2'
+          nextLinkClassName='page-link'
+          breakLabel='...'
+          breakClassName='page-item'
+          breakLinkClassName='page-link'
+          containerClassName='pagination'
+          activeClassName='active bg-gray-500 px-4 mx-1 text-white rounded-sm'
+        />
       </Box>
     </Box>
   )
