@@ -11,11 +11,6 @@ export const TeamCard = (props) => {
     title, setTitle, designation, setDesignation,
     experience, setExperience, colors } = props
 
-  console.log('tt: ', editable)
-  console.log('tt: ', editable)
-  console.log('tt: ', editable)
-
-
   return <>
     <div className={`card-image ${profileImage && 'bg-transparent'} 
                       d-flex justify-content-center align-items-center ms-8`}>
