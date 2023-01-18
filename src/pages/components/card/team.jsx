@@ -10,9 +10,6 @@ export const TeamCard = (props) => {
     member, stars, setStars, editable,
     title, setTitle, designation, setDesignation,
     experience, setExperience, colors } = props
-  console.log('tt: ', editable)
-  console.log('tt: ', editable)
-  console.log('tt: ', editable)
 
   return <>
     <div className={`card-image ${profileImage && 'bg-transparent'} 
