@@ -30,7 +30,7 @@ export const ReviewStars = ({setStars, stars}) => {
 
   let reviewstars = []
   stars.map((item, index) => {
-    reviewstars.push( < StarRateIcon key={item.id}
+    return reviewstars.push( < StarRateIcon key={item.id}
       className='review-star fs-5'
       onClick={() => {  removeStar({ setStars, key: item.id, stars}) }} />)
   })
@@ -84,3 +84,18 @@ export const delete_member = async ({team,setTeam, setMembers, id, setOpen}) => 
   }
 }
 
+export const delete_analytic = async ({ analytics, setAnalytics, id, setOpen, setCurrent }) => {
+
+  let filteredAnalytics = analytics.filter(item => item.id!==id)
+
+  let response = await applycms({ data: { analytics: filteredAnalytics } })
+  if (!response.data.success) {
+    message.error(response.data.error)
+  } else {
+    
+    setAnalytics(response.data.template.analytics)
+    setOpen(false)
+    setCurrent({ analytic: '', count: '' })
+    message.success('Deleted')
+  }
+}
