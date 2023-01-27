@@ -39,6 +39,25 @@
   color: rgb(206, 208, 209);
 }
 
+.mne-4 {
+  margin-right: -10px;
+  margin-top: -5px;
+}
+
+.mns-3 {
+  margin-left: -10px !important;
+}
+
+.mns-7 {
+  margin-left: -70px !important;
+}
+
+.fs-xss {
+  margin-top: -10px;
+  font-size: 13px;
+  color: rgb(206, 208, 209);
+}
+
 .fs-xsss {
   font-size: 10px;
   color: rgb(206, 208, 209);
