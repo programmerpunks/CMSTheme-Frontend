@@ -7,13 +7,9 @@ import { useFetchUsers } from '../../customHooks/useFetchUsers'
 import { TbDots } from 'react-icons/tb'
 import { tokens } from "../../theme";
 import moment from "moment";
-<<<<<<< HEAD
 import { delete_user } from '../../helpers/admin'
 import ReactPaginate from 'react-paginate'
-
-=======
 import { ConfirmationModal } from '../components/modal/confirmation'
->>>>>>> CMS-FUNCTIONALITY: Add & update website info & images, Delete images
 
 export const Dashboard = () => {
   const [fetch, setFetch] = useState(false)
@@ -91,11 +87,8 @@ export const Dashboard = () => {
           nextClassName='page-controllers p-2 px-3 mx-2 rounded-circle'
           renderOnZeroPageCount={null}
         />
-<<<<<<< HEAD
       </Box >
-      <Modal
-=======
-      </Box>
+
       {open &&
         <ConfirmationModal
           content='user'
@@ -107,29 +100,7 @@ export const Dashboard = () => {
           current={current}
           setCurrent={setCurrent}
         />}
-      {/* <Modal
->>>>>>> CMS-FUNCTIONALITY: Add & update website info & images, Delete images
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h4" component="h2" color="white">
-            Are you sure you want to delete?
-          </Typography>
-          <Box display='flex' justifyContent='center' className='m-3'>
-            <button className='btn btn-outline-primary mx-2'
-              onClick={() => handleClose()}>
-              Cancel
-            </button>
-            <button className='btn btn-primary mx-2'
-              onClick={() => deleteUser()}>
-              Delete
-            </button>
-          </Box>
-        </Box>
-      </Modal > */}
     </Box >
   )
 }
+
