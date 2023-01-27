@@ -1,14 +1,14 @@
-import { Box, IconButton, useTheme } from "@mui/material";
-import { tokens } from "../theme";
-import InputBase from "@mui/material/InputBase";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-import SearchIcon from "@mui/icons-material/Search";
-import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
-import { signOut } from "../redux/slices/userSlice";
-import { useDispatch } from "react-redux";
+import Cookies from "js-cookie"
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import InputBase from "@mui/material/InputBase"
+import SearchIcon from "@mui/icons-material/Search"
+import { Box, IconButton, useTheme } from "@mui/material"
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined"
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined"
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined'
+import { signOut } from "../redux/slices/userSlice"
+import { tokens } from "../theme"
 
 const Topbar = () => {
   const theme = useTheme();
@@ -18,7 +18,6 @@ const Topbar = () => {
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
-      {/* SEARCH BAR */}
       <Box
         display="flex"
         backgroundColor={colors.primary[400]}
@@ -30,7 +29,6 @@ const Topbar = () => {
         </IconButton>
       </Box>
 
-      {/* ICONS */}
       <Box display="flex">
 
         <IconButton>

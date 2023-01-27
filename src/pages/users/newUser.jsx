@@ -1,6 +1,6 @@
 import { Box, useTheme } from '@mui/material'
 import { tokens } from "../../theme";
-import Form from '../components/form/register'
+import Form from '../../components/form/register'
 
 import './users.css'
 

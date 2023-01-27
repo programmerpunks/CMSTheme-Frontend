@@ -1,6 +1,6 @@
 import React from 'react'
 import { Input } from '../fields/input'
-import { addReview, ReviewStars } from '../../../helpers/cms'
+import { addReview, ReviewStars } from '../../helpers/cms'
 import AddIcon from '@mui/icons-material/Add'
 
 export const TeamCard = (props) => {

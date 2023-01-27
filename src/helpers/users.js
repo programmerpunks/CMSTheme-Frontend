@@ -1,6 +1,6 @@
-import { deleteimage, fetchtemplate, loginuser } from '../api/index'
 import Cookies from 'js-cookie'
 import { message } from 'antd'
+import { deleteimage, fetchtemplate, loginuser } from '../api/index'
 
 export const signin = async({logindata, setError }) => {
   let response = await loginuser({logindata})
@@ -16,7 +16,7 @@ export const signin = async({logindata, setError }) => {
 export const get_template = async({setTemplate, setFetching }) => {
   let response = await fetchtemplate()
   if(!response.data.success){
-    // message.error(response.data.error)
+     message.error(response.data.error)
   }else{
     setTemplate(response.data.template[0])
   }

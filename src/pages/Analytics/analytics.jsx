@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { tokens } from "../../theme"
-import './styles/styles.css'
-import Header from '../components/Header/header'
-import { SaveChanges } from '../components/button/savechanges'
 import { Box, TextField, Button, useTheme } from '@mui/material'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
-import { ConfirmationModal } from '../components/modal/confirmation'
+import { tokens } from "../../theme"
+import Header from '../../components/Header/header'
+import { SaveChanges } from '../../components/button/savechanges'
+import { ConfirmationModal } from '../../components/modal/confirmation'
 import { useFetchTemplate } from '../../customHooks/useFetchTemplate'
+import '../styles/styles.css'
 
 export const Analytics = () => {
   const [fetching, setFetching] = useState(false)

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import Header from '../components/Header/header'
-import { Box, useTheme } from '@mui/material'
-import { useFetchUsers } from '../../customHooks/useFetchUsers'
+import moment from "moment"
 import { TbDots } from 'react-icons/tb'
-import { tokens } from "../../theme";
-import moment from "moment";
-import { ConfirmationModal } from '../components/modal/confirmation'
+import { tokens } from "../../theme"
+import { Box, useTheme } from '@mui/material'
+import Header from '../../components/Header/header'
+import { useFetchUsers } from '../../customHooks/useFetchUsers'
+import { ConfirmationModal } from '../../components/modal/confirmation'
 
 export const Dashboard = () => {
   const [fetch, setFetch] = useState(false)

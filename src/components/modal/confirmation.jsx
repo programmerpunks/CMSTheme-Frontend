@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { Box, Typography, Modal } from '@mui/material'
-import { delete_image } from '../../../helpers/users';
-import { delete_user } from '../../../helpers/admin';
-import { delete_analytic, delete_member } from '../../../helpers/cms';
-import AuthContext from '../../../context/auth';
+import { delete_image } from '../../helpers/users'
+import { delete_user } from '../../helpers/admin'
+import AuthContext from '../../context/auth'
+import { delete_analytic, delete_member } from '../../helpers/cms'
 
 export const ConfirmationModal = (props) => {
   let {
