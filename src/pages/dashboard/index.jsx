@@ -8,7 +8,6 @@ import { TbDots } from 'react-icons/tb'
 import { tokens } from "../../theme";
 import moment from "moment";
 import { delete_user } from '../../helpers/admin'
-import ReactPaginate from 'react-paginate'
 import { ConfirmationModal } from '../components/modal/confirmation'
 
 export const Dashboard = () => {
