@@ -1,31 +1,12 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar"
 import "react-pro-sidebar/dist/css/styles.css"
 import { Box, IconButton, Typography, useTheme } from "@mui/material"
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined"
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined"
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined"
 import { tokens } from "../theme"
-
-const Item = ({ title, to, icon, selected, setSelected }) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-  return (
-    <MenuItem
-      active={selected === title}
-      style={{
-        color: colors.grey[100],
-      }}
-      onClick={() => setSelected(title)}
-      icon={icon}
-    >
-      <Typography>{title}</Typography>
-      <Link to={to} />
-    </MenuItem>
-  );
-};
+import { Item } from './Item'
 
 const Sidebar = () => {
   const theme = useTheme();
@@ -108,8 +89,6 @@ const Sidebar = () => {
           )}
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
-
-
             <Typography
               variant="h6"
               color={colors.grey[300]}
@@ -120,6 +99,7 @@ const Sidebar = () => {
             <Item
               title="Dashboard"
               to="/"
+              colors={colors}
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -127,6 +107,7 @@ const Sidebar = () => {
             <Item
               title="Add users"
               to="/new-user"
+              colors={colors}
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
