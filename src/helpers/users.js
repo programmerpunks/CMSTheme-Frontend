@@ -67,8 +67,3 @@ export const delete_image = async({ image, setCurrent,  check, setCheck, setOpen
     console.log(err.message)
   }
 }
-
-// export const deleteMember = async({id}) => {
-//   let response = await 
-// }
-

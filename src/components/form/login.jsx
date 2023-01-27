@@ -8,7 +8,6 @@ import { loginuser } from '../../api';
 import { useDispatch } from 'react-redux'
 import { signIn, adminLogIn } from '../../redux/slices/userSlice';
 
-
 export const LoginForm = ({ role }) => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()

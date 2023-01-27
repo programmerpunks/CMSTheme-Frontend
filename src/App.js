@@ -8,14 +8,12 @@ import Sidebar from './layout/Sidebar'
 import { Team } from './pages/Team/team'
 import { Login } from './pages/Login/login'
 import { Images } from './pages/Images/images'
-import { NewUser } from './pages/Users/newUser'
 import { Dashboard } from './pages/dashboard/dashboard'
 import { Analytics } from './pages/Analytics/analytics'
 import { Information } from './pages/Information/information'
 import { ColorModeContext, useMode } from './theme'
 import AuthContext from './context/auth'
 import './App.css'
-
 
 function App() {
   const [theme, colorMode] = useMode()
@@ -39,11 +37,7 @@ function App() {
 
             <Routes>
             {isAdminLoggedIn ?         
-               (        
-                <>
-                <Route path='/' element={isAdminLoggedIn? <Dashboard />: <Login />} />
-                <Route path='/new-user' element={<NewUser />} />
-                </>)
+               <Route path='/' element={isAdminLoggedIn? <Dashboard />: <Login />} />
                 :(
                   <>
                 <Route path='/' element={isLoggedIn? <Information/>: <Login />} />

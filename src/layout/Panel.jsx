@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar"
 import { Box, IconButton, Typography, useTheme } from "@mui/material"
 import GroupsIcon from '@mui/icons-material/Groups'
@@ -9,24 +8,7 @@ import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined'
 import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined'
 import "react-pro-sidebar/dist/css/styles.css"
 import { tokens } from "../theme"
-
-const Item = ({ title, to, icon, selected, setSelected }) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-  return (
-    <MenuItem
-      active={selected === title}
-      style={{
-        color: colors.grey[100],
-      }}
-      onClick={() => setSelected(title)}
-      icon={icon}
-    >
-      <Typography>{title}</Typography>
-      <Link to={to} />
-    </MenuItem>
-  );
-};
+import { Item } from "./Item"
 
 const Sidebar = () => {
   const theme = useTheme();
@@ -129,8 +111,6 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
-
 
             <Item
               title="Team"
