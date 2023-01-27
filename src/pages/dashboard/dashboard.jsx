@@ -1,14 +1,25 @@
 import React, { useState } from 'react'
+<<<<<<< HEAD:src/pages/dashboard/index.jsx
 import { Box } from '@mui/material'
 import ReactPaginate from 'react-paginate'
 import Header from '../components/Header/header'
+=======
+import moment from "moment"
+import { TbDots } from 'react-icons/tb'
+import { tokens } from "../../theme"
+>>>>>>> Code Architecture Altered:src/pages/dashboard/dashboard.jsx
 import { Box, useTheme } from '@mui/material'
+import Header from '../../components/Header/header'
 import { useFetchUsers } from '../../customHooks/useFetchUsers'
+<<<<<<< HEAD:src/pages/dashboard/index.jsx
 import { TbDots } from 'react-icons/tb'
 import { tokens } from "../../theme";
 import moment from "moment";
 import { delete_user } from '../../helpers/admin'
 import { ConfirmationModal } from '../components/modal/confirmation'
+=======
+import { ConfirmationModal } from '../../components/modal/confirmation'
+>>>>>>> Code Architecture Altered:src/pages/dashboard/dashboard.jsx
 
 export const Dashboard = () => {
   const [fetch, setFetch] = useState(false)

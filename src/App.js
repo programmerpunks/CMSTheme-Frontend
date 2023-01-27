@@ -1,22 +1,20 @@
-import { useState } from 'react';
-import Cookies from 'js-cookie';
-import Panel from './layout/Panel.jsx'
+import { useState } from 'react'
 import {useSelector} from 'react-redux'
-import Topbar from './layout/Topbar.jsx'
+import { CssBaseline, ThemeProvider } from '@mui/material'
+import { BrowserRouter,Routes, Route } from 'react-router-dom'
+import Panel from './layout/Panel'
+import Topbar from './layout/Topbar'
+import Sidebar from './layout/Sidebar'
+import { Team } from './pages/Team/team'
+import { Login } from './pages/Login/login'
+import { Images } from './pages/Images/images'
+import { NewUser } from './pages/Users/newUser'
+import { Dashboard } from './pages/dashboard/dashboard'
+import { Analytics } from './pages/Analytics/analytics'
+import { Information } from './pages/Information/information'
+import { ColorModeContext, useMode } from './theme'
 import AuthContext from './context/auth'
-import Sidebar from './layout/Sidebar.jsx'
-import { Login } from './pages/Login/index';
-import { Images } from './pages/CMS/images';
-import { NewUser } from './pages/users/newUser';
-import { Dashboard } from './pages/dashboard/index';
-import { ColorModeContext, useMode } from './theme';
-import { Information } from './pages/CMS/information';
-import { CssBaseline, ThemeProvider } from '@mui/material';
-import { BrowserRouter,Routes, Route } from 'react-router-dom';
-
 import './App.css'
-import { Team } from './pages/CMS/team.jsx';
-import { Analytics } from './pages/CMS/analytics.jsx';
 
 
 function App() {
@@ -24,8 +22,7 @@ function App() {
   const [template, setTemplate] = useState()
   const [check, setCheck] = useState(false)
   const [isSidebar, setIsSidebar] = useState(true)
-
-  const {isLoggedIn} = useSelector(state => state)
+  const {isLoggedIn, isAdminLoggedIn} = useSelector(state => state)
 
   return (
     <AuthContext.Provider value={{ check, setCheck, template, setTemplate}}>
@@ -34,26 +31,26 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className='app'>
-          {Cookies.get('role') === 'admin' ? (<Sidebar isSidebar={isSidebar} />)
+          {isAdminLoggedIn ? (<Sidebar isSidebar={isSidebar} />)
           : isLoggedIn && (<Panel isSidebar={isSidebar} />)}
 
           <main className='content'>
-          {(Cookies.get('role') === 'admin' || isLoggedIn) && ( <Topbar setIsSidebar={setIsSidebar} />)}
+          {(isAdminLoggedIn || isLoggedIn) && ( <Topbar setIsSidebar={setIsSidebar} />)}
 
             <Routes>
-            {Cookies.get('role') === 'admin' ?         
+            {isAdminLoggedIn ?         
                (        
                 <>
-                <Route path='/' element={isLoggedIn? <Dashboard />: <Login />} />
+                <Route path='/' element={isAdminLoggedIn? <Dashboard />: <Login />} />
                 <Route path='/new-user' element={<NewUser />} />
                 </>)
                 :(
                   <>
                 <Route path='/' element={isLoggedIn? <Information/>: <Login />} />
-                  <Route path='/info' element={<Information />} />
-                  <Route path='/images' element={<Images />} />
-                  <Route path='/team' element={<Team />} />
-                  <Route path='/analytics' element={<Analytics />} /></>
+                  <Route path='/info' element={isLoggedIn? <Information />: <Login />} />
+                  <Route path='/images' element={isLoggedIn? <Images />: <Login />} />
+                  <Route path='/team' element={isLoggedIn? <Team />: <Login />} />
+                  <Route path='/analytics' element={isLoggedIn? <Analytics />: <Login />} /></>
               ) } 
 
             </Routes>

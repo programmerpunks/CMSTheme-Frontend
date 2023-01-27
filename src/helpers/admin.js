@@ -1,6 +1,6 @@
-import { fetchusers, register, deleteuser} from '../api/index';
 import 'antd/dist/antd.css'
-import { message } from 'antd';
+import { message } from 'antd'
+import { fetchusers, register, deleteuser} from '../api/index'
 
 export const register_user = async ({formData, setError }) =>{
   try{

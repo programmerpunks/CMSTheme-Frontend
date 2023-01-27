@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Box, Button } from '@mui/material'
-import { save } from '../../../helpers/cms';
-import AuthContext from '../../../context/auth';
+import { save } from '../../helpers/cms';
+import AuthContext from '../../context/auth';
 
 export const SaveChanges = (props) => {
   const { check, setCheck } = useContext(AuthContext)

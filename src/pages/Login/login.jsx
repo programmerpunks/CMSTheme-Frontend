@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box, useTheme } from '@mui/material'
 import { tokens } from "../../theme";
-import Header from '../components/Header/header'
-import { LoginForm } from '../components/form/login'
+import Header from '../../components/Header/header'
+import { LoginForm } from '../../components/form/login'
 
 export const Login = () => {
   const theme = useTheme()

@@ -5,12 +5,19 @@
 <<<<<<< HEAD
 import React, { useContext } from 'react'
 import { Box, Modal, Button } from '@mui/material'
+<<<<<<< HEAD:src/pages/components/modal/member.jsx
 <<<<<<< HEAD
 <<<<<<< HEAD
 import CloseIcon from '@mui/icons-material/Close';
 import { save } from '../../../helpers/cms';
 import AuthContext from '../../../context/auth';
 import { TeamCard } from '../card/team';
+=======
+import CloseIcon from '@mui/icons-material/Close'
+import { save } from '../../helpers/cms'
+import AuthContext from '../../context/auth'
+import { TeamCard } from '../card/team'
+>>>>>>> Code Architecture Altered:src/components/modal/member.jsx
 
 export const MemberModal = (props) => {
 

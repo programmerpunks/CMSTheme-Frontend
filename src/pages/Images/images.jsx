@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../components/Header/header'
 import { Box, useTheme } from '@mui/material'
-import { SaveChanges } from '../components/button/savechanges'
-import { useFetchTemplate } from '../../customHooks/useFetchTemplate'
-import { tokens } from "../../theme"
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { BsCheck } from 'react-icons/bs'
 import { ClipLoader } from 'react-spinners'
-import { ConfirmationModal } from '../components/modal/confirmation'
+import Header from '../../components/Header/header'
+import { ConfirmationModal } from '../../components/modal/confirmation'
+import { SaveChanges } from '../../components/button/savechanges'
+import { useFetchTemplate } from '../../customHooks/useFetchTemplate'
+import { tokens } from "../../theme"
 import { uploadImage } from '../../helpers/users'
-import './styles/styles.css'
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import '../styles/styles.css'
 
 export const Images = () => {
 
@@ -30,7 +30,6 @@ export const Images = () => {
     setCloudinaryImages([])
     setStoredImages(template.length !== 0 ? template.images : [])
   }, [fetching, template])
-
 
   const handleOpen = (image) => {
     setOpen(true)

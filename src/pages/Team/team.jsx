@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useContext } from 'react'
-import 'antd/dist/antd.css'
-import './styles/styles.css'
 import { message } from 'antd'
-import { tokens } from "../../theme"
 import { ClipLoader } from 'react-spinners'
+import { Box, useTheme, Button } from '@mui/material'
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
+import { tokens } from "../../theme"
 import AuthContext from '../../context/auth'
 import { uploadImage } from '../../helpers/cms'
-import Header from '../components/Header/header'
-import { TeamCard } from '../components/card/team'
-import { Box, useTheme, Button } from '@mui/material'
-import { MemberModal } from '../components/modal/member'
-import { SaveChanges } from '../components/button/savechanges'
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
-import { ConfirmationModal } from '../components/modal/confirmation'
+import Header from '../../components/Header/header'
+import { TeamCard } from '../../components/card/team'
+import { MemberModal } from '../../components/modal/member'
+import { SaveChanges } from '../../components/button/savechanges'
+import { ConfirmationModal } from '../../components/modal/confirmation'
 import { useFetchTemplate } from '../../customHooks/useFetchTemplate'
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
+import 'antd/dist/antd.css'
+import '../styles/styles.css'
 
 export const Team = () => {
   const [fetching, setFetching] = useState(false)

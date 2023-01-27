@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
   user: {},
@@ -45,5 +45,5 @@ const userSlice = createSlice({
   }
 })
 
-export const {signIn, signOut} = userSlice.actions
+export const {signIn, signOut, adminLogIn} = userSlice.actions
 export default userSlice.reducer

@@ -8,9 +8,9 @@ import { useNavigate } from 'react-router-dom'
 import 'antd/dist/antd.css'
 import { message } from 'antd';
 import Cookies from 'js-cookie';
-import { loginuser } from '../../../api';
+import { loginuser } from '../../api';
 import { useDispatch } from 'react-redux'
-import { signIn } from '../../../redux/slices/userSlice';
+import { signIn, adminLogIn } from '../../redux/slices/userSlice';
 
 
 export const LoginForm = ({ role }) => {
@@ -24,6 +24,7 @@ export const LoginForm = ({ role }) => {
     if (role === 'admin') {
       if (process.env.REACT_APP_ADMIN_EMAIL === email && process.env.REACT_APP_ADMIN_PASSWORD === password) {
         Cookies.set('role', 'admin')
+        dispatch(adminLogIn())
         navigate('/')
       } else {
         message.error('Invalid Credentials')

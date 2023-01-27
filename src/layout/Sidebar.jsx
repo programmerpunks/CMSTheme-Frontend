@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
-import { tokens } from "../theme";
-import "react-pro-sidebar/dist/css/styles.css";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar"
+import "react-pro-sidebar/dist/css/styles.css"
+import { Box, IconButton, Typography, useTheme } from "@mui/material"
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
+import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined"
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined"
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined"
+import { tokens } from "../theme"
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -55,7 +55,6 @@ const Sidebar = () => {
     >
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
-          {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
@@ -129,13 +128,6 @@ const Sidebar = () => {
               title="Add users"
               to="/new-user"
               icon={<PeopleOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Profile Form"
-              to="/form"
-              icon={<PersonOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />

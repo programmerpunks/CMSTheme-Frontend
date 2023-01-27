@@ -1,7 +1,6 @@
 .template-images {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-evenly; */
   height: 250px;
   overflow-y: scroll;
   cursor: context-menu

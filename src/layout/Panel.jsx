@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
@@ -17,6 +18,19 @@ import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 >>>>>>> Analytics: Add & Delete Website Analytics
 import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
+=======
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar"
+import { Box, IconButton, Typography, useTheme } from "@mui/material"
+import GroupsIcon from '@mui/icons-material/Groups'
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined"
+import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined'
+import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined'
+import "react-pro-sidebar/dist/css/styles.css"
+import { tokens } from "../theme"
+>>>>>>> Code Architecture Altered
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -64,7 +78,6 @@ const Sidebar = () => {
     >
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
-          {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
@@ -81,7 +94,6 @@ const Sidebar = () => {
                 ml="15px"
               >
                 <Typography variant="h3" color={colors.grey[100]}>
-                  {/* CMS */}
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
