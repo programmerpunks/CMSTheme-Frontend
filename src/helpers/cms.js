@@ -51,9 +51,7 @@ const addNewMember = ({image, team, setTeam, title, designation, stars, setEdita
 export const uploadImage = async (props) => {
   props.setLoading(true)
   props.setUploaded(false)
-  console.log('gsgs: ', props)
   if(props.profileImage){
-    console.log('images: ', props.profileImage)
     const data = new FormData()
     data.append("file", props.profileImage)
     data.append("upload_preset", process.env.REACT_APP_CLOUDINARY_PRESET_FOLDER)
