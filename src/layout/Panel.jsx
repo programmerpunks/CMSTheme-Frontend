@@ -1,36 +1,15 @@
-<<<<<<< HEAD
-import { useState } from "react";
+import React, { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
-import { tokens } from "../theme";
 import "react-pro-sidebar/dist/css/styles.css";
 import GroupsIcon from '@mui/icons-material/Groups';
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-<<<<<<< HEAD
-<<<<<<< HEAD
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
-=======
->>>>>>> Teams: Add New Team Template UI
-=======
-import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
->>>>>>> Analytics: Add & Delete Website Analytics
 import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
-=======
-import { useState } from "react"
-import { Link } from "react-router-dom"
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar"
-import { Box, IconButton, Typography, useTheme } from "@mui/material"
-import GroupsIcon from '@mui/icons-material/Groups'
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined"
-import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined'
-import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined'
-import "react-pro-sidebar/dist/css/styles.css"
 import { tokens } from "../theme"
->>>>>>> Code Architecture Altered
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -158,23 +137,17 @@ const Sidebar = () => {
               title="Team"
               to="/team"
               icon={<GroupsIcon />}
-<<<<<<< HEAD
-=======
               selected={selected}
               setSelected={setSelected}
             />
-<<<<<<< HEAD
 
             <Item
               title="Reviews"
               to="/reviews"
               icon={<PersonOutlinedIcon />}
->>>>>>> Teams: Add New Team Template UI
               selected={selected}
               setSelected={setSelected}
             />
-=======
->>>>>>> Analytics: Add & Delete Website Analytics
           </Box>
         </Menu>
       </ProSidebar>

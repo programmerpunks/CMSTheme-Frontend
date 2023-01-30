@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useContext } from 'react'
+import 'antd/dist/antd.css'
+import '../styles/styles.css'
 import { message } from 'antd'
-import { ClipLoader } from 'react-spinners'
-import { Box, useTheme, Button } from '@mui/material'
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
 import { tokens } from "../../theme"
+import { ClipLoader } from 'react-spinners'
 import AuthContext from '../../context/auth'
 import { uploadImage } from '../../helpers/cms'
 import Header from '../../components/Header/header'
 import { TeamCard } from '../../components/card/team'
+import { Box, useTheme, Button } from '@mui/material'
 import { MemberModal } from '../../components/modal/member'
 import { SaveChanges } from '../../components/button/savechanges'
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
 import { ConfirmationModal } from '../../components/modal/confirmation'
 import { useFetchTemplate } from '../../customHooks/useFetchTemplate'
-import 'antd/dist/antd.css'
-import '../styles/styles.css'
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
 
 export const Team = () => {
   const [fetching, setFetching] = useState(false)
@@ -111,44 +111,6 @@ export const Team = () => {
                   experience={item.experience} setExperience={setExperience}
                   stars={stars} setStars={setStars} editable={editable}
                   colors={colors} />
-                <div className={`card-image ${profileImage && 'bg-transparent'} 
-                      d-flex justify-content-center align-items-center ms-8`}>
-                  <label htmlFor="file-input">
-                    {team[index] ? <img src={team[index].image} alt='' className='profile-image bg-transparent' />
-                      : profileImage ?
-                        <img className='profile-image bg-transparent opacity-25' alt=''
-                          src={URL.createObjectURL(team[index] ? team[index].image : profileImage)} />
-                        :
-                        <AddIcon size='80' color={`${colors.grey[100]}`} className='img-upload-button' />
-                    }
-                  </label>
-                  <input type={editable ? 'file' : ''}
-                    id="file-input" className="form-control-file"
-                    accept="image/png, image/jpg, image/gif, image/jpeg"
-                    onChange={(e) => setProfileImg(e.target.files[0])} />
-                </div>
-
-                <div className='card-body text-center'>
-
-                  <div className='d-flex justify-content-center align-items-center mb-2'>
-                    {(team[index] ? team[index].stars.length === 0 : stars.length === 0) ?
-                      <span style={{ color: `${colors.primary[200]}`, fontSize: 12 }}>Add reviews here</span>
-                      : <ReviewStars setStars={setStars} stars={team[index] ? team[index].stars : stars} />}
-                    {!team[index] && <AddIcon className='add-button' onClick={() => addReview({ setStars, stars, editable })} />}
-                  </div>
-                  <Input id='title' type='text' placeholder='Your full name' editable={editable}
-                    fieldstyle='fw-bold fs-4' value={item.title} setFunction={setTitle} />
-
-                  <Input id='designation' type='text' placeholder='Your Designation' editable={editable}
-                    fieldstyle='fs-6' value={item.designation} setFunction={setDesignation} />
-
-                  <div className='d-flex'>
-                    <Input id='experience' type='number' placeholder='Years of experience' editable={editable}
-                      fieldstyle='fw-bold mb-2 mns-3 fs-6' value={item.experience} setFunction={setExperience} />
-                    {team[index] && <p className='mt-2 mns-7 fw-bold'> years</p>}
-                  </div>
-
-                </div>
 
                 {!team[index] && <button className='btn btn-success w-100'
                   style={{ backgroundColor: colors.greenAccent[600] }}
@@ -166,50 +128,6 @@ export const Team = () => {
         : <ClipLoader color='white' />}
 
       {open &&
-        members.length !== 0 &&
-        <div className=' d-flex flex-wrap row w-100 p-3'>
-          {members.map((item, index) => (
-            <div className='col-md-4 col-sm-12 col-xs-12 mt-4'>
-              <div className='team-card p-4'
-                backgroundColor={`${colors.primary[400]} !important`}>
-                <EditOutlinedIcon className='edit-button' onClick={() => handleOpen(index)} />
-                <div className="card-image d-flex justify-content-center align-items-center ms-8">
-                  <label htmlFor="file-input">
-                    <AddIcon size='80' color={`${colors.grey[100]}`} className='img-upload-button' />
-                  </label>
-                  <input type={editable ? 'file' : ''}
-                    id="file-input" className="form-control-file"
-                    accept="image/png, image/jpg, image/gif, image/jpeg"
-                    onChange={(e) => setProfileImg(e.target.files[0])} />
-                </div>
-                <div className='card-body text-center'>
-                  {console.log('index: ', teams[index] ? 'tt' : 'dd')}
-                  <div className='d-flex justify-content-center align-items-center mb-2'>
-                    {(teams[index] ? teams[index].stars.length === 0 : stars.length === 0) ? <span style={{ color: `${colors.primary[200]}`, fontSize: 12 }}>Add reviews here</span>
-                      : <ReviewStars stars={teams[index] ? teams[index].stars : stars} />}
-                    {editable && <AddIcon className='add-button' onClick={() => addReview({ setStars, stars, editable })} />}
-                  </div>
-                  <input id='title' placeholder='Your full name'
-                    className='form-control team-details fw-bold fs-4'
-                    value={item.title} style={{ borderWidth: editable ? 1 : 0 }} readOnly={!editable}
-                    onChange={(e) => setTitle(e.target.value)}
-                  />
-                  <input id='designation' placeholder='Your designation'
-                    className='form-control team-details mb-2 fs-6'
-                    value={item.designation} style={{ borderWidth: editable ? 1 : 0 }} readOnly={!editable}
-                    onChange={(e) => setDesignation(e.target.value)}
-                  />
-                </div>
-                {editable && <button className='btn btn-success' onClick={() => addNewMember()}>Add</button>}
-
-              </div>
-            </div>
-          ))}
-        </div>
-      }
-
-      {
-        open &&
         <MemberModal
           open={open}
           stars={stars}

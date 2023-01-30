@@ -18,10 +18,6 @@ const Topbar = () => {
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
-<<<<<<< HEAD
-
-=======
->>>>>>> Code Architecture Altered
       <Box
         display="flex"
         backgroundColor={colors.primary[400]}
@@ -45,15 +41,8 @@ const Topbar = () => {
           Cookies.remove('role')
           Cookies.remove('token')
           dispatch(signOut())
-<<<<<<< HEAD
-<<<<<<< HEAD
-          navigate('/')
-=======
+
           navigate('/login')
->>>>>>> Team: Redux persist store for loggedin user
-=======
-          navigate('/')
->>>>>>> Teams: Add New Team Template UI
         }} >
           <LogoutOutlinedIcon />
         </IconButton>

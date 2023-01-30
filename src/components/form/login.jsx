@@ -1,17 +1,12 @@
-<<<<<<< HEAD
 import React, { useState } from 'react'
-=======
->>>>>>> Team: Redux persist store for loggedin user
+import { useDispatch } from 'react-redux'
 import { Box, Button, TextField } from '@mui/material'
-import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import 'antd/dist/antd.css'
 import { message } from 'antd';
 import Cookies from 'js-cookie';
 import { loginuser } from '../../api';
-import { useDispatch } from 'react-redux'
 import { signIn, adminLogIn } from '../../redux/slices/userSlice';
-
 
 export const LoginForm = ({ role }) => {
   const [email, setEmail] = useState()

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { Box, Typography, Modal } from '@mui/material'
-import { delete_image } from '../../../helpers/users';
-import { delete_user } from '../../../helpers/admin';
-import { delete_analytic, delete_member, delete_member } from '../../../helpers/cms';
-import AuthContext from '../../../context/auth';
+import { delete_image } from '../../helpers/users';
+import { delete_user } from '../../helpers/admin';
+import { delete_analytic, delete_member } from '../../helpers/cms';
+import AuthContext from '../../context/auth';
 
 export const ConfirmationModal = (props) => {
   let {
@@ -46,32 +46,32 @@ export const ConfirmationModal = (props) => {
     }
   }
 
-    return (
-      <Modal
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        BackdropProps={{
-          timeout: 600,
-        }}
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h4" component="h2" color="white">
-            Are you sure you want to delete?
-          </Typography>
-          <Box display='flex' justifyContent='center' className='m-3'>
-            <button className='btn btn-outline-primary mx-2'
-              onClick={() => handleClose()}>
-              Cancel
-            </button>
-            <button className='btn btn-primary mx-2'
-              onClick={() => deleteContent()}>
-              Delete
-            </button>
-          </Box>
+  return (
+    <Modal
+      open={open}
+      onClose={handleClose}
+      closeAfterTransition
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+      BackdropProps={{
+        timeout: 600,
+      }}
+    >
+      <Box sx={style}>
+        <Typography id="modal-modal-title" variant="h4" component="h2" color="white">
+          Are you sure you want to delete?
+        </Typography>
+        <Box display='flex' justifyContent='center' className='m-3'>
+          <button className='btn btn-outline-primary mx-2'
+            onClick={() => handleClose()}>
+            Cancel
+          </button>
+          <button className='btn btn-primary mx-2'
+            onClick={() => deleteContent()}>
+            Delete
+          </button>
         </Box>
-      </Modal >
-    )
-  }
+      </Box>
+    </Modal >
+  )
+}

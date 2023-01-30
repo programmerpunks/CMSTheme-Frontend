@@ -1,25 +1,11 @@
 import React, { useState } from 'react'
-<<<<<<< HEAD:src/pages/dashboard/index.jsx
-import { Box } from '@mui/material'
-import ReactPaginate from 'react-paginate'
-import Header from '../components/Header/header'
-=======
 import moment from "moment"
 import { TbDots } from 'react-icons/tb'
 import { tokens } from "../../theme"
->>>>>>> Code Architecture Altered:src/pages/dashboard/dashboard.jsx
 import { Box, useTheme } from '@mui/material'
 import Header from '../../components/Header/header'
 import { useFetchUsers } from '../../customHooks/useFetchUsers'
-<<<<<<< HEAD:src/pages/dashboard/index.jsx
-import { TbDots } from 'react-icons/tb'
-import { tokens } from "../../theme";
-import moment from "moment";
-import { delete_user } from '../../helpers/admin'
-import { ConfirmationModal } from '../components/modal/confirmation'
-=======
 import { ConfirmationModal } from '../../components/modal/confirmation'
->>>>>>> Code Architecture Altered:src/pages/dashboard/dashboard.jsx
 
 export const Dashboard = () => {
   const [fetch, setFetch] = useState(false)
@@ -54,7 +40,7 @@ export const Dashboard = () => {
             </tr>
           </thead>
           <tbody>
-            {currentUsers.map((user, index) => (
+            {users.map((user, index) => (
               <tr className='table-row-hover'>
                 {user.firstname !== 'Admin' && (
                   <>
@@ -81,24 +67,7 @@ export const Dashboard = () => {
 
           </tbody>
         </table>
-
-        <ReactPaginate
-          className='d-flex justify-content-center py-4'
-          breakLabel="..."
-          nextLabel=">"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={usersPerPage}
-          pageCount={pageCount}
-          previousLabel="<"
-          pageClassName='d-flex px-1 mx-1'
-          breakClassName='page-item'
-          pageLinkClassName='page-links bg-light p-2 px-3 rounded-circle'
-          previousClassName='page-controllers p-2 px-3 mx-2 rounded-circle'
-          nextClassName='page-controllers p-2 px-3 mx-2 rounded-circle'
-          renderOnZeroPageCount={null}
-        />
-      </Box >
-
+      </Box>
       {open &&
         <ConfirmationModal
           content='user'
@@ -113,4 +82,3 @@ export const Dashboard = () => {
     </Box >
   )
 }
-

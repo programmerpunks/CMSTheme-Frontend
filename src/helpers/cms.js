@@ -38,7 +38,7 @@ export const ReviewStars = ({setStars, stars}) => {
 }
 
 
-const addNewMember = ({image, team, setTeam, title, designation, stars, setEditable, editable, setProcess, setLoading, experience, setUploaded, check, setCheck}) => {
+export const addNewMember = ({image, team, setTeam, title, designation, stars, setEditable, editable, setProcess, setLoading, experience, setUploaded, check, setCheck}) => {
   setEditable(!editable)
   const id = Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000;
   let data = { id, title, designation, stars, image, experience } 

@@ -62,15 +62,6 @@
   height: 100px;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Teams: New Team members added and displayed
-=======
->>>>>>> Teams: New Team members added and displayed
 .crud-actions {
   display: flex;
   margin-left: -10px;
@@ -84,21 +75,6 @@
 
 .card-image,
 .profile-image {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-.card-image {
->>>>>>> Teams: Add New Team Template UI
-=======
->>>>>>> Teams: New Team members added and displayed
-=======
-.card-image {
->>>>>>> Teams: Add New Team Template UI
-=======
->>>>>>> Teams: New Team members added and displayed
-=======
-.card-image {
->>>>>>> Teams: Add New Team Template UI
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -109,33 +85,11 @@
   font-weight: bold;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Teams: New Team members added and displayed
-=======
->>>>>>> Teams: New Team members added and displayed
 .profile-image {
   width: 120px;
   height: 120px;
-
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Teams: Add New Team Template UI
-=======
->>>>>>> Teams: New Team members added and displayed
-=======
->>>>>>> Teams: Add New Team Template UI
-=======
->>>>>>> Teams: New Team members added and displayed
-=======
->>>>>>> Teams: Add New Team Template UI
 .img-upload-button {
   cursor: pointer;
   font-size: 20px;
@@ -171,15 +125,6 @@
   color: white;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Teams: New Team members added and displayed
-=======
->>>>>>> Teams: New Team members added and displayed
 .card-body p {
   color: #d2d5db;
   z-index: 2;
@@ -187,76 +132,18 @@
   float: right;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .edit-button {
   cursor: pointer;
   color: rgb(182, 183, 185);
   margin: auto;
-=======
-=======
->>>>>>> Teams: New Team members added and displayed
-.edit-button {
-  cursor: pointer;
-  color: rgb(182, 183, 185);
-  margin: auto;
-<<<<<<< HEAD
-  /* position: absolute; */
->>>>>>> Teams: Add New Team Template UI
-=======
->>>>>>> Teams: New Team members added and displayed
-=======
-=======
->>>>>>> Teams: New Team members added and displayed
-.edit-button {
-  cursor: pointer;
-  color: rgb(182, 183, 185);
-  margin: auto;
-<<<<<<< HEAD
-  /* position: absolute; */
->>>>>>> Teams: Add New Team Template UI
-=======
->>>>>>> Teams: New Team members added and displayed
-=======
-.edit-button {
-  cursor: pointer;
-  color: rgb(182, 183, 185);
-  float: right;
-  margin: auto;
-  /* position: absolute; */
->>>>>>> Teams: Add New Team Template UI
 }
 
 .edit-button:hover {
   color: white;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Teams: New Team members added and displayed
-=======
->>>>>>> Teams: New Team members added and displayed
 }
 
 .team-card:hover .crud-actions {
   opacity: 1;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Teams: Add New Team Template UI
-=======
->>>>>>> Teams: New Team members added and displayed
-=======
->>>>>>> Teams: Add New Team Template UI
-=======
->>>>>>> Teams: New Team members added and displayed
-=======
-=======
->>>>>>> Analytics: Add & Delete Website Analytics
 }
 
 .overlay2 {
@@ -276,10 +163,4 @@
 .analytics:hover .overlay2 {
   cursor: pointer;
   height: 100px;
-<<<<<<< HEAD
->>>>>>> Analytics: Add & Delete Website Analytics
-=======
->>>>>>> Teams: Add New Team Template UI
-=======
->>>>>>> Analytics: Add & Delete Website Analytics
 }
