@@ -7,7 +7,7 @@ import AuthContext from './context/auth'
 import Sidebar from './layout/Sidebar.jsx'
 import { Login } from './pages/Login/index';
 import { Images } from './pages/CMS/images';
-import { NewUser } from './pages/users/newUser';
+import { NewUser } from './pages/Users/newUser';
 import { Dashboard } from './pages/dashboard/index';
 import { ColorModeContext, useMode } from './theme';
 import { Information } from './pages/CMS/information';

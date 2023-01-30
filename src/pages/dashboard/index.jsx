@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Box } from '@mui/material'
 import ReactPaginate from 'react-paginate'
 import Header from '../components/Header/header'
 import { Box, useTheme } from '@mui/material'
@@ -7,13 +6,17 @@ import { useFetchUsers } from '../../customHooks/useFetchUsers'
 import { TbDots } from 'react-icons/tb'
 import { tokens } from "../../theme";
 import moment from "moment";
-import { delete_user } from '../../helpers/admin'
 import { ConfirmationModal } from '../components/modal/confirmation'
 
 export const Dashboard = () => {
   const [fetch, setFetch] = useState(false)
-  const [current, setCurrent] = useState()
   const [users] = useFetchUsers({ fetch })
+  const usersPerPage = 5
+  const [userOffset, setItemOffset] = useState(0)
+  const endOffset = userOffset + usersPerPage
+  const currentUsers = users.slice(userOffset, endOffset)
+  const pageCount = Math.ceil(users.length / usersPerPage)
+  const [current, setCurrent] = useState()
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
   const [open, setOpen] = useState(false);
@@ -21,6 +24,11 @@ export const Dashboard = () => {
   const handleOpen = (uid) => {
     setOpen(true)
     setCurrent(uid)
+  }
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * usersPerPage) % users.length
+    setItemOffset(newOffset)
   }
 
   return (

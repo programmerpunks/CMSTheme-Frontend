@@ -50,15 +50,7 @@ export const tokens = (mode) => ({
           900: '#2c100f',
         },
         blueAccent: {
-<<<<<<< HEAD
-<<<<<<< HEAD
           100: '#8a929f',
-=======
-          100: '#e1e2fe',
->>>>>>> Team: Redux persist store for loggedin user
-=======
-          100: '#8a929f',
->>>>>>> Teams: New Team members added and displayed
           200: '#c3c6fd',
           300: '#a4a9fc',
           400: '#868dfb',
@@ -67,16 +59,8 @@ export const tokens = (mode) => ({
           700: '#3e4396',
           800: '#2a2d64',
           900: '#151632',
-<<<<<<< HEAD
-<<<<<<< HEAD
         }
-=======
-        },
->>>>>>> Team: Redux persist store for loggedin user
-=======
         }
->>>>>>> Teams: Add New Team Template UI
-      }
     : {
         grey: {
           100: '#141414',
