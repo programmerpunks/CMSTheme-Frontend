@@ -1,0 +1,14 @@
+input {
+  background-color: #151f33 !important;
+  border-color: #151f33 !important;
+  color: rgb(204, 204, 206) !important;
+}
+
+.bg-primary {
+  background-color: #535ac8 !important;
+  border-radius: 10px !important;
+}
+
+.bg-primary:hover {
+  background-color: #262b74 !important;
+}
