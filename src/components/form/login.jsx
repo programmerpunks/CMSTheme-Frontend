@@ -9,9 +9,9 @@ import { loginuser } from '../../api';
 import { signIn, adminLogIn } from '../../redux/slices/userSlice';
 
 export const LoginForm = ({ role }) => {
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
-  const [error, setError] = useState()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
   let navigate = useNavigate()
   let dispatch = useDispatch()
 
@@ -25,17 +25,19 @@ export const LoginForm = ({ role }) => {
         message.error('Invalid Credentials')
       }
     } else {
-      let response = await loginuser({ email, password })
-      if (!response.data.success) {
-        setError(response.data.errors[0])
+      try {
+        let response = await loginuser({ email, password })
+        if (response.status === 202) {
+          dispatch(signIn({ user: response.data.user }))
+          setError('')
+          Cookies.set('token', response.data.token)
+          Cookies.set('role', 'user')
+          navigate('/')
+        }
+      } catch (err) {
+        message.error(err.response.data.error)
       }
-      else if (response.data.success) {
-        dispatch(signIn({ user: response.data.user }))
-        setError('')
-        Cookies.set('token', response.data.token)
-        Cookies.set('role', 'user')
-        navigate('/')
-      }
+
     }
   }
 

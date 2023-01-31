@@ -71,35 +71,28 @@ export const Images = () => {
         )}
         <Box className='template-images mt-4'>
           {storedImages.length !== 0 && storedImages.map((image, index) =>
-          (
-            <>
-              <div className='image-container' key={image}>
-                <img src={image} className='image m-4' alt='template' />
-                <div className="overlay">
-                  <DeleteOutlineIcon
-                    className='delete-button'
-                    onClick={() => handleOpen(index)} />
-                </div>
+            <div className='image-container' key={image}>
+              <img src={image} className='image m-4' alt='template' />
+              <div className="overlay">
+                <DeleteOutlineIcon
+                  className='delete-button'
+                  onClick={() => handleOpen(index)} />
               </div>
-
-            </>
-          ))
+            </div>
+          )
           }
           {displayImages.length !== 0 && Object.entries(displayImages).map((image) =>
-          (
             <img
               src={URL.createObjectURL(image[1])}
               alt='template'
               className='image m-4' style={{ opacity: uploaded ? 1 : 0.1 }} />
-          ))
+          )
           }
         </Box>
 
-        {uploaded && (
-          <>
-            <SaveChanges images={cloudinaryImages} storedImages={storedImages} />
-          </>
-        )}
+        {uploaded &&
+          <SaveChanges images={cloudinaryImages} storedImages={storedImages} state={uploaded} setState={setImgUploaded} />
+        }
       </Box>
 
       {open &&

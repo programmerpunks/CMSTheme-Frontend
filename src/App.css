@@ -1,6 +1,7 @@
 .w-80 {
   width: 80%;
 }
+
 .w-40 {
   width: 40%;
 }
@@ -38,6 +39,7 @@
   font-size: 13px;
   color: rgb(206, 208, 209);
 }
+
 .mne-4 {
   margin-right: -10px;
   margin-top: -5px;
@@ -94,6 +96,7 @@
 label {
   color: rgb(174, 193, 216) !important;
 }
+
 .text-secondary {
   color: rgb(206, 206, 207) !important
 }
@@ -124,8 +127,7 @@ label {
 
 .table-row-hover:hover {
   cursor: pointer;
-  background-color: #1F2A40 !important;
-  color: green !important;
+  background-color: rgba(18, 28, 47, 0.887) !important;
 }
 
 .page-controllers {

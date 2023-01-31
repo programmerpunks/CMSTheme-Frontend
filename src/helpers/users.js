@@ -3,22 +3,25 @@ import { message } from 'antd'
 import { deleteimage, fetchtemplate, loginuser } from '../api/index'
 
 export const signin = async({logindata, setError }) => {
-  let response = await loginuser({logindata})
-  if(!response.data.success){
-    setError(response.data.error)
-  }else{
-    Cookies.set('token', response.data.token)
-    Cookies.set('role', response.data.role)
-    setError('')
+  try{
+    let response = await loginuser({logindata})
+    if(response.status === 202){
+      Cookies.set('token', response.data.token)
+      setError('')
+    }
+  }catch(err){
+    message.error(err.response.data.error)
   }
 }
 
 export const get_template = async({setTemplate, setFetching }) => {
+  try{
   let response = await fetchtemplate()
-  if(!response.data.success){
-     message.error(response.data.error)
-  }else{
+  if(response.status === 202){
     setTemplate(response.data.template[0])
+  }
+  }catch(err){
+    message.error(err.response.data.error)
   }
   setFetching(false)
 
@@ -55,20 +58,14 @@ export const uploadImage = ({ cloudinaryImages, setCloudinaryImages, setLoading,
 export const delete_image = async({ image, setCurrent,  check, setCheck, setOpen }) => {
   try{
     let response = await deleteimage({image})
-  if(!response.data.success){
-    message.error(response.data.error)
-  }else{
+    if(response.status === 202){
     setCurrent()
-    setCheck(!check)
     setOpen(false)
+    setCheck(!check)
     message.success('Deleted')
-  }
+    }
   }catch(err){
-    console.log(err.message)
+    console.log('error: ', err.response.data)
+    message.error(err.response.data.error)
   }
 }
-
-// export const deleteMember = async({id}) => {
-//   let response = await 
-// }
-

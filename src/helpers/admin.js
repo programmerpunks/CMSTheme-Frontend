@@ -18,8 +18,7 @@ export const register_user = async ({formData, setError }) =>{
   }
 }
 
-export const get_users = async ({setUsers, setLoading}) =>{
-  setLoading(true)
+export const get_users = async ({setUsers}) =>{
   try{
     let response = await fetchusers()
     if(!response.data.success){
@@ -29,9 +28,6 @@ export const get_users = async ({setUsers, setLoading}) =>{
     }
   }catch(err){
     console.log(err.message)
-  }
-  finally{
-    setLoading(false)
   }
 }
 

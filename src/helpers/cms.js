@@ -4,13 +4,16 @@ import { message } from 'antd';
 import { applycms } from '../api';
 
 export const save = async (props) => {
+  const {setCheck, setState, check} = props
+  try{
   let response = await applycms({ data: props })
-  if (!response.data.success) {
-    message.error(response.data.error)
-  } else {
-    props.setCheck(!props.check)
+  if (response.status === 202) {
+    setCheck(!check)
+    setState(false)
     message.success('Changes Saved')
-    props.setState(!props.state)
+  }
+  }catch(err){
+    message.error(err.response.data.error)
   }
 }
 
@@ -19,7 +22,7 @@ export const removeStar = ({setStars, key, stars}) => {
   setStars(filteredStars)
 }
 
-export const addReview = ({stars, setStars, editable}) => {
+export const addReview = ({stars, setStars}) => {
   if (stars.length < 5)
     setStars([...stars, {
       id: stars.length
@@ -38,7 +41,7 @@ export const ReviewStars = ({setStars, stars}) => {
 }
 
 
-export const addNewMember = ({image, team, setTeam, title, designation, stars, setEditable, editable, setProcess, setLoading, experience, setUploaded, check, setCheck}) => {
+export const addNewMember = ({image, team, setTeam, title, designation, stars, setEditable, editable, setProcess, setLoading, experience, setUploaded}) => {
   setEditable(!editable)
   const id = Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000;
   let data = { id, title, designation, stars, image, experience } 
@@ -49,18 +52,19 @@ export const addNewMember = ({image, team, setTeam, title, designation, stars, s
 }
 
 export const uploadImage = async (props) => {
-  props.setLoading(true)
-  props.setUploaded(false)
-  if(props.profileImage){
+  const {setLoading, setUploaded, profileImage} = props
+  setLoading(true)
+  setUploaded(false)
+  if(profileImage){
     const data = new FormData()
-    data.append("file", props.profileImage)
+    data.append("file", profileImage)
     data.append("upload_preset", process.env.REACT_APP_CLOUDINARY_PRESET_FOLDER)
     data.append("cloud_name", process.env.REACT_APP_CLOUDINARY_CLOUD_NAME)
     await fetch(process.env.REACT_APP_CLOUDINARY_URL, {
       method: "post",
       body: data
     })
-      .then(resp => resp.json())
+      .then(res => res.json())
       .then(data => {
         props.image = data.url
         addNewMember(props)
@@ -74,13 +78,15 @@ export const delete_member = async ({team,setTeam, setMembers, id, setOpen}) => 
   let filteredMembers = team.filter(member => member.id!==id)
   let response = await applycms({ data: { team: filteredMembers } })
 
-  if (!response.data.success) {
-    message.error(response.data.error)
-  } else {
-    setTeam(response.data.template.team)
-    setMembers(response.data.template.team)
-    setOpen(false)
-    message.success('Deleted')
+  try{
+    if (response.status === 202) {
+      setTeam(response.data.template.team)
+      setMembers(response.data.template.team)
+      setOpen(false)
+      message.success('Deleted')
+    }
+  }catch(err){
+    message.error(err.response.data.error)
   }
 }
 
@@ -88,14 +94,15 @@ export const delete_analytic = async ({ analytics, setAnalytics, id, setOpen, se
 
   let filteredAnalytics = analytics.filter(item => item.id!==id)
 
-  let response = await applycms({ data: { analytics: filteredAnalytics } })
-  if (!response.data.success) {
-    message.error(response.data.error)
-  } else {
-    
-    setAnalytics(response.data.template.analytics)
-    setOpen(false)
-    setCurrent({ analytic: '', count: '' })
-    message.success('Deleted')
+  try{
+    let response = await applycms({ data: { analytics: filteredAnalytics } })
+    if (response.status === 202) {
+        setAnalytics(response.data.template.analytics)
+        setOpen(false)
+        setCurrent({ analytic: '', count: '' })
+        message.success('Deleted')
+    }
+  }catch(err){
+    message.error(err.response.data.error)
   }
 }

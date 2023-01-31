@@ -10,7 +10,7 @@ import { ConfirmationModal } from '../../components/modal/confirmation'
 export const Dashboard = () => {
   const [fetch, setFetch] = useState(false)
   const [current, setCurrent] = useState()
-  const [users] = useFetchUsers({ fetch })
+  const users = useFetchUsers({ fetch })
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
   const [open, setOpen] = useState(false);

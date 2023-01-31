@@ -5,18 +5,18 @@ import { delete_user } from '../../helpers/admin';
 import { delete_analytic, delete_member } from '../../helpers/cms';
 import AuthContext from '../../context/auth';
 
-export const ConfirmationModal = (props) => {
-  let {
-    open,
-    setOpen,
-    current,
-    setCurrent,
-    fetch, setFetch,
-    colors, content,
-    team, setTeam, setMembers,
-    analytics, setAnalytics } = props
+export const ConfirmationModal = ({
+  open,
+  setOpen,
+  current,
+  setCurrent,
+  fetch, setFetch,
+  colors, content,
+  team, setTeam, setMembers,
+  analytics, setAnalytics }) => {
 
   let { check, setCheck } = useContext(AuthContext)
+
   const style = {
     position: 'absolute',
     top: '50%',
@@ -33,16 +33,14 @@ export const ConfirmationModal = (props) => {
 
   const deleteContent = async () => {
     if (content === 'user') {
-      if (props.content === 'user') {
-        await delete_user({ uid: current, fetch, setFetch, setOpen })
-      } else if (content === 'team') {
-        await delete_member({ team, setTeam, setMembers, id: current.id, setOpen })
-      } else if (content === 'analytics') {
-        await delete_analytic({ analytics, setAnalytics, id: current.id, setOpen, setCurrent })
-      }
-      else {
-        await delete_image({ image: current, setCurrent, setOpen, check, setCheck })
-      }
+      await delete_user({ uid: current, fetch, setFetch, setOpen })
+    } else if (content === 'team') {
+      await delete_member({ team, setTeam, setMembers, id: current.id, setOpen })
+    } else if (content === 'analytics') {
+      await delete_analytic({ analytics, setAnalytics, id: current.id, setOpen, setCurrent })
+    }
+    else {
+      await delete_image({ image: current, setCurrent, setOpen, check, setCheck })
     }
   }
 

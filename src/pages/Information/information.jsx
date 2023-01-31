@@ -135,8 +135,7 @@ export const Information = () => {
             <SocialIcons />
           </Box>
         }
-        {changes &&
-          <SaveChanges title={title} description={description} tid={template._id} contact={contact} social={social} setChanges={setChanges} />}
+        <SaveChanges title={title} description={description} tid={template._id} contact={contact} social={social} setState={setChanges} />
       </Box >
     </Box >
   )
