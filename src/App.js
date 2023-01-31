@@ -16,7 +16,6 @@ import { ColorModeContext, useMode } from './theme'
 import AuthContext from './context/auth'
 import './App.css'
 
-
 function App() {
   const [theme, colorMode] = useMode()
   const [template, setTemplate] = useState()
