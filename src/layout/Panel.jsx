@@ -1,33 +1,14 @@
 import React, { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import GroupsIcon from '@mui/icons-material/Groups';
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
 import { tokens } from "../theme"
-
-const Item = ({ title, to, icon, selected, setSelected }) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-  return (
-    <MenuItem
-      active={selected === title}
-      style={{
-        color: colors.grey[100],
-      }}
-      onClick={() => setSelected(title)}
-      icon={icon}
-    >
-      <Typography>{title}</Typography>
-      <Link to={to} />
-    </MenuItem>
-  );
-};
+import { Item } from './Item'
 
 const Sidebar = () => {
   const theme = useTheme();
@@ -109,6 +90,7 @@ const Sidebar = () => {
               Menu
             </Typography>
             <Item
+              colors={colors}
               title="Website Info"
               to="/"
               icon={<HomeOutlinedIcon />}
@@ -116,6 +98,7 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
+              colors={colors}
               title="Analytics"
               to="/analytics"
               icon={<TimelineOutlinedIcon />}
@@ -124,6 +107,7 @@ const Sidebar = () => {
             />
 
             <Item
+              colors={colors}
               title="Images"
               to="/images"
               icon={<CollectionsOutlinedIcon />}
@@ -132,6 +116,7 @@ const Sidebar = () => {
             />
 
             <Item
+              colors={colors}
               title="Team"
               to="/team"
               icon={<GroupsIcon />}

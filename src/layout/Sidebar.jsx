@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar"
 import "react-pro-sidebar/dist/css/styles.css"
-import { Box, IconButton, Typography, useTheme } from "@mui/material"
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
-import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined"
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined"
+import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined"
+import { Box, IconButton, Typography, useTheme } from "@mui/material"
 import { tokens } from "../theme"
 import { Item } from './Item'
 

@@ -38,7 +38,6 @@ const Topbar = () => {
           <PersonOutlinedIcon />
         </IconButton>
         <IconButton onClick={() => {
-          Cookies.remove('role')
           Cookies.remove('token')
           dispatch(signOut())
           navigate('/')
