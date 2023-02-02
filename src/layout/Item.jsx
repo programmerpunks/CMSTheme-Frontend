@@ -1,10 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { MenuItem } from "react-pro-sidebar"
-import { Typography } from "@mui/material"
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { MenuItem } from 'react-pro-sidebar';
+import { Typography } from '@mui/material';
 
-export const Item = ({ colors, title, to, icon, selected, setSelected}) => {
-  console.log('colors: ', colors)
+export const Item = ({ colors, title, to, icon, selected, setSelected }) => {
   return (
     <MenuItem
       active={selected === title}
