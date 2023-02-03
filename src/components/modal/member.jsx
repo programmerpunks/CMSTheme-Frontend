@@ -1,25 +1,33 @@
-import React, { useContext } from 'react'
-import { Box, Modal, Button } from '@mui/material'
-import CloseIcon from '@mui/icons-material/Close'
-import { save } from '../../helpers/cms'
-import AuthContext from '../../context/auth'
-import { TeamCard } from '../card/team'
+import React, { useContext } from "react";
+import { Box, Modal, Button } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import { save } from "../../helpers/cms";
+import AuthContext from "../../context/auth";
+import { TeamCard } from "../card/team";
 
-export const MemberModal = (props) => {
-
-  let { title, setTitle,
-    designation, setDesignation,
-    profileImage, setProfileImg,
-    experience, setExperience,
-    stars, setStars, open, setOpen,
-    colors, team, member } = props
-
-  const { check, setCheck } = useContext(AuthContext)
+export const MemberModal = ({
+  title,
+  setTitle,
+  designation,
+  setDesignation,
+  profileImage,
+  setProfileImg,
+  experience,
+  setExperience,
+  stars,
+  setStars,
+  open,
+  setOpen,
+  colors,
+  team,
+  member,
+}) => {
+  const { check, setCheck } = useContext(AuthContext);
 
   const update = async () => {
     let updatedTeam = team.map((item) => {
       if (item.id !== member.id) {
-        return member
+        return item;
       } else {
         return {
           ...member,
@@ -27,32 +35,39 @@ export const MemberModal = (props) => {
           designation,
           stars,
           experience,
-          image: profileImage
-        }
+          image: profileImage,
+        };
       }
-    })
-    setStars([])
-    setProfileImg('')
-    await save({ team: updatedTeam, check, setCheck, setState: setOpen, state: open })
-  }
+    });
+
+    setStars([]);
+    setProfileImg("");
+
+    await save({
+      team: updatedTeam,
+      check,
+      setCheck,
+      setState: setOpen,
+    });
+  };
 
   const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     width: 400,
     bgcolor: colors.primary[400],
-    border: 'transparent',
+    border: "transparent",
     boxShadow: 24,
     p: 4,
   };
 
   const handleClose = () => {
-    setProfileImg('')
-    setStars([])
+    setProfileImg("");
+    setStars([]);
     setOpen(false);
-  }
+  };
 
   return (
     <Modal
@@ -66,19 +81,28 @@ export const MemberModal = (props) => {
       }}
     >
       <Box sx={style}>
-        <div className='d-flex justify-content-end mb-2'>
-          <CloseIcon className='add-button' onClick={() => handleClose()} />
+        <div className="d-flex justify-content-end mb-2">
+          <CloseIcon className="add-button" onClick={() => handleClose()} />
         </div>
 
-        <TeamCard member={member} title={title} setTitle={setTitle}
-          profileImage={profileImage} setProfileImg={setProfileImg}
-          designation={designation} setDesignation={setDesignation}
-          experience={experience} setExperience={setExperience}
-          stars={stars} setStars={setStars} editable={true}
-          colors={colors} />
+        <TeamCard
+          member={member}
+          title={title}
+          setTitle={setTitle}
+          profileImage={profileImage}
+          setProfileImg={setProfileImg}
+          designation={designation}
+          setDesignation={setDesignation}
+          experience={experience}
+          setExperience={setExperience}
+          stars={stars}
+          setStars={setStars}
+          editable={true}
+          colors={colors}
+        />
 
-        <div className='d-flex justify-content-center'>
-          <Box display='flex' justifyContent='flex-end' marginTop='20px'>
+        <div className="d-flex justify-content-center">
+          <Box display="flex" justifyContent="flex-end" marginTop="20px">
             <Button
               type="submit"
               color="secondary"
@@ -90,6 +114,6 @@ export const MemberModal = (props) => {
           </Box>
         </div>
       </Box>
-    </Modal >
-  )
-}
+    </Modal>
+  );
+};
