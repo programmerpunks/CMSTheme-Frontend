@@ -139,3 +139,26 @@ export const delete_analytic = async ({
     message.error(err.response.data.error);
   }
 };
+
+export const addAnalytics = ({values, analytics, setAnalytics, setAdded, setError }) => {
+  if (values.count) {
+    let duplicate = analytics.filter(
+      (item) => item.analytic === values.analytic
+    );
+    if (!duplicate.length) {
+      setError();
+      const id = Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000;
+      setAnalytics([
+        ...analytics,
+        { id, analytic: values.analytic, count: values.count },
+      ]);
+      values.count = "";
+      values.analytic = "";
+      setAdded(true);
+    } else {
+      setError(`${values.analytic},  has already been added`);
+    }
+  } else {
+    setError("Count is required");
+  }
+};

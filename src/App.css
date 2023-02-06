@@ -21,17 +21,8 @@
   opacity: 1 !important;
 }
 
-.mne-4 {
-  margin-right: -10px;
-  margin-top: -5px;
-}
-
 .mns-3 {
   margin-left: -10px !important;
-}
-
-.mns-7 {
-  margin-left: -70px !important;
 }
 
 .fs-xss {
@@ -45,10 +36,6 @@
   margin-top: -5px;
 }
 
-.mns-3 {
-  margin-left: -10px !important;
-}
-
 .mns-7 {
   margin-left: -70px !important;
 }
@@ -57,19 +44,6 @@
   margin-top: -10px;
   font-size: 13px;
   color: rgb(206, 208, 209);
-}
-
-.mne-4 {
-  margin-right: -10px;
-  margin-top: -5px;
-}
-
-.mns-3 {
-  margin-left: -10px !important;
-}
-
-.mns-7 {
-  margin-left: -70px !important;
 }
 
 .fs-xss {
@@ -191,4 +165,8 @@ textarea {
   background-color: #151f33 !important;
   border-color: #151f33 !important;
   color: rgb(204, 204, 206) !important;
+}
+
+.text-danger{
+  color: rgb(255, 26, 26) !important;
 }

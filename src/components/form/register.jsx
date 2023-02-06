@@ -1,19 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { Box, Button, TextField } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
-import { register_user } from '../../helpers/admin'
+import { register_user } from "../../helpers/admin";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import Header from '../../components/Header/header'
+import Header from "../../components/Header/header";
 
 const Form = () => {
-  const [error, setError] = useState('')
+  const [error, setError] = useState("");
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = async (values) => {
-    await register_user({ formData: values, setError })
+    await register_user({ formData: values, setError });
     if (!error) {
-      values.firstname = ""; values.lastname = ""; values.email = ""; values.contact = ""; values.password = "";
+      values.firstname = "";
+      values.lastname = "";
+      values.email = "";
+      values.contact = "";
+      values.password = "";
     }
   };
 
@@ -21,7 +25,7 @@ const Form = () => {
     /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
 
   const passwordRegExp =
-    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d@$.!%*#?&]{8,}$/
+    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d@$.!%*#?&]{8,}$/;
 
   const checkoutSchema = yup.object().shape({
     firstname: yup.string().required("required"),
@@ -31,10 +35,15 @@ const Form = () => {
       .string()
       .matches(phoneRegExp, "Phone number is not valid")
       .required("required"),
-    password: yup.string()
-      .matches(passwordRegExp, "Password should have 8 characters containg atleast 1 upper, 1 lower and 1 digit")
-      .required("required")
+    password: yup
+      .string()
+      .matches(
+        passwordRegExp,
+        "Password should have 8 characters containg atleast 1 upper, 1 lower and 1 digit"
+      )
+      .required("required"),
   });
+  
   const initialValues = {
     firstname: "",
     lastname: "",

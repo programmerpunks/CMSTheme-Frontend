@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Formik } from "formik";
+import * as yup from "yup";
 import { Box, TextField, Button, useTheme } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Header from "../../components/Header/header";
@@ -7,6 +9,7 @@ import { useFetchTemplate } from "../../customHooks/useFetchTemplate";
 import { ConfirmationModal } from "../../components/modal/confirmation";
 import { tokens } from "../../theme";
 import "../styles/styles.css";
+import { addAnalytics } from "../../helpers/cms";
 
 export const Analytics = () => {
   const [fetching, setFetching] = useState(false);
@@ -17,39 +20,31 @@ export const Analytics = () => {
   const colors = tokens(theme.palette.mode);
   const [added, setAdded] = useState(false);
   const [current, setCurrent] = useState({ analytic: "", count: "" });
-  const [analytics, settAnalytics] = useState([{ analytic: "", count: "" }]);
+  const [analytics, setAnalytics] = useState([{ analytic: "", count: "" }]);
 
   useEffect(() => {
     if (template.length !== 0) {
-      settAnalytics(template.analytics);
+      setAnalytics(template.analytics);
     }
   }, [fetching]);
 
-  const handleChange = (event, key) => {
-    setError();
-    setCurrent((current) => ({ ...current, [key]: event.target.value }));
+  const stringRegex = /^[A-Za-z ]{0,50}$/;
+
+  const checkoutSchema = yup.object().shape({
+    analytic: yup
+      .string()
+      .matches(stringRegex, "Only alphabets allowed")
+      .required("required"),
+    count: yup.number().required("required"),
+  });
+
+  const initialValues = {
+    analytic: "",
+    count: "",
   };
 
-  const addAnalytics = () => {
-    if (current.count) {
-      let duplicate = analytics.filter(
-        (item) => item.analytic === current.analytic
-      );
-      if (!duplicate.length) {
-        setError();
-        const id = Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000;
-        settAnalytics([
-          ...analytics,
-          { id, analytic: current.analytic, count: current.count },
-        ]);
-        setCurrent({ analytic: "", count: "" });
-        setAdded(true);
-      } else {
-        setError(`${current.platform},  link already added`);
-      }
-    } else {
-      setError("The link is required");
-    }
+  const handleFormSubmit = async (values) => {
+    addAnalytics({ values, analytics, setAnalytics, setAdded, setError });
   };
 
   const handleOpen = (item) => {
@@ -70,52 +65,69 @@ export const Analytics = () => {
         title="Analytics"
         subtitle="Website analytics count"
       />
+
       <Box
         width="80%"
         textAlign="left"
         backgroundColor={`${colors.primary[400]} !important`}
         className="p-3 rounded"
       >
-        <TextField
-          required
-          id="link-field"
-          label="Analytic"
-          variant="standard"
-          placeholder="Analytic"
-          className="m-2 w-50"
-          value={current.analytic}
-          onChange={(e) => handleChange(e, "analytic")}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
+        <Formik
+          onSubmit={handleFormSubmit}
+          initialValues={initialValues}
+          validationSchema={checkoutSchema}
+        >
+          {({ values, errors, touched, handleChange, handleSubmit }) => (
+            <form onSubmit={handleSubmit} className="d-flex">
+              <TextField
+                required
+                name="analytic"
+                id="link-field"
+                label="Analytic"
+                variant="standard"
+                className="m-2 w-100"
+                placeholder="Analytic"
+                onChange={handleChange}
+                value={values.analytic}
+                error={!!touched.analytic && !!errors.analytic}
+                helperText={touched.analytic && errors.analytic}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
 
-        {current.analytic && (
-          <>
-            <TextField
-              required
-              id="link-field"
-              type="number"
-              label="Count"
-              variant="standard"
-              placeholder="Count"
-              className="m-2 w-40"
-              value={current.count}
-              onChange={(e) => handleChange(e, "count")}
-            />
-            <Button
-              variant="contained"
-              className="outlined-button mt-3 ms-3"
-              onClick={() => addAnalytics()}
-            >
-              Add
-            </Button>
-          </>
-        )}
-        <p className="text-danger fs-xsss ms-3">{error}</p>
+              {values.analytic && (
+                <>
+                  <TextField
+                    required
+                    name="count"
+                    id="link-field"
+                    type="number"
+                    label="Count"
+                    variant="standard"
+                    placeholder="Count"
+                    className="m-2 w-100"
+                    onChange={handleChange}
+                    value={values.count}
+                    error={!!touched.count && !!errors.count}
+                    helperText={touched.count && errors.count}
+                  />
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    className="outlined-button mt-3 ms-3"
+                  >
+                    Add
+                  </Button>
+                </>
+              )}
+            </form>
+          )}
+        </Formik>
+        <p className="text-danger fs-xsss ms-5">{error}</p>
 
         <Box display="flex" alignItems="center">
-          {analytics.map((item, index) => (
+          {analytics.map((item) => (
             <div className="d-flex flex-column justify-content-center align-items-center m-2">
               <div
                 style={{ backgroundColor: colors.primary[300] }}
@@ -155,7 +167,7 @@ export const Analytics = () => {
           current={current}
           analytics={analytics}
           setCurrent={setCurrent}
-          setAnalytics={settAnalytics}
+          setAnalytics={setAnalytics}
         />
       )}
     </Box>
