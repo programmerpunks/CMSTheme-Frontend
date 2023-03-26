@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
-import { get_template } from '../helpers/users';
+
 import AuthContext from '../context/auth';
+import { get_template } from '../helpers/users';
 
 export const useFetchTemplate = ({ setFetching }) => {
   let { check } = useContext(AuthContext)

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Box, useTheme } from "@mui/material";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { BsCheck } from "react-icons/bs";
 import { ClipLoader } from "react-spinners";
-import Header from "../../components/Header/header";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+
 import { ConfirmationModal } from "../../components/modal/confirmation";
+import Header from "../../components/Header/header";
 import { SaveChanges } from "../../components/button/savechanges";
-import { useFetchTemplate } from "../../customHooks/useFetchTemplate";
 import { tokens } from "../../theme";
 import { uploadImage } from "../../helpers/users";
+import { useFetchTemplate } from "../../customHooks/useFetchTemplate";
 import "../styles/styles.css";
 
 export const Images = () => {

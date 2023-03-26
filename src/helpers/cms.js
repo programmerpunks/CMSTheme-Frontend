@@ -1,6 +1,7 @@
-import StarRateIcon from "@mui/icons-material/StarRate";
 import "antd/dist/antd.css";
 import { message } from "antd";
+import StarRateIcon from "@mui/icons-material/StarRate";
+
 import { applycms } from "../api";
 
 export const save = async ({ team, setState, setCheck, check }) => {

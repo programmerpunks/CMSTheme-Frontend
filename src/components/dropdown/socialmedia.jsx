@@ -1,5 +1,5 @@
 import React from "react";
-import { FormControl, Select, MenuItem, InputLabel } from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 export const SocialMediaMenu = ({ value, handleChange, label, menuitems }) => {
   return (

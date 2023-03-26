@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Box, Button, TextField, useTheme } from "@mui/material";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { Formik } from "formik";
 import * as yup from "yup";
-import { Box, TextField, Button, useTheme } from "@mui/material";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+
+import { addAnalytics } from "../../helpers/cms";
+import { ConfirmationModal } from "../../components/modal/confirmation";
 import Header from "../../components/Header/header";
 import { SaveChanges } from "../../components/button/savechanges";
-import { useFetchTemplate } from "../../customHooks/useFetchTemplate";
-import { ConfirmationModal } from "../../components/modal/confirmation";
 import { tokens } from "../../theme";
+import { useFetchTemplate } from "../../customHooks/useFetchTemplate";
 import "../styles/styles.css";
-import { addAnalytics } from "../../helpers/cms";
 
 export const Analytics = () => {
   const [fetching, setFetching] = useState(false);

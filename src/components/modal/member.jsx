@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import { Box, Modal, Button } from "@mui/material";
+import { Box, Button, Modal } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { save } from "../../helpers/cms";
+
 import AuthContext from "../../context/auth";
+import { save } from "../../helpers/cms";
 import { TeamCard } from "../card/team";
 
 export const MemberModal = ({

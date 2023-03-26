@@ -1,7 +1,6 @@
-import React from 'react';
+import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai';
 import { FaYoutube } from 'react-icons/fa';
 import { GrFacebookOption } from 'react-icons/gr';
-import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai';
 
 const Icon = ({ children }) => {
   return (

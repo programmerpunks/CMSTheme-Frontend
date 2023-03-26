@@ -1,7 +1,6 @@
 import { Box, useTheme } from '@mui/material'
-import { tokens } from "../../theme";
 import Form from '../../components/form/register'
-
+import { tokens } from "../../theme";
 import './users.css'
 
 export const NewUser = () => {

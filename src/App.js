@@ -2,19 +2,9 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Panel from "./layout/Panel";
-import Topbar from "./layout/Topbar";
-import Sidebar from "./layout/Sidebar";
-import AuthContext from "./context/auth";
-import { Team } from "./pages/Team/team";
-import { Login } from "./pages/Login/login";
-import { Images } from "./pages/Images/images";
-import { NewUser } from "./pages/Users/newUser";
-import { Dashboard } from "./pages/Dashboard/dashboard";
+
 import { Analytics } from "./pages/Analytics/analytics";
-import { Information } from "./pages/Information/information";
-import { ColorModeContext, useMode } from "./theme";
-import "./App.css";
+import AuthContext from "./context/auth";
 import {
   BASEPATH,
   INFOPATH,
@@ -25,6 +15,18 @@ import {
   PAGENOTFOUNDURL,
 } from "./api/urls";
 import { PageNotFound } from "./pages/404/404";
+import { ColorModeContext, useMode } from "./theme";
+import { Dashboard } from "./pages/Dashboard/dashboard";
+import { Images } from "./pages/Images/images";
+import { Information } from "./pages/Information/information";
+import { Login } from "./pages/Login/login";
+import { NewUser } from "./pages/Users/newUser";
+import Panel from "./layout/Panel";
+import Sidebar from "./layout/Sidebar";
+import { Team } from "./pages/Team/team";
+import Topbar from "./layout/Topbar";
+
+import "./App.css";
 
 function App() {
   const [theme, colorMode] = useMode();

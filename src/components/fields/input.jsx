@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const Input = ({ type, id, placeholder, fieldstyle, editable, value, setFunction }) => {
   return <input
     type={type}
