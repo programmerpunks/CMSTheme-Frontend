@@ -37,7 +37,6 @@ export const Dashboard = () => {
     boxShadow: 24,
     p: 4,
   };
-
   return (
     <Box display="flex" justifyContent="center" alignItems="center"
       flexDirection='column' textAlign='center' >
@@ -58,7 +57,7 @@ export const Dashboard = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
+            {currentUsers.map((user, index) => (
               <tr className='table-row-hover'>
                 {user.firstname !== 'Admin' && (
                   <>
@@ -85,6 +84,21 @@ export const Dashboard = () => {
 
           </tbody>
         </table>
+        <ReactPaginate
+          className='d-flex justify-content-center py-4'
+          breakLabel="..."
+          nextLabel=">"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={usersPerPage}
+          pageCount={pageCount}
+          previousLabel="<"
+          pageClassName='d-flex px-1 mx-1'
+          breakClassName='page-item'
+          pageLinkClassName='page-links bg-light p-2 px-3 rounded-circle'
+          previousClassName='page-controllers p-2 px-3 mx-2 rounded-circle'
+          nextClassName='page-controllers p-2 px-3 mx-2 rounded-circle'
+          renderOnZeroPageCount={null}
+        />
       </Box>
       <Modal
         open={open}
