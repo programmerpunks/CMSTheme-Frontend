@@ -1,18 +1,23 @@
-import { Box, IconButton, useTheme } from "@mui/material";
-import { tokens } from "../theme";
+import Cookies from "js-cookie";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import InputBase from "@mui/material/InputBase";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+import SearchIcon from "@mui/icons-material/Search";
+import { Box, IconButton, useTheme } from "@mui/material";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import SearchIcon from "@mui/icons-material/Search";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
+import { signOut } from "../redux/slices/userSlice";
+import { tokens } from "../theme";
 
 const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  let navigate = useNavigate();
+  let dispatch = useDispatch();
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
-
       <Box
         display="flex"
         backgroundColor={colors.primary[400]}
@@ -26,13 +31,19 @@ const Topbar = () => {
 
       <Box display="flex">
         <IconButton>
-          <NotificationsOutlinedIcon />
-        </IconButton>
-        <IconButton>
           <SettingsOutlinedIcon />
         </IconButton>
         <IconButton>
           <PersonOutlinedIcon />
+        </IconButton>
+        <IconButton
+          onClick={() => {
+            Cookies.remove("token");
+            dispatch(signOut());
+            navigate("/");
+          }}
+        >
+          <LogoutOutlinedIcon />
         </IconButton>
       </Box>
     </Box>

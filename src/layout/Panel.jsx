@@ -1,12 +1,14 @@
-import { useState } from "react"
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar"
-import "react-pro-sidebar/dist/css/styles.css"
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined"
-import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined"
-import { Box, IconButton, Typography, useTheme } from "@mui/material"
-import { tokens } from "../theme"
-import { Item } from './Item'
+import React, { useState } from "react";
+import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
+import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import "react-pro-sidebar/dist/css/styles.css";
+import GroupsIcon from "@mui/icons-material/Groups";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
+import CollectionsOutlinedIcon from "@mui/icons-material/CollectionsOutlined";
+import { tokens } from "../theme";
+import { Item } from "./Item";
 
 const Sidebar = () => {
   const theme = useTheme();
@@ -51,9 +53,7 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-                <Typography variant="h3" color={colors.grey[100]}>
-                  DASHBOARD
-                </Typography>
+                <Typography variant="h3" color={colors.grey[100]}></Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
                 </IconButton>
@@ -63,15 +63,6 @@ const Sidebar = () => {
 
           {!isCollapsed && (
             <Box mb="25px">
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <img
-                  alt="profile-user"
-                  width="150px"
-                  height="150px"
-                  src={`./assets/profile.jpeg`}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
-                />
-              </Box>
               <Box textAlign="center">
                 <Typography
                   variant="h2"
@@ -79,10 +70,10 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Admin
+                  CMS
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                  Admin Dashboard
+                  User Dashboard
                 </Typography>
               </Box>
             </Box>
@@ -97,18 +88,36 @@ const Sidebar = () => {
               Menu
             </Typography>
             <Item
-              title="Dashboard"
-              to="/"
               colors={colors}
+              title="Website Info"
+              to="/"
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Add users"
-              to="/new-user"
               colors={colors}
-              icon={<PeopleOutlinedIcon />}
+              title="Analytics"
+              to="/analytics"
+              icon={<TimelineOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
+              colors={colors}
+              title="Images"
+              to="/images"
+              icon={<CollectionsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
+              colors={colors}
+              title="Team"
+              to="/team"
+              icon={<GroupsIcon />}
               selected={selected}
               setSelected={setSelected}
             />
