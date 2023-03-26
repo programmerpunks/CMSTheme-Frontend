@@ -97,7 +97,7 @@ export const uploadImage = async (props) => {
   }
 };
 
-export const delete_member = async ({
+export const deleteMember = async ({
   team,
   setTeam,
   setMembers,
@@ -119,7 +119,7 @@ export const delete_member = async ({
   }
 };
 
-export const delete_analytic = async ({
+export const deleteAnalytic = async ({
   analytics,
   setAnalytics,
   id,

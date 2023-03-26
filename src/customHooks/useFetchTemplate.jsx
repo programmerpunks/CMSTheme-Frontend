@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 
 import AuthContext from '../context/auth';
-import { get_template } from '../helpers/users';
+import { getTemplate } from '../helpers/users';
 
 export const useFetchTemplate = ({ setFetching }) => {
   let { check } = useContext(AuthContext)
@@ -12,7 +12,7 @@ export const useFetchTemplate = ({ setFetching }) => {
   useEffect(() => {
     setLoading(true)
     setFetching(true)
-    get_template({ setTemplate, setFetching })
+    getTemplate({ setTemplate, setFetching })
   }, [check]);
 
   return [template, loading];

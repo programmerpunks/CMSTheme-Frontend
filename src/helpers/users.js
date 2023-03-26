@@ -15,7 +15,7 @@ export const signin = async ({ logindata, setError }) => {
   }
 };
 
-export const get_template = async ({ setTemplate, setFetching }) => {
+export const getTemplate = async ({ setTemplate, setFetching }) => {
   try {
     let response = await fetchtemplate();
     if (response.status === 202) {
@@ -62,7 +62,7 @@ export const uploadImage = ({
   }
 };
 
-export const delete_image = async ({
+export const deleteImage = async ({
   image,
   setCurrent,
   check,

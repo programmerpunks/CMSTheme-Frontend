@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { Box, Typography, Modal } from "@mui/material";
 
 import AuthContext from "../../context/auth";
-import { delete_image } from "../../helpers/users";
-import { delete_user } from "../../helpers/admin";
-import { delete_analytic, delete_member } from "../../helpers/cms";
+import { deleteImage } from "../../helpers/users";
+import { deleteUser } from "../../helpers/admin";
+import { deleteAnalytic, deleteMember } from "../../helpers/cms";
 
 export const ConfirmationModal = ({
   open,
@@ -39,9 +39,9 @@ export const ConfirmationModal = ({
 
   const deleteContent = async () => {
     if (content === "user") {
-      await delete_user({ uid: current, fetch, setFetch, setOpen });
+      await deleteUser({ uid: current, fetch, setFetch, setOpen });
     } else if (content === "team") {
-      await delete_member({
+      await deleteMember({
         team,
         setTeam,
         setMembers,
@@ -49,7 +49,7 @@ export const ConfirmationModal = ({
         setOpen,
       });
     } else if (content === "analytics") {
-      await delete_analytic({
+      await deleteAnalytic({
         analytics,
         setAnalytics,
         id: current.id,
@@ -57,7 +57,7 @@ export const ConfirmationModal = ({
         setCurrent,
       });
     } else {
-      await delete_image({
+      await deleteImage({
         image: current,
         setCurrent,
         setOpen,

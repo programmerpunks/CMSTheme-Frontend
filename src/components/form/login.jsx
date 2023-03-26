@@ -15,7 +15,8 @@ export const LoginForm = ({ role }) => {
   let navigate = useNavigate();
   let dispatch = useDispatch();
 
-  const login = async () => {
+  const login = async (e) => {
+    e.preventDefault();
     if (role === "admin") {
       if (
         process.env.REACT_APP_ADMIN_EMAIL === email &&
@@ -46,7 +47,7 @@ export const LoginForm = ({ role }) => {
   };
 
   return (
-    <form onSubmit={(e) => e.preventDefault()} className="p-3">
+    <form onSubmit={(e) => login(e)} className="p-3">
       <Box className="m-3">
         <TextField
           required
@@ -73,12 +74,7 @@ export const LoginForm = ({ role }) => {
       </Box>
       <p className="text-danger ms-4">{error}</p>
       <Box display="flex" justifyContent="end" mt="20px">
-        <Button
-          type="button"
-          color="secondary"
-          variant="contained"
-          onClick={() => login()}
-        >
+        <Button type="submit" color="secondary" variant="contained">
           Signin
         </Button>
       </Box>

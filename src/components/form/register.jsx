@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Button, TextField } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
-import { register_user } from "../../helpers/admin";
+import { registerUser } from "../../helpers/admin";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header/header";
 
@@ -11,7 +11,7 @@ const Form = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = async (values) => {
-    await register_user({ formData: values, setError });
+    await registerUser({ formData: values, setError });
     if (!error) {
       values.firstname = "";
       values.lastname = "";

@@ -3,7 +3,7 @@ import { message } from "antd";
 
 import { fetchusers, register, deleteuser } from "../api/index";
 
-export const register_user = async ({ formData, setError }) => {
+export const registerUser = async ({ formData, setError }) => {
   try {
     let response = await register({ formData });
     if (response.status === 201) {
@@ -16,7 +16,7 @@ export const register_user = async ({ formData, setError }) => {
   }
 };
 
-export const get_users = async ({ setUsers }) => {
+export const getUsers = async ({ setUsers }) => {
   try {
     let response = await fetchusers();
     if (response.status === 202) {
@@ -27,7 +27,7 @@ export const get_users = async ({ setUsers }) => {
   }
 };
 
-export const delete_user = async ({ uid, setFetch, fetch, setOpen }) => {
+export const deleteUser = async ({ uid, setFetch, fetch, setOpen }) => {
   try {
     let response = await deleteuser(uid);
     if (response.status === 202) {
