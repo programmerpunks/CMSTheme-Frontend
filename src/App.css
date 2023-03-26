@@ -1,38 +1,176 @@
-.App {
-  text-align: center;
+.w-80 {
+  width: 80%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.w-40 {
+  width: 40%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.w-20 {
+  width: 40px;
+  height: 40px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.bg-secondary {
+  cursor: pointer;
+  opacity: 0.5 !important;
+  background-color: rgb(21, 30, 50) !important;
+}
+
+.bg-secondary:hover {
+  opacity: 1 !important;
+}
+
+.mns-3 {
+  margin-left: -10px !important;
+}
+
+.fs-xss {
+  margin-top: -10px;
+  font-size: 13px;
+  color: rgb(206, 208, 209);
+}
+
+.mne-4 {
+  margin-right: -10px;
+  margin-top: -5px;
+}
+
+.mns-7 {
+  margin-left: -70px !important;
+}
+
+.ms-9{
+  margin-left: 10px;
+}
+
+.fs-xss {
+  margin-top: -10px;
+  font-size: 13px;
+  color: rgb(206, 208, 209);
+}
+
+.fs-xss {
+  margin-top: -10px;
+  font-size: 13px;
+  color: rgb(206, 208, 209);
+}
+
+.fs-xsss {
+  font-size: 10px;
+  color: rgb(206, 208, 209);
+}
+
+.info-card {
+  height: 550px;
+  overflow: scroll;
+}
+
+.info-card::-webkit-scrollbar {
+  display: none;
+}
+
+
+label {
+  color: rgb(174, 193, 216) !important;
+}
+
+.text-secondary {
+  color: rgb(206, 206, 207) !important
+}
+
+.table-bordered {
+  color: white !important;
+  border-color: rgb(76, 76, 99);
+}
+
+#link-field {
+  background-color: #1f293e !important;
+  border-radius: 5px;
+}
+
+.outlined-button {
+  border-color: rgb(62, 91, 108) !important;
+  color: rgb(132, 196, 236) !important;
+}
+
+.outlined-button:hover {
+  border-color: rgb(110, 166, 200) !important;
+  background-color: #2e3b55 !important;
+}
+
+.table-row-hover {
+  color: rgb(205, 205, 234);
+}
+
+.table-row-hover:hover {
+  cursor: pointer;
+  background-color: rgba(18, 28, 47, 0.887) !important;
+}
+
+.page-controllers {
+  cursor: pointer;
+  text-decoration: none !important;
+  list-style: none;
+  background-color: rgb(195, 197, 202)
+}
+
+.page-links {
+  text-decoration: none;
+
+}
+
+.bg-light {
+  background-color: rgba(56, 114, 158, 0.5) !important;
+  color: white !important;
+}
+
+.page-links:hover {
+  background-color: rgba(56, 114, 158) !important;
+}
+
+.page-controllers:hover {
+  background-color: white;
+}
+
+.dropdown-menu {
+  background-color: #2a3957;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.dropdown-menu:hover {
+  background-color: #070d1a;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-outline-primary {
+  color: rgb(159, 206, 249) !important;
+  border: 1px solid rgb(159, 206, 249) !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: #1b253c !important;
+
+}
+
+.btn-primary {
+  background-color: rgb(159, 206, 249) !important;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: rgb(59, 109, 155) !important;
+}
+
+.nav-link {
+  color: rgb(129, 195, 215) !important;
+}
+
+textarea {
+  background-color: #151f33 !important;
+  border-color: #151f33 !important;
+  color: rgb(204, 204, 206) !important;
+}
+
+.text-danger{
+  color: rgb(255, 26, 26) !important;
 }
