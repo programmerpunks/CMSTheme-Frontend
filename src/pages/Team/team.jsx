@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useContext } from 'react';
-import 'antd/dist/antd.css';
-import '../styles/styles.css';
-import { message } from 'antd';
-import { tokens } from '../../theme';
-import { ClipLoader } from 'react-spinners';
-import AuthContext from '../../context/auth';
-import { uploadImage } from '../../helpers/cms';
-import Header from '../../components/Header/header';
-import { TeamCard } from '../../components/card/team';
-import { Box, useTheme, Button } from '@mui/material';
-import { MemberModal } from '../../components/modal/member';
-import { SaveChanges } from '../../components/button/saveChanges';
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import { ConfirmationModal } from '../../components/modal/confirmation';
-import { useFetchTemplate } from '../../customHooks/useFetchTemplate';
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import React, { useState, useEffect, useContext } from "react";
+import "antd/dist/antd.css";
+import "../styles/styles.css";
+import { message } from "antd";
+import { tokens } from "../../theme";
+import { ClipLoader } from "react-spinners";
+import AuthContext from "../../context/auth";
+import { uploadImage } from "../../helpers/cms";
+import Header from "../../components/Header/header";
+import { TeamCard } from "../../components/card/team";
+import { Box, useTheme, Button } from "@mui/material";
+import { MemberModal } from "../../components/modal/member";
+import { SaveChanges } from "../../components/button/savechanges";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import { ConfirmationModal } from "../../components/modal/confirmation";
+import { useFetchTemplate } from "../../customHooks/useFetchTemplate";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
 export const Team = () => {
   const [fetching, setFetching] = useState(false);
@@ -66,33 +66,33 @@ export const Team = () => {
         },
       ]);
     } else {
-      message.warning('Add one member at a time');
+      message.warning("Add one member at a time");
     }
   };
 
   return (
     <Box
-      display='flex'
-      justifyContent='center'
-      alignItems='center'
-      flexDirection='column'
-      textAlign='center'
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
+      textAlign="center"
     >
-      <div className='d-flex w-100'>
-        <div className='col-md-3 col-sm-0'></div>
-        <div className='col-md-6 col-sm-6'>
+      <div className="d-flex w-100">
+        <div className="col-md-3 col-sm-0"></div>
+        <div className="col-md-6 col-sm-6">
           <Header
-            className='text-center'
-            title='Your Team'
-            subtitle='Team Members'
+            className="text-center"
+            title="Your Team"
+            subtitle="Team Members"
           />
         </div>
 
-        <div className='col-md-3 col-sm-6'>
+        <div className="col-md-3 col-sm-6">
           <Button
-            type='submit'
-            color='success'
-            variant='contained'
+            type="submit"
+            color="success"
+            variant="contained"
             onClick={() => addMemberTemplate()}
           >
             Add Memeber
@@ -101,22 +101,22 @@ export const Team = () => {
       </div>
 
       {!fetching ? (
-        <div className=' d-flex flex-wrap row w-100 p-3'>
+        <div className=" d-flex flex-wrap row w-100 p-3">
           {members &&
             members.map((item, index) => (
-              <div className='col-md-4 col-sm-6 col-xs-6 mt-4'>
+              <div className="col-md-4 col-sm-6 col-xs-6 mt-4">
                 <div
-                  className='team-card p-4'
+                  className="team-card p-4"
                   backgroundColor={`${colors.primary[400]} !important`}
                 >
                   {team[index] && process !== 1 && (
-                    <div className='crud-actions w-25'>
+                    <div className="crud-actions w-25">
                       <EditOutlinedIcon
-                        className='edit-button align-self-end'
+                        className="edit-button align-self-end"
                         onClick={() => handleOpen(index)}
                       />
                       <DeleteOutlineOutlinedIcon
-                        className='edit-button icon'
+                        className="edit-button icon"
                         onClick={() => {
                           setDeleteModal(!deleteModal);
                           setSelected(team[index]);
@@ -143,7 +143,7 @@ export const Team = () => {
 
                   {!team[index] && (
                     <button
-                      className='btn btn-success w-100'
+                      className="btn btn-success w-100"
                       style={{ backgroundColor: colors.greenAccent[600] }}
                       onClick={() =>
                         uploadImage({
@@ -164,7 +164,7 @@ export const Team = () => {
                         })
                       }
                     >
-                      {loading ? <ClipLoader color='white' size={20} /> : 'Add'}
+                      {loading ? <ClipLoader color="white" size={20} /> : "Add"}
                     </button>
                   )}
                 </div>
@@ -172,7 +172,7 @@ export const Team = () => {
             ))}
         </div>
       ) : (
-        <ClipLoader color='white' />
+        <ClipLoader color="white" />
       )}
 
       {open && (
@@ -205,7 +205,7 @@ export const Team = () => {
 
       {deleteModal && (
         <ConfirmationModal
-          content='team'
+          content="team"
           team={team}
           colors={colors}
           setTeam={setTeam}

@@ -40,6 +40,10 @@
   margin-left: -70px !important;
 }
 
+.ms-9{
+  margin-left: 10px;
+}
+
 .fs-xss {
   margin-top: -10px;
   font-size: 13px;

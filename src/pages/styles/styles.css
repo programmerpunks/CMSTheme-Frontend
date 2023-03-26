@@ -20,7 +20,7 @@
 
 .image {
   width: 100px;
-  height: 100px;
+  height: 110px;
   z-index: 2;
   padding: 10;
   border-radius: 10px;
@@ -59,7 +59,7 @@
 
 .image-container:hover .overlay {
   cursor: pointer;
-  height: 100px;
+  height: 110px;
 }
 
 .crud-actions {
@@ -86,8 +86,8 @@
 }
 
 .profile-image {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 150px;
 }
 
 .img-upload-button {

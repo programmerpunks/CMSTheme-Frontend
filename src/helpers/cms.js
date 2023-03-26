@@ -71,8 +71,8 @@ export const addNewMember = ({
 };
 
 export const uploadImage = async (props) => {
-  let data = props;
-  const { setLoading, setUploaded, profileImage } = data;
+  let teamData = props;
+  const { setLoading, setUploaded, profileImage } = teamData;
   setLoading(true);
   setUploaded(false);
   if (profileImage) {
@@ -89,8 +89,8 @@ export const uploadImage = async (props) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        data.image = data.url;
-        addNewMember(data);
+        teamData.image = data.url;
+        addNewMember(teamData);
       })
       .catch((err) => console.log("err:", err.message));
   }
@@ -140,7 +140,13 @@ export const delete_analytic = async ({
   }
 };
 
-export const addAnalytics = ({values, analytics, setAnalytics, setAdded, setError }) => {
+export const addAnalytics = ({
+  values,
+  analytics,
+  setAnalytics,
+  setAdded,
+  setError,
+}) => {
   if (values.count) {
     let duplicate = analytics.filter(
       (item) => item.analytic === values.analytic

@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { Box, TextField, Button, useTheme } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Header from "../../components/Header/header";
-import { SaveChanges } from "../../components/button/saveChanges";
+import { SaveChanges } from "../../components/button/savechanges";
 import { useFetchTemplate } from "../../customHooks/useFetchTemplate";
 import { ConfirmationModal } from "../../components/modal/confirmation";
 import { tokens } from "../../theme";

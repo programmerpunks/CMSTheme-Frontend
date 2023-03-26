@@ -5,7 +5,7 @@ import { BsCheck } from "react-icons/bs";
 import { ClipLoader } from "react-spinners";
 import Header from "../../components/Header/header";
 import { ConfirmationModal } from "../../components/modal/confirmation";
-import { SaveChanges } from "../../components/button/saveChanges";
+import { SaveChanges } from "../../components/button/savechanges";
 import { useFetchTemplate } from "../../customHooks/useFetchTemplate";
 import { tokens } from "../../theme";
 import { uploadImage } from "../../helpers/users";
