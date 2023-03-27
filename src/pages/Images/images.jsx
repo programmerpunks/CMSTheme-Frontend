@@ -10,7 +10,8 @@ import { SaveChanges } from "../../components/button/savechanges";
 import { tokens } from "../../theme";
 import { uploadImage } from "../../helpers/users";
 import { useFetchTemplate } from "../../customHooks/useFetchTemplate";
-import "../styles/styles.css";
+
+import "../../styles/styles.css";
 
 export const Images = () => {
   const [fetching, setFetching] = useState(false);

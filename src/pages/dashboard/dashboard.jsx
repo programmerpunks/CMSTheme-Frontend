@@ -51,9 +51,7 @@ export const Dashboard = () => {
               <th scope="col" colspan="2">
                 Contact
               </th>
-              <th scope="col" colspan="2">
-                Created_at
-              </th>
+
               <th scope="col" colspan="2"></th>
             </tr>
           </thead>
@@ -71,9 +69,7 @@ export const Dashboard = () => {
                     <th scope="col" colspan="2">
                       {user.contact}
                     </th>
-                    <th scope="col" colspan="2">
-                      {moment(user.createdAt).format("MMMM d, YYYY")}
-                    </th>
+
                     <th scope="col">
                       <div className="dropdown">
                         <TbDots

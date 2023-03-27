@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:8000/";
+export const BASE_URL = "https://cms-theme-backend.vercel.app/";
 export const REGISTER = "admin/register-user";
 export const FETCHUSERS = "admin/fetch-users";
 export const DELETEUSERS = (uid) => `admin/delete-user/${uid}`;

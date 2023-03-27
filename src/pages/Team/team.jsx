@@ -16,7 +16,7 @@ import { tokens } from "../../theme";
 import { useFetchTemplate } from "../../customHooks/useFetchTemplate";
 import { uploadImage } from "../../helpers/cms";
 
-import "../styles/styles.css";
+import "../../styles/styles.css";
 
 export const Team = () => {
   const [fetching, setFetching] = useState(false);
