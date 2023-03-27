@@ -2,7 +2,7 @@
 
 ### Description
 
-- This is admin and user dasboard for implementing CMS functionality
+- This is an admin and user dasboard for implementing CMS functionality
 
 ### Technologies used:
 
@@ -12,7 +12,7 @@
 
 - Bootstrap: 5.1.0
 
-- Cloudinary: 
+- Cloudinary
 
 - Formik: 2.2.9
 
