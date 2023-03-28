@@ -11,7 +11,7 @@ import { SaveChanges } from "../../components/button/savechanges";
 import { tokens } from "../../theme";
 import { useFetchTemplate } from "../../customHooks/useFetchTemplate";
 
-import "../../styles/styles.css";
+import "../../styles/globalStyles.css";
 
 export const Analytics = () => {
   const [fetching, setFetching] = useState(false);

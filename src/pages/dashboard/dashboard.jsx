@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Box, useTheme } from "@mui/material";
 import { TbDots } from "react-icons/tb";
-import moment from "moment";
 
 import { ConfirmationModal } from "../../components/modal/confirmation";
 import Header from "../../components/Header/header";
